@@ -32,9 +32,9 @@ You can then send the player a DM on xbox via the host Gamertag of the last map 
 
 ## Authenticating Your Server
 Run `+xsapi authenticate` and a menu will appear.
-<img src="/authenticate.png" style="max-width: 50%;"/>
+<img src="/assets/authenticate.png" style="max-width: 50%;"/>
 Select your server and you will be instructed to sign into the xbox account associated with the server host Gamertag.
-<img src="/authenticatestep2.png" style="max-width: 50%;"/>
+<img src="/assets/authenticatestep2.png" style="max-width: 50%;"/>
 Click `Sign In` and enter your credentials.
 > Your user info is not stored, you're just authorizing the Arkon app to manage your host Gamertag friends list and send messages.
 {.is-info}

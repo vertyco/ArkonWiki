@@ -13,13 +13,13 @@ The RShop (RCON Shop) uses the `giveitem` rcon command to send items directly to
 
 ## Step 1. Get your shop template
 Run `+rshopset template` to get an excel file with most of the items available in the game already filled out for you.
-<img src="/shoptemplate.png" style="max-width: 50%;"/>
+<img src="/assets/shoptemplate.png" style="max-width: 50%;"/>
 Download the file and open it up.
 > If you don't have microsoft office you can upload it to Google sheets for free!
 {.is-info}
 
 ## Step 2. Configure Item Prices
-<img src="/rshopexcel.png" style="max-width: 90%;"/>
+<img src="/assets/rshopexcel.png" style="max-width: 90%;"/>
 
 - Item: The name of the item shown to the user.
 - Price: How many credits per 1 item (This can be a decimal, like 0.1 for cheap resources, it will be rounded up). 
@@ -38,17 +38,17 @@ Download the file and open it up.
 #### Packs Tab
 The rshop template has a second tab called `Packs`, here you can add multiple items to a single purchase as a "Pack".
 Under the `Commands` column, you add the entire blueprint path along with the quantity/quality/bp specifier numbers. Separate each command with a comma.
-![packstab.png](/packstab.png)
+![packstab.png](/assets/packstab.png)
 
 > If you used Google sheets, you can download the prices back to an excel file.
-> <img src="/downloadexcel.png" style="max-width: 50%;"/>
+> <img src="/assets/downloadexcel.png" style="max-width: 50%;"/>
 {.is-info}
 
 
 ## Step 3. Upload Your Item Prices
 Now that you've setup the prices you want, you can upload the file to discord with a command.
 Run `+rshopset upload` and attach the excel file to the command.
-<img src="/uploadprices.png" style="max-width: 30%;"/>
+<img src="/assets/uploadprices.png" style="max-width: 30%;"/>
 You should get a message saying `Rshop has been updated!`
 
 > Your prices have now been configured, you can now use the shop as-is, or continue to configure additional settings.
@@ -56,7 +56,7 @@ You should get a message saying `Rshop has been updated!`
 
 ## Step 4. Additional Settings
 To view your shop settings, run `+rshopset view`
-![shopsettings.png](/shopsettings.png)
+![shopsettings.png](/assets/shopsettings.png)
 - Log Channel: All purchases are logged to this channel.
 - Quality Exponent: Used for the exponential price multiplier when changing quality.
 - Blueprint Multiplier: Used to multiply the price if blueprint is selected.

@@ -55,5 +55,5 @@ The following commands can be typed in-game in global chat. Some require you to 
 
 ## Playerstats
 To view detailed info for every map you've been on, you can run the `+playerstats` command in Discord.
-<img src="/playerstats.png" style="max-width: 50%;"/>
+<img src="/assets/playerstats.png" style="max-width: 50%;"/>
 This will track character names, playtimes, kills, deaths, dinos tamed ect..
