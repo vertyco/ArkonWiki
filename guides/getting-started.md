@@ -8,20 +8,33 @@ editor: markdown
 dateCreated: 2023-12-10T05:14:02.435Z
 ---
 
-## Prerequisites!
-- Understand how to host and manage an Ark server, whether ASE or ASE, self-hosted or through a host provider. This tutorial will not teach you how to host an Ark server.
+# Server Owner Setup Guide
 
+Get Arkon running on your Ark server in about 10 minutes.
 
-- Understand how to assign static ip addresses to your servers and port forward on your router so the bot can communicate with your servers.
+> **New to Arkon?** Check out the [Glossary](/guides/glossary) if you encounter unfamiliar terms, or the [FAQ](/guides/faq) if you run into issues.
+{.is-info}
 
-- Understand the basics of Discord, bot commands and how to assign permissions in your server.
+---
 
-- If you haven't already done so, you will want to **[Invite the Bot!](https://discord.com/api/oauth2/authorize?client_id=857070505294430218&permissions=1495118769367&scope=applications.commands%20bot)**
+## ✅ Prerequisites Checklist
 
+Before you begin, make sure you have:
 
-- Make sure the bot has permission to send messages and embed links in the channels you are using!
+- [ ] An Ark server (ASE or ASA) that you can manage - *this guide won't teach server hosting*
+- [ ] RCON enabled on your server with a known port and password
+- [ ] A static (or semi-static) public IP address - *CGNAT will not work*
+- [ ] Port forwarding configured for your RCON port
+- [ ] Basic Discord knowledge (roles, permissions, channels)
 
+> **Already have the bot?** Skip to [Step 1](#step-1-configure-the-admin-and-mod-roles).
+{.is-info}
 
+**[👉 Invite Arkon to your Discord](https://discord.com/api/oauth2/authorize?client_id=857070505294430218&permissions=1495118769367&scope=applications.commands%20bot)**
+
+Make sure the bot has permission to **Send Messages** and **Embed Links** in your channels!
+
+---
 
 # QuickStart
 Setting up Arkon on your server can feel a little overwhelming at first, but this guide will try to get you off to a good start.
@@ -160,12 +173,15 @@ This section shows the configuration of the in-game voting commands, you can tog
 #### Xbox Info
 If you are self-hosting via the Microsoft Store version of Ark, you can authenticate the host Gamertag to take advantage of the Xbox API to automatically manage your server Gamertag's friends list.
 
+---
 
+## 🎉 What's Next?
 
+Now that your server is connected, explore these features:
 
+- [Shop Setup](/guides/rshop) - Set up an automated item shop for players
+- [Xbox/Crossplay Features](/guides/xsapi) - Authenticate host Gamertags for friend management
+- [Quick Reference](/guides/quick-reference) - All essential commands in one place
+- [FAQ & Troubleshooting](/guides/faq) - Solutions to common issues
 
-
-
-
-
-
+**Need help?** Join the [Discord Support Server](https://discord.gg/RaR3wR4MgY)!

@@ -10,17 +10,33 @@ dateCreated: 2023-12-10T05:13:31.603Z
 
 # Welcome to the Arkon Wiki!
 
-This wiki is meant to give an overview of how the bot works and how to configure it for your Ark servers!
-Arkon works with both Ark Survival Evolved (ASE) and Ark Survival Ascended (ASA), However it does NOT work with ASE Nitrado.
+Arkon is a Discord bot that helps you manage your Ark: Survival Evolved (ASE) and Ark: Survival Ascended (ASA) game servers — featuring cross-chat, player tracking, an automated shop, and much more.
 
-## Getting Started
-- **[For Server Owners](/getting-started)** - Add your first server!
-- **[For Players](/player-getting-started)** - Link your character to Discord
-- [Discord Support Server](https://discord.gg/RaR3wR4MgY) - Get help with the bot or make a feature request
-- [Invite The Bot](https://discord.com/api/oauth2/authorize?client_id=857070505294430218&permissions=433188236503&scope=applications.commands%20bot) - Start using Arkon🦖
+> Arkon works with both ASE and ASA. However, **ASE on Nitrado is NOT supported**.
+{.is-warning}
+
+---
+
+## 🚀 Getting Started
+
+| I am a... | Start here |
+|-----------|------------|
+| **Server Owner** | [Setup Guide](/guides/getting-started) - Add Arkon to your server in ~10 minutes |
+| **Player** | [Player Guide](/guides/player-getting-started) - Link your character and use the shop |
+
+## 📚 Quick Links
+- [Quick Reference](/guides/quick-reference) - Essential commands at a glance
+- [FAQ & Troubleshooting](/guides/faq) - Common questions and solutions
+- [Glossary](/guides/glossary) - What does "cluster" mean? Find out here!
+
+## 🔗 External Links
+- [Discord Support Server](https://discord.gg/RaR3wR4MgY) - Get help or request features
+- [Invite Arkon](https://discord.com/api/oauth2/authorize?client_id=857070505294430218&permissions=433188236503&scope=applications.commands%20bot) - Add the bot to your server 🦖
+
+---
 
 ## Features
-Check out Arkon's available **[Premium Features](/premium)** and what the perks that come with it.
+Check out Arkon's available **[Premium Features](/guides/premium)** and what the perks that come with it.
 | Feature                     | Description                                                    |
 |-----------------------------|----------------------------------------------------------------|
 | Cross-Chat                  | Enable cross-server chat functionality.                        |

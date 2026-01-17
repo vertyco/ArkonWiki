@@ -8,10 +8,16 @@ editor: markdown
 dateCreated: 2023-12-18T02:19:40.657Z
 ---
 
-# Player Quickstart
-To use some of Arkon's features, there are a few simple steps to get started.
+# Player Guide
 
-## Linking your Discord
+Welcome! This guide will help you link your Discord account to your Ark character so you can use features like the shop, stat tracking, and more.
+
+> **Having trouble?** Check the [FAQ](/guides/faq) for solutions to common issues, or see the [Glossary](/guides/glossary) for unfamiliar terms.
+{.is-info}
+
+---
+
+## 🔗 Linking your Discord
 To use features like the Rshop and some in-game commands, you will first need to link your Discord account to your in-game account. The easiest way to do this is from in-game.
 
 Type `+register <YourDiscord>` **IN-GAME** in global chat to link your Discord account.
@@ -53,7 +59,15 @@ The following commands can be typed in-game in global chat. Some require you to 
 	- `Requires specimen # to be registered`
   
 
-## Playerstats
+## 📊 Playerstats
 To view detailed info for every map you've been on, you can run the `+playerstats` command in Discord.
 <img src="/assets/playerstats.png" style="max-width: 50%;"/>
 This will track character names, playtimes, kills, deaths, dinos tamed ect..
+
+---
+
+## 📚 More Resources
+
+- [Quick Reference](/guides/quick-reference) - All player commands in one place
+- [FAQ](/guides/faq) - Common questions and troubleshooting
+- [Glossary](/guides/glossary) - Definitions of Arkon terms
