@@ -2,7 +2,7 @@
 title: Getting Started With Arkon
 description: 
 published: true
-date: 2025-10-01T01:15:41.924Z
+date: 2026-01-17T18:53:31.630Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-10T05:14:02.435Z

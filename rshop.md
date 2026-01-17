@@ -2,7 +2,7 @@
 title: Shop Setup
 description: 
 published: true
-date: 2023-12-18T01:11:59.987Z
+date: 2026-01-17T18:53:48.988Z
 tags: 
 editor: markdown
 dateCreated: 2023-12-17T22:12:43.240Z
