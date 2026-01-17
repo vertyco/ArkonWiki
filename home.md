@@ -36,32 +36,88 @@ Arkon is a Discord bot that helps you manage your Ark: Survival Evolved (ASE) an
 ---
 
 ## Features
-Check out Arkon's available **[Premium Features](/guides/premium)** and what the perks that come with it.
+Check out Arkon's available **[Premium Features](/guides/premium)** and the perks that come with it.
+
+### 🎮 Server Management
 | Feature                     | Description                                                    |
 |-----------------------------|----------------------------------------------------------------|
-| Cross-Chat                  | Enable cross-server chat functionality.                        |
-| Scheduled Commands          | Automate commands to run at specific times.                    |
-| Live Server Status          | Live updating embed showing player counts and visual graph.   |
-| Economy System              | Virtual economy with minigames and customizeable banking system |
-| Shop System                 | Fully automated self-checkout shop system.                     |
-| Monetization Tools 💰       | Virtual currency integration with [Upgrade.Chat](https://upgrade.chat) to monetize your server economy.  |
-| Discord Leveling            | Intuitive Discord activity tracking with leaderboards and customizeable profiles.  |
-| Logging                     | Join/Leave, Commands, Modlogs, Tribe logs, Server events       |
-| Stat Tracking               | Track kills/deaths/dinos tamed/playtime ect..    |
-| Leaderboards                | Leaderboards for playtime/kills/tribes/tames/ect..  |
-| Private Tribelogs           | Player claimable tribelogs for their own self-managed thread.  |
-| Tribelog Alerts             | Send alerts for specific tribe log events.                     |
-| In-Game Commands            | Allow players to use certain commands directly in the game.    |
-| Starter Kits                | Provide starter kits for new players.                          |
-| Map View Commands           | Hunt for a dino, find your lost tame, view map sturctures.     |
-| Playtime Role Ranks         | Assign roles based on player playtime.                         |
-| Xbox Tools                  | Fetch xbox profiles, see their gamerscore and history, view friends ect..  |
-| Moderation Tools            | Tools to help moderate and manage your Discord server.         |
-| Gmail Tools                 | Send emails through the bot using a Gmail account.             |
-| Suggestion System           | Allow players to submit suggestions for the server.            |
-| Host GT Friend Management   | Manage host gamertag friends.                                  |
-| Xbox DM Tools               | Tools for managing Xbox direct messages.                       |
-| Removed Arkon Branding      | Remove Arkon branding from your server. ⚡ Premium feature.  |
-| Autofriend System           | Automatically manage friend requests. ⚡ Premium feature.   |
-| Xbox Alt Detection          | Detect alternate Xbox accounts. ⚡ Premium feature.            |
-| Cheated Tame Scanning       | Scan for tames that were cheated into the game. ⚡ Premium feature.|
+| Cross-Chat                  | Sync in-game chat to Discord and between servers in a cluster. |
+| Scheduled Commands          | Automate RCON commands to run at specific times.               |
+| Live Server Status          | Live updating embed showing player counts and visual graph.    |
+| Ban Sync                    | Synchronize bans across all your servers automatically.        |
+| Imposter Protection         | Auto-ban anyone who discovers and abuses your admin password.  |
+
+### 💰 Economy & Shops
+| Feature                     | Description                                                    |
+|-----------------------------|----------------------------------------------------------------|
+| Shop System                 | Fully automated self-checkout RCON shop with quality/BP options. |
+| Lootbox System              | Configurable lootboxes with weighted item drops.               |
+| Economy System              | Virtual economy with minigames and customizable banking.       |
+| Extended Economy            | Command costs, transfer taxes, auto-paydays, and bank event logging. |
+| Role Discounts              | Give specific roles permanent shop discounts.                  |
+| Daily Discounts             | Set rotating discounts for each day of the week.               |
+| Monetization Tools 💰       | Virtual currency integration with [Upgrade.Chat](https://upgrade.chat). |
+
+### 📊 Tracking & Leaderboards
+| Feature                     | Description                                                    |
+|-----------------------------|----------------------------------------------------------------|
+| Stat Tracking               | Track kills, deaths, dinos tamed, playtime, and more.          |
+| Player Leaderboards         | Leaderboards for playtime, kills, tribes, and tames.           |
+| Alpha Leaderboard           | Competitive tribe ranking based on power structures.           |
+| Power Leaderboard           | 🔹 Rank tribes by turrets, tek, and powered structures.        |
+| Kill Feed                   | Announce player kills in chat with shame for bob-killers.      |
+| Discord Leveling            | Activity tracking with leaderboards, profiles, stars, and prestige. |
+| Weekly Leaderboards         | Track and announce top Discord contributors weekly.            |
+
+### 🔍 Map & Investigation Tools 🔹
+| Feature                     | Description                                                    |
+|-----------------------------|----------------------------------------------------------------|
+| Hunt Command                | Find wild dinos on the map with coordinates.                   |
+| Find Tame                   | Locate lost tames by name, tribe, or imprinter.                |
+| Territory View              | Visualize tribe-controlled areas on the map.                   |
+| Structure Finder            | Find specific structures (turrets, generators, etc.) on a map. |
+| Player Timeline             | View a player's join/leave history over a time period.         |
+| Lookback                    | Find where a player was during a specific time window.         |
+| Who Was On                  | List everyone online at a specific moment.                     |
+
+### 🛡️ Moderation & Anti-Cheat
+| Feature                     | Description                                                    |
+|-----------------------------|----------------------------------------------------------------|
+| Foreign Tame Detection      | 🔹 Detect tames transferred from unauthorized servers.         |
+| Mass Breed Detection        | 🔹 Find clusters of dinos left breeding to catch laggers.      |
+| Tame Stat Check             | 🔹 Find tames that hit specific stat thresholds.               |
+| Uncryo Limits               | 🔹 Limit how many uncryoed tames a tribe can have.             |
+| Watchlist                   | Get alerts when suspicious players join or leave.              |
+| Poll Vote Filtering         | Verify poll voters have actually played on the cluster.        |
+| Xbox Alt Detection          | 🔸⚡ Detect alternate Xbox accounts.                           |
+
+### 📋 Tribes & Players
+| Feature                     | Description                                                    |
+|-----------------------------|----------------------------------------------------------------|
+| Private Tribelogs           | 🔹 Player-claimable tribelogs in their own Discord thread.     |
+| Tribelog Alerts             | 🔹 Send alerts for specific tribe log events.                  |
+| Starter Kits                | Provide one-time starter kits for new players.                 |
+| Payday System               | Reward players with items/currency at set intervals.           |
+| Im Stuck Command            | Give stuck players a care package to respawn.                  |
+| Playtime Role Ranks         | Automatically assign roles based on player playtime.           |
+
+### 💬 Community Features
+| Feature                     | Description                                                    |
+|-----------------------------|----------------------------------------------------------------|
+| Suggestion System           | Players submit ideas, vote with upvote/downvote, discuss in threads. |
+| Anonymous Suggestions       | Allow submissions without revealing the author.                |
+| Suggestion Moderation       | Approve, reject, or mark suggestions as implemented.           |
+| Level-Gated Suggestions     | Require a minimum Discord level to submit ideas.               |
+| Star System                 | Let members give stars to thank helpful community members.     |
+
+### 🔸 Xbox/Crossplay Features
+| Feature                     | Description                                                    |
+|-----------------------------|----------------------------------------------------------------|
+| Host GT Friend Management   | Manage host gamertag friends list automatically.               |
+| Xbox DM Tools               | Send Xbox messages via host Gamertag.                          |
+| Autofriend System           | ⚡ Automatically add/remove friends based on activity.         |
+| Xbox Profile Tools          | Fetch Xbox profiles, gamerscore, and friend lists.             |
+
+---
+
+**Legend:** ⚡ = Premium feature | 🔹 = Requires [ArkViewer](https://github.com/vertyco/arkview) | 🔸 = Xbox/Crossplay only

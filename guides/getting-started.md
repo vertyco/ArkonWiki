@@ -39,29 +39,46 @@ Make sure the bot has permission to **Send Messages** and **Embed Links** in you
 # QuickStart
 Setting up Arkon on your server can feel a little overwhelming at first, but this guide will try to get you off to a good start.
 
-> when giving command examples below, you do **not** include the `<>` in the command, those are just placeholders.
+> When giving command examples below, you do **not** include the `<>` or `[]` in the command - those are just placeholders. `<required>` means you must provide a value, `[optional]` means it's optional.
 {.is-info}
 
-The prefix for arkon is `+`, but you can change it by typing `+set serverprefix !` or whatever other symbol or letter you want.
+## About the Prefix
+The default prefix for Arkon is `+`. You can change it at any time:
 
-
-## Step 1. Configure the Admin and Mod roles.
-- Admin: Users with this role will be considered administrative staff with permissions to use admin commands in-game.
-> 	`+set roles addadminrole @role` Adds an admin role for the server.
-> 	`+set roles removeadminrole @role` Removes an admin role for the server.
->
-> Example: `+set addadminrole @ArkAdmin`
+> `+set serverprefix <newprefix>`
+> Example: `+set serverprefix !` changes the prefix to `!`
 {.is-success}
 
-- Mod: Users with this role will be considered minimal privelaged Discord-specific staff with minimal access to RCON command use through the bot.
->   `+set roles addmodrole @role` Adds a moderator role for the server.
->   `+set roles removemodrole @role` Removes a mod role for the server.
+---
+
+## Step 1. Configure the Admin and Mod roles
+
+Arkon uses Red-DiscordBot's role system to control who can use which commands. You'll need to tell the bot which Discord roles should have elevated permissions.
+
+### Admin Role
+Users with an **Admin role** get full access to Arkon's configuration commands, including server management, RCON access, and all bot settings.
+
+> `+set roles addadminrole <role>` Adds an admin role
+> `+set roles removeadminrole <role>` Removes an admin role
 >
-> Example: `+set addmodrole @ArkMod`
+> Example: `+set roles addadminrole @ArkAdmin`
 {.is-success}
 
-  
-## Step 2. Create a cluster for your server.
+### Mod Role
+Users with a **Mod role** get limited staff permissions - they can use moderation commands like `+banplayer`, `+rcon`, and `+findplayer`, but cannot change bot configuration.
+
+> `+set roles addmodrole <role>` Adds a moderator role
+> `+set roles removemodrole <role>` Removes a mod role
+>
+> Example: `+set roles addmodrole @ArkMod`
+{.is-success}
+
+> **Tip:** You can assign multiple admin and mod roles if needed. Run the command multiple times with different roles.
+{.is-info}
+
+---
+
+## Step 2. Create a cluster for your server
 Even if you only have 1 server you will still need to create a cluster. This is separate from the Ark version of "cluster" in the sense that it is how the bot groups related Ark servers together.
 
 > Command
