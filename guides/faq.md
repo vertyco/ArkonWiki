@@ -39,7 +39,7 @@ Check these common causes:
 4. **CGNAT** - Carrier-grade NAT won't work. Contact your ISP or use a VPN with port forwarding
 5. **RCON not enabled** - Make sure RCON is enabled in your server's GameUserSettings.ini
 
-> Arkon's IP address is `51.81.94.254` - whitelist this if your firewall requires it.
+> Arkon's IP address is `51.79.109.160` - whitelist this if your firewall requires it.
 {.is-info}
 
 ### Bot not responding to commands

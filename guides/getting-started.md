@@ -93,7 +93,7 @@ Even if you only have 1 server you will still need to create a cluster. This is 
 > -- The PC hosting your server has a private ip that is static (assigned by your router).
 > -- The RCON port for the server youre trying to connect is forwarded in your router to that private IP.
 > -- If Windows, ensure a firewall exception is made as TCP inbound for the RCON port.
-> -- If applicable, ensure your router/firewall has the bot ip address `51.81.94.254` whitelisted.
+> -- If applicable, ensure your router/firewall has the bot ip address `51.79.109.160` whitelisted.
 {.is-warning}
 
 > Command
