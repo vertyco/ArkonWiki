@@ -60,11 +60,9 @@ Check out Arkon's available **[Premium Features](/guides/premium)** and the perk
 
 ### 📊 Tracking & Leaderboards
 | Feature                     | Description                                                    |
-|-----------------------------|----------------------------------------------------------------|
+|-----------------------------|---------------------------------------------------------|
 | Stat Tracking               | Track kills, deaths, dinos tamed, playtime, and more.          |
 | Player Leaderboards         | Leaderboards for playtime, kills, tribes, and tames.           |
-| Alpha Leaderboard           | Competitive tribe ranking based on power structures.           |
-| Power Leaderboard           | 🔹 Rank tribes by turrets, tek, and powered structures.        |
 | Kill Feed                   | Announce player kills in chat with shame for bob-killers.      |
 | Discord Leveling            | Activity tracking with leaderboards, profiles, stars, and prestige. |
 | Weekly Leaderboards         | Track and announce top Discord contributors weekly.            |

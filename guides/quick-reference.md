@@ -31,7 +31,7 @@ Essential commands organized by user type. Default prefix is `+`.
 | Command | Description |
 |---------|-------------|
 | `+rshop` | Open the RCON shop |
-| `+dshop` | Open the data shop |
+
 | `+bal` | Check your balance |
 | `+payday` | Claim periodic rewards |
 | `+lootbox` | Open a lootbox (if configured) |
@@ -62,8 +62,7 @@ Essential commands organized by user type. Default prefix is `+`.
 | `+players` | Playtime leaderboard |
 | `+tribelb <sort>` | Tribe leaderboard (kills/tamed/destroyed) |
 | `+clusterlb [sort]` | Cluster leaderboard |
-| `+alpha` | 🔹 Alpha tribe leaderboard |
-| `+power` | 🔹 Power rating leaderboard |
+
 
 ---
 

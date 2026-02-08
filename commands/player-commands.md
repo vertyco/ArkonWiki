@@ -34,13 +34,6 @@ Unregister yourself<br/><br/>Removes you from any Gamertags you have registered 
 
 Unregister yourself<br/><br/>Removes you from any Gamertags you have registered to
 
-# dshop (Hybrid Command)
- - Usage: `+dshop [search_query]`
- - Slash Usage: `/dshop [search_query]`
- - Checks: `server_only`
-
-Open the DATA shop<br/><br/>**Arguments**<br/>`search_query: `Search directly for an item
-
 # rshop (Hybrid Command)
  - Usage: `+rshop [search_query]`
  - Slash Usage: `/rshop [search_query]`
@@ -61,14 +54,6 @@ Open the tribe menu to view and/or claim your tribes, toggle notifications, and 
  - Aliases: `kickmate and kickfromtribelogs`
 
 Kick a member from your tribelog thread
-
-# goldenbullet
- - Usage: `+goldenbullet`
- - Aliases: `gbullet and bullet`
- - Cooldown: `1 per 120.0 seconds`
- - Checks: `server_only`
-
-Get the location of the golden bullet!
 
 # hunt (Hybrid Command)
  - Usage: `+hunt <dino>`
