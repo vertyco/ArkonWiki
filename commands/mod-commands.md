@@ -1,9 +1,9 @@
 ---
-title: Mod Commands
-description: 
+title: Mod Commands — Arkon Moderator Reference for Ark Servers
+description: Arkon moderator commands for Ark server management. Player investigation, ArkViewer map tools, watchlist, foreign tame detection, and enforcement tools.
 published: true
 date: 2026-01-17T18:53:37.851Z
-tags: 
+tags: commands, moderator, reference
 editor: markdown
 dateCreated: 2023-12-25T19:30:10.837Z
 ---

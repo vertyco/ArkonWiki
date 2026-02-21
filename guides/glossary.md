@@ -1,9 +1,9 @@
 ---
-title: Glossary
-description: Definitions of common terms used in Arkon documentation
+title: Glossary — Ark Server Hosting and Arkon Bot Terminology
+description: Definitions of terms used in Arkon and Ark server hosting. Covers clusters, RCON, crossplay, ArkViewer, tribes, cross-chat, and more.
 published: true
 date: 2026-01-17T00:00:00.000Z
-tags: 
+tags: glossary, definitions, terminology
 editor: markdown
 dateCreated: 2026-01-17T00:00:00.000Z
 ---

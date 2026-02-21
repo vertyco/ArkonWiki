@@ -1,9 +1,9 @@
 ---
-title: Enhance Your Servers!
-description: 
+title: Arkon — All-in-One Discord Bot for Ark Server Management
+description: Manage your Ark Survival Evolved and Ark Survival Ascended servers with Arkon. Cross-chat, RCON shop, player tracking, Xbox crossplay tools, and more. Free and Premium tiers.
 published: true
 date: 2026-01-17T18:53:35.714Z
-tags: 
+tags: ark, discord-bot, server-management, ase, asa, rcon, cross-chat
 editor: markdown
 dateCreated: 2023-12-10T05:13:31.603Z
 ---

@@ -1,9 +1,9 @@
 ---
-title: Getting Started (Players)
-description: 
+title: Player Guide — Register Your Character and Use the Arkon Shop
+description: Link your Xbox, Steam, or ASA account to Discord with Arkon. Learn how to register, check stats, use the in-game shop, and earn virtual currency.
 published: true
 date: 2026-01-17T18:53:42.377Z
-tags: 
+tags: player, registration, guide, getting-started
 editor: markdown
 dateCreated: 2023-12-18T02:19:40.657Z
 ---

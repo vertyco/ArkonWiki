@@ -1,9 +1,9 @@
 ---
-title: ArkTools Command Dump
-description: 
+title: All Commands — Complete Arkon Bot Command Reference
+description: Complete list of every Arkon bot command with syntax, permissions, and descriptions. The full reference for all server management, shop, and moderation commands.
 published: true
 date: 2026-01-17T18:53:29.321Z
-tags: 
+tags: commands, reference, complete-list
 editor: markdown
 dateCreated: 2023-12-12T01:56:40.592Z
 ---

@@ -1,9 +1,9 @@
 ---
-title: Terms of Service
-description: 
+title: Terms of Service — Arkon Discord Bot
+description: Terms of service for the Arkon Discord bot. Usage terms, premium subscriptions, acceptable use policy, and dispute resolution for Arkon users.
 published: true
 date: 2026-01-17T18:53:51.147Z
-tags: 
+tags: legal, terms-of-service
 editor: markdown
 dateCreated: 2023-12-12T02:48:07.415Z
 ---

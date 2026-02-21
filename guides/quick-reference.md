@@ -1,9 +1,9 @@
 ---
-title: Quick Reference
-description: Essential Arkon commands at a glance
+title: Quick Reference — Essential Arkon Commands at a Glance
+description: Quick reference card for the most-used Arkon bot commands. Server setup, player management, moderation, shop, and RCON commands in one page.
 published: true
 date: 2026-01-17T00:00:00.000Z
-tags: 
+tags: commands, reference, quick-start
 editor: markdown
 dateCreated: 2026-01-17T00:00:00.000Z
 ---
