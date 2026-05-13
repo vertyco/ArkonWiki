@@ -8,7 +8,7 @@ editor: markdown
 dateCreated: 2023-12-12T02:48:07.415Z
 ---
 
-Last Updated: September 5th, 2022
+Last Updated: May 13th, 2026
 
 Please read these Terms of Service ("Terms", "Terms of Service") carefully before 
 using Arkon bot (the "Service") operated by arkonbot.com ("us", "we", "our").
@@ -41,6 +41,26 @@ error in your order or other reasons.
 
 We reserve the right to refuse or cancel your order if fraud or an unauthorized or illegal transaction is suspected.
 
+Premium subscriptions, renewals, and access to premium features are revocable and do not guarantee
+continued access to the Service, any specific feature, or Service availability in any specific Discord
+server, guild, cluster, or community.
+
+We reserve the right to refuse, cancel, suspend, or decline any purchase, renewal, premium subscription,
+or premium feature access for any individual user, Discord account, Discord server, guild, cluster, or
+community at any time, under our sole discretion, including but not limited to fraud, abuse, harmful
+conduct, suspected illegal activity, violation of these Terms, or protection of the Service and its users.
+
+# Acceptable Use
+You agree not to use the Service in a manner that:
+- violates any applicable law or Discord platform policy
+- interferes with, harms, or attempts to harm the Service, its users, or related communities
+- facilitates harassment, fraud, evasion of moderation, ban evasion, or other abusive behavior
+- uses the Service in connection with conduct that we reasonably determine is harmful, deceptive,
+  abusive, or intended to undermine the integrity of the Service or related communities
+
+We reserve the right to determine, in our sole discretion, whether any use of the Service is prohibited,
+harmful, abusive, deceptive, disruptive, or otherwise unacceptable.
+
 # Intellectual Property Rights
 Without prejudice to any more specific provision of these Terms, any intellectual property rights, 
 such as copyrights, trademark rights, patent rights and design rights related to the Service are the 
@@ -72,6 +92,17 @@ party websites or services that you visit.
 We may terminate or suspend your access to the Service immediately, without prior notice or liability, 
 under our sole discretion, for any reason whatsoever and without limitation, 
 including but not limited to a breach of the Terms.
+
+This right includes, without limitation, the ability to:
+- terminate or suspend access for any individual user or Discord account
+- remove the Service from any Discord server, guild, cluster, or community
+- disable or revoke premium access, premium features, or premium renewals
+- refuse future service to any individual user, server owner, Discord server, guild, cluster, or community
+
+Unless otherwise required by law, termination, suspension, service refusal, or premium cancellation does
+not entitle any user, subscriber, server owner, or server to a refund for unused time, unused features,
+or remaining subscription value. We may choose to issue a full or partial refund as a courtesy, in our
+sole discretion, but we are not obligated to do so.
 
 All provisions of the Terms which by their nature should survive termination shall survive termination, 
 including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.
