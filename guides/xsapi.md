@@ -1,5 +1,5 @@
 ---
-title: Xbox & Crossplay Tools — Auto-Friend, Alt Detection for Ark Servers
+title: Xbox & Crossplay Tools - Auto-Friend, Alt Detection for Ark Servers
 description: Set up Arkon Xbox crossplay tools for your ASE servers. Automated friend management, alt account detection, Xbox DMs, and profile tools via XSAPI.
 published: true
 date: 2026-01-17T18:53:53.504Z

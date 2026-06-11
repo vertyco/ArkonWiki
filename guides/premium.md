@@ -1,5 +1,5 @@
 ---
-title: Arkon Premium — Unlock Advanced Ark Server Management Features
+title: Arkon Premium - Unlock Advanced Ark Server Management Features
 description: Compare Arkon Free vs Premium features. Get 100 servers, 5-year data retention, autofriend, alt detection, and more for $10/month. Upgrade via Upgrade.Chat.
 published: true
 date: 2026-01-17T18:53:44.701Z

@@ -1,8 +1,8 @@
 ---
-title: Arkon — All-in-One Discord Bot for Ark Server Management
+title: Arkon - All-in-One Discord Bot for Ark Server Management
 description: Manage your Ark Survival Evolved and Ark Survival Ascended servers with Arkon. Cross-chat, RCON shop, player tracking, Xbox crossplay tools, and more. Free and Premium tiers.
 published: true
-date: 2026-01-17T18:53:35.714Z
+date: 2026-06-11T00:00:00.000Z
 tags: ark, discord-bot, server-management, ase, asa, rcon, cross-chat
 editor: markdown
 dateCreated: 2023-12-10T05:13:31.603Z
@@ -10,7 +10,7 @@ dateCreated: 2023-12-10T05:13:31.603Z
 
 # Welcome to the Arkon Wiki!
 
-Arkon is a Discord bot that helps you manage your Ark: Survival Evolved (ASE) and Ark: Survival Ascended (ASA) game servers — featuring cross-chat, player tracking, an automated shop, and much more.
+Arkon is your all-in-one tool for self-hosting Ark: a Discord bot that helps you manage your Ark: Survival Evolved (ASE) and Ark: Survival Ascended (ASA) game servers, featuring cross-chat, player tracking, an automated shop, and much more.
 
 > Arkon works with both ASE and ASA. However, **ASE on Nitrado is NOT supported**.
 {.is-warning}
@@ -32,6 +32,12 @@ Arkon is a Discord bot that helps you manage your Ark: Survival Evolved (ASE) an
 ## 🔗 External Links
 - [Discord Support Server](https://discord.gg/RaR3wR4MgY) - Get help or request features
 - [Invite Arkon](https://discord.com/api/oauth2/authorize?client_id=857070505294430218&permissions=433188236503&scope=applications.commands%20bot) - Add the bot to your server 🦖
+- [Arkon Premium](https://upgrade.chat/arkon) - Unlock premium features and unlimited server management
+- [ArkView Plugin](https://github.com/vertyco/arkview) - Download the ArkView client plugin for map and investigation tools
+
+## 📜 Legal
+- [Privacy Policy](/legal/privacypolicy)
+- [Terms of Service](/legal/tos)
 
 ---
 

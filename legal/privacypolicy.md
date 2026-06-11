@@ -1,5 +1,5 @@
 ---
-title: Privacy Policy — Arkon Discord Bot
+title: Privacy Policy - Arkon Discord Bot
 description: Privacy policy for the Arkon Discord bot. Learn what data Arkon collects, how it is stored, and your rights regarding player and server data.
 published: true
 date: 2026-01-17T18:53:46.740Z

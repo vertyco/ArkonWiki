@@ -1,5 +1,5 @@
 ---
-title: RCON Shop Setup — Automated In-Game Item Store for Ark Servers
+title: RCON Shop Setup - Automated In-Game Item Store for Ark Servers
 description: Set up Arkon automated RCON shop for your Ark servers. Configure items, pricing, quality scaling, blueprints, role discounts, lootboxes, and daily deals.
 published: true
 date: 2026-01-17T18:53:48.988Z

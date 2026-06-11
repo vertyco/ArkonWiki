@@ -1,5 +1,5 @@
 ---
-title: Terms of Service — Arkon Discord Bot
+title: Terms of Service - Arkon Discord Bot
 description: Terms of service for the Arkon Discord bot. Usage terms, premium subscriptions, acceptable use policy, and dispute resolution for Arkon users.
 published: true
 date: 2026-01-17T18:53:51.147Z
@@ -67,7 +67,7 @@ such as copyrights, trademark rights, patent rights and design rights related to
 exclusive property of the Owner or its licensors and are subject to the protection granted by applicable 
 laws or international treaties relating to intellectual property.
 
-All trademarks — nominal or figurative — and all other marks, trade names, service marks, word marks, 
+All trademarks - nominal or figurative - and all other marks, trade names, service marks, word marks, 
 illustrations, images, or logos appearing in connection with Arkon are, and remain, the exclusive 
 property of the Owner or its licensors and are subject to the protection granted by applicable laws or 
 international treaties related to intellectual property.

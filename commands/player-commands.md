@@ -1,5 +1,5 @@
 ---
-title: Player Commands — Arkon Commands for Ark Server Players
+title: Player Commands - Arkon Commands for Ark Server Players
 description: Commands available to players on Arkon-managed Ark servers. Registration, stats, shop, leaderboards, suggestions, leveling, and in-game commands.
 published: true
 date: 2026-01-17T18:53:40.115Z

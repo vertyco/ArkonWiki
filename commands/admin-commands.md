@@ -1,5 +1,5 @@
 ---
-title: Admin Commands — Arkon Server Owner and Admin Reference
+title: Admin Commands - Arkon Server Owner and Admin Reference
 description: Full list of Arkon admin commands for Ark server management. RCON execution, ban sync, player management, scheduled commands, and server configuration.
 published: true
 date: 2026-01-17T18:53:25.047Z

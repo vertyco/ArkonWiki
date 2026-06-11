@@ -1,5 +1,5 @@
 ---
-title: FAQ & Troubleshooting — Arkon Ark Discord Bot
+title: FAQ & Troubleshooting - Arkon Ark Discord Bot
 description: Answers to common questions about Arkon bot setup, RCON connection issues, player registration, shop configuration, and Xbox crossplay troubleshooting.
 published: true
 date: 2026-01-17T00:00:00.000Z
