@@ -21,7 +21,7 @@ Arkon is your all-in-one tool for self-hosting Ark: a Discord bot that helps you
 
 | I am a... | Start here |
 |-----------|------------|
-| **Server Owner** | [Setup Guide](/guides/getting-started) - Add Arkon to your server in ~10 minutes |
+| **Server Owner** | [Setup Guide](/guides/getting-started) - Connect your first server with the `/setup` wizard in ~10 minutes |
 | **Player** | [Player Guide](/guides/player-getting-started) - Link your character and use the shop |
 
 ## 📚 Quick Links

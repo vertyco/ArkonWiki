@@ -2,7 +2,7 @@
 title: Player Guide - Register Your Character and Use the Arkon Shop
 description: Link your Xbox, Steam, or ASA account to Discord with Arkon. Learn how to register, check stats, use the in-game shop, and earn virtual currency.
 published: true
-date: 2026-01-17T18:53:42.377Z
+date: 2026-06-11T00:00:00.000Z
 tags: player, registration, guide, getting-started
 editor: markdown
 dateCreated: 2023-12-18T02:19:40.657Z
@@ -17,18 +17,31 @@ Welcome! This guide will help you link your Discord account to your Ark characte
 
 ---
 
-## 🔗 Linking your Discord
-To use features like the Rshop and some in-game commands, you will first need to link your Discord account to your in-game account. The easiest way to do this is from in-game.
+## 🔗 Get Set Up in 2 Steps
 
-Type `+register <YourDiscord>` **IN-GAME** in global chat to link your Discord account.
-For example my discord username is vertyco so I would type `+register vertyco` in-game.
+**Step 1: Link your Discord account.** Type `+register <YourDiscord>` **IN-GAME** in global chat. For example, if your Discord username is `vertyco`, type `+register vertyco` in-game.
 
-> Congrats, your Discord should now be linked! Run `+playerstats` in the Discord to see your in-game player.
-> You can now also use the `+rshop` command to purchase items.
+> Linked! Run `+playerstats` in Discord to see your in-game player.
 {.is-success}
 
-> `+register` also works in Discord, but only for ASE servers.
+> `+register` also works from Discord, but only for ASE servers. On ASA, register in-game.
 {.is-info}
+
+**Step 2: Register your Specimen #.** Some commands (`+kit`, `+payday`, `+imstuck`) and the shop need to know which character you are. Your Specimen # is the number on your implant. Set it with:
+
+> `+specimen <YourSpecimenNumber>` in-game.
+> Tip: `+register` and `+implant` can also set your Specimen #.
+{.is-success}
+
+Once both are done, you can use `+rshop` to buy items and the in-game commands below.
+
+## 💰 How Currency Works
+The shop runs on a virtual currency your admins configure. You earn it by:
+- `+payday` - claim a reward every X hours (if your admins enabled it).
+- **Playtime** - admins can hand out currency for time spent on the server.
+- **Admin rewards** - events, bonuses, or supporter perks set by the server.
+
+You spend it in the shop with `+rshop` (browse) or `+quickbuy <item>` (buy directly). Check what you have and your history with `+shopstats`.
 
 ### Xbox/PC Crossplay
 If the server you play on is hosted via Microsoft store version and has a host Gamertag, you can make the host Gamertag add you as a friend so that you can easily join its session.
@@ -40,23 +53,28 @@ Simply run `+addme` and select a server, the host Gamertag for that map will add
 
 
 ## In-game commands
-The following commands can be typed in-game in global chat. Some require you to register your Specimen # before you can use them with `+specimen <YourSpecimenNumber>`
-- `+voteday`: Start a vote session to make it day, if enough people also run the command it will become day.
-- `+votenight`: Start a vote session to make it night.
-- `+votecleanup`: Start a vote session to clear beaver dams and spoiled eggs from the map.
-- `+votedinowipe`: Start a vote session to wipe all wild dinos from the map.
+Type these in-game in global chat. Commands marked 🔑 need your Specimen # registered first.
+
+**Account**
+- `+register`: Link your Discord account and/or set your Specimen #.
+- `+specimen` / `+implant`: Set your Specimen #.
+- `+unregister`: Unlink the Discord account tied to your in-game account.
 - `+rename`: Rename your character.
-- `+imstuck`: If enabled, running this gives you a small care package to unalive yourself if you get stuck 
-	- `Requires specimen # to be registered`
-- `+unregister`: Unlinks the Discord account associated with your in-game account if there is one.
-- `+register`: This command can be used to both link your Discord account and set your specimen number.
-- `+implant`: An alias for `+specimen` and `+register`
+
+**Rewards**
+- `+payday` 🔑: Claim a reward every X hours (if enabled by admins).
+- `+kit` 🔑: Claim a one-time starter kit of configured items (if enabled).
+- `+imstuck` 🔑: Get a small care package to respawn if you are stuck (if enabled).
+
+**Voting**
+- `+voteday`: Start a vote to make it day. Enough votes and it happens.
+- `+votenight`: Start a vote to make it night.
+- `+votecleanup`: Start a vote to clear beaver dams and spoiled eggs.
+- `+votedinowipe`: Start a vote to wipe all wild dinos.
+
+**Info**
 - `+players`: See how many players are on the server.
-- `+payday`: If enabled by the admins, get a reward every X hours you run this.
-	- `Requires specimen # to be registered`
-- `+help`: View a list of these commands in-game for all to see.
-- `+kit`: If enabled by admins, get a one-time starter kit of whatever items are configured.
-	- `Requires specimen # to be registered`
+- `+help`: Show this command list in-game for everyone.
   
 
 ## 📊 Playerstats
