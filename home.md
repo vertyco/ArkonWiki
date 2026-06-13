@@ -8,9 +8,9 @@ editor: markdown
 dateCreated: 2023-12-10T05:13:31.603Z
 ---
 
-# Welcome to the Arkon Wiki!
+# Arkon: The All-in-One Ark Discord Bot
 
-Arkon is your all-in-one tool for self-hosting Ark: a Discord bot that helps you manage your Ark: Survival Evolved (ASE) and Ark: Survival Ascended (ASA) game servers, featuring cross-chat, player tracking, an automated shop, and much more.
+Arkon is the all-in-one Discord bot for self-hosting Ark, built to manage your Ark: Survival Evolved (ASE) and Ark: Survival Ascended (ASA) game servers from Discord. Run RCON commands, sync cross-chat, track players, automate an in-game shop, and much more. Free and Premium tiers, full ASE and ASA crossplay support (ASE on Nitrado is not supported).
 
 > Arkon works with both ASE and ASA. However, **ASE on Nitrado is NOT supported**.
 {.is-warning}
