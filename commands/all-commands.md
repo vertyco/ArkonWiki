@@ -2,15 +2,15 @@
 title: All Commands - Complete Arkon Bot Command Reference
 description: Complete list of every Arkon bot command with syntax, permissions, and descriptions. The full reference for all server management, shop, and moderation commands.
 published: true
-date: 2026-01-17T18:53:29.321Z
+date: 2026-06-13T00:00:00.000Z
 tags: commands, reference, complete-list
 editor: markdown
 dateCreated: 2023-12-12T01:56:40.592Z
 ---
 
-# ArkTools
+# All Arkon Commands
 
-AIO server manager for Ark: Survival Evolved!
+The complete Arkon command reference: every command for Ark: Survival Evolved (ASE) and Ark: Survival Ascended (ASA) server management. Includes setup, the RCON shop, player tracking, moderation, and Xbox crossplay. For role-specific lists see [Admin](/commands/admin-commands), [Mod](/commands/mod-commands), and [Player](/commands/player-commands) commands.
 
 ## /setup (Slash Command)
 
@@ -2380,3 +2380,10 @@ Arguments:<br/>
  - Restricted to: `MOD`
  - Checks: `guild_only`
 
+## Related references
+- [All Commands](/commands/all-commands) - complete command list
+- [Admin Commands](/commands/admin-commands) - server owner / admin
+- [Mod Commands](/commands/mod-commands) - moderator tools
+- [Player Commands](/commands/player-commands) - player commands
+- [Ark RCON Commands](/guides/ark-rcon-commands) - raw game console reference
+- [Getting Started](/guides/getting-started) - connect your first server
