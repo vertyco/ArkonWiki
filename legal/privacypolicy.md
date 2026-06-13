@@ -2,17 +2,19 @@
 title: Privacy Policy - Arkon Discord Bot
 description: Privacy policy for the Arkon Discord bot. Learn what data Arkon collects, how it is stored, and your rights regarding player and server data.
 published: true
-date: 2026-01-17T18:53:46.740Z
+date: 2026-06-13T00:00:00.000Z
 tags: legal, privacy
 editor: markdown
 dateCreated: 2023-12-12T02:48:43.992Z
 ---
 
+# Arkon Privacy Policy
+
 Last Updated: February 5th, 2023
 
 By using Arkon and interacting with our service, you represent and warrant that you agree to our privacy policy.
 
-# Data collected and usage
+## Data collected and usage
 Arkon collects some amount of data about users for the bots normal operation. 
 Specifically, this is the ID of your Discord user account, which is linked to a 
 handful of things depending on how you interact with the bot.
@@ -23,17 +25,17 @@ you configure through the bot, moderation actions against your Discord account i
 in a server where the bot is in, or any interaction with the bot that requires storing your 
 Discord user ID.
 
-# Messages content usages
+## Messages content usages
 Arkon uses message content to enable bi-synchronous chat between Discord and Ark servers that 
 have been configured on it. Message content is also used in the leveling system for servers that 
 have configured a 'minimum message length' for messages that count toward the gaining of experience points.
 
 This data is not stored on the bot and is instead only passed between the channel and ark server.
 
-# Data security
+## Data security
 Any collected information is high value for us, and as such it is stored securely and being encrypted. 
 It is also not shared with any third party services.
 
-# Data removal
+## Data removal
 You have the right to request removal of your data. We will process your request within 30 days after it being reviewed.
 Please join our [Discord server](https://discord.gg/RaR3wR4MgY) and open a ticket asking for such requests.

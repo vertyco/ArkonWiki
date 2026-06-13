@@ -2,11 +2,13 @@
 title: Terms of Service - Arkon Discord Bot
 description: Terms of service for the Arkon Discord bot. Usage terms, premium subscriptions, acceptable use policy, and dispute resolution for Arkon users.
 published: true
-date: 2026-01-17T18:53:51.147Z
+date: 2026-06-13T00:00:00.000Z
 tags: legal, terms-of-service
 editor: markdown
 dateCreated: 2023-12-12T02:48:07.415Z
 ---
+
+# Arkon Terms of Service
 
 Last Updated: May 13th, 2026
 
@@ -19,7 +21,7 @@ with these Terms. These Terms apply to all visitors, users and others who wish t
 By using the Service you represent and warrant that you agree to these terms. If you disagree 
 with any part of the terms then you do not have permission to access the Service.
 
-# Purchases
+## Purchases
 Arkon is a FREE service with a premium tier. The free version allows one server on a single cluster to be configured, 
 with the premium tier allowing up to 125 servers on up to 5 clusters.
 
@@ -50,7 +52,7 @@ or premium feature access for any individual user, Discord account, Discord serv
 community at any time, under our sole discretion, including but not limited to fraud, abuse, harmful
 conduct, suspected illegal activity, violation of these Terms, or protection of the Service and its users.
 
-# Acceptable Use
+## Acceptable Use
 You agree not to use the Service in a manner that:
 - violates any applicable law or Discord platform policy
 - interferes with, harms, or attempts to harm the Service, its users, or related communities
@@ -61,7 +63,7 @@ You agree not to use the Service in a manner that:
 We reserve the right to determine, in our sole discretion, whether any use of the Service is prohibited,
 harmful, abusive, deceptive, disruptive, or otherwise unacceptable.
 
-# Intellectual Property Rights
+## Intellectual Property Rights
 Without prejudice to any more specific provision of these Terms, any intellectual property rights, 
 such as copyrights, trademark rights, patent rights and design rights related to the Service are the 
 exclusive property of the Owner or its licensors and are subject to the protection granted by applicable 
@@ -72,7 +74,7 @@ illustrations, images, or logos appearing in connection with Arkon are, and rema
 property of the Owner or its licensors and are subject to the protection granted by applicable laws or 
 international treaties related to intellectual property.
 
-# Links To Other Web Sites
+## Links To Other Web Sites
 Our Service may contain links to third party websites or services 
 that are not owned or controlled by Arkon.
 
@@ -88,7 +90,7 @@ on or through any such third party websites or services.
 We strongly advise you to read the terms and conditions and privacy policies of any third 
 party websites or services that you visit.
 
-# Termination
+## Termination
 We may terminate or suspend your access to the Service immediately, without prior notice or liability, 
 under our sole discretion, for any reason whatsoever and without limitation, 
 including but not limited to a breach of the Terms.
@@ -107,24 +109,24 @@ sole discretion, but we are not obligated to do so.
 All provisions of the Terms which by their nature should survive termination shall survive termination, 
 including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.
 
-# Disclaimer
+## Disclaimer
 The service is provided "as is", without warranty of any kind, express or implied. 
 In no event shall we be liable for any claim, damages or other liability whether in an action of contract, 
 tort or otherwise, arising from, out of or in connection with the service or the use or other dealings in the service.
 
-# Privacy
+## Privacy
 Please review our [Privacy Policy](/privacypolicy) for further information about what we collect about you.
 
-# Governing law
+## Governing law
 These Terms are governed by the law of the place where the Owner is based, as disclosed in the 
 relevant section of this document, without regard to conflict of laws principles.
 
-# Venue of jurisdiction
+## Venue of jurisdiction
 The exclusive competence to decide on any controversy resulting 
 from or connected to these Terms lies with the courts of the place where 
 the Owner is based, as displayed in the relevant section of this document.
 
-# Changes
+## Changes
 We reserve the right, at our sole discretion, to modify or replace these Terms at any time. 
 If a revision is material we will provide at least 30 days notice prior to any new terms 
 taking effect. What constitutes a material change will be determined at our sole discretion.
@@ -133,6 +135,6 @@ By continuing to access or use our Service after any revisions become effective,
 you agree to be bound by the revised terms. If you do not agree to the new terms, 
 you are no longer authorized to use the Service.
 
-# Contact us
+## Contact us
 If you have any questions regarding these terms, please contact us in our
 [**Support Server**](https://discord.gg/RaR3wR4MgY)

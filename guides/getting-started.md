@@ -2,7 +2,7 @@
 title: Getting Started With Arkon - Setup Guide for Ark Server Owners
 description: Add Arkon to your Discord and connect your Ark servers in about 10 minutes. Step-by-step setup guide with screenshots for ASE and ASA server owners.
 published: true
-date: 2026-06-11T00:00:00.000Z
+date: 2026-06-13T00:00:00.000Z
 tags: setup, getting-started, guide, server-owner
 editor: markdown
 dateCreated: 2023-12-10T05:14:02.435Z
@@ -49,7 +49,7 @@ Make sure the bot has permission to **Send Messages** and **Embed Links** in you
 
 ---
 
-# Path A: The `/setup` Wizard (Recommended)
+## Path A: The `/setup` Wizard (Recommended)
 
 The quickest way to connect your first server. Run the slash command in your server:
 
@@ -73,7 +73,7 @@ When it finishes, your cluster and server are saved and connected. Jump to **[Af
 
 ---
 
-# Path B: Manual Setup
+## Path B: Manual Setup
 
 Prefer to set things up by hand, or adding more servers later? Use these commands.
 
@@ -118,7 +118,7 @@ Review the details, then click `Test & Save!` to test the connection and save.
 
 ---
 
-# After Setup
+## After Setup
 
 Both paths connect your server, but a few settings are still worth doing. (The wizard recommends these on its success screen.)
 
