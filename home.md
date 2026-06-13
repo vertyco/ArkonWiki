@@ -26,6 +26,7 @@ Arkon is the all-in-one Discord bot for self-hosting Ark, built to manage your A
 
 ## 📚 Quick Links
 - [Quick Reference](/guides/quick-reference) - Essential commands at a glance
+- [Ark RCON Commands](/guides/ark-rcon-commands) - Full server admin RCON reference
 - [FAQ & Troubleshooting](/guides/faq) - Common questions and solutions
 - [Glossary](/guides/glossary) - What does "cluster" mean? Find out here!
 
