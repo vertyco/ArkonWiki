@@ -2,7 +2,7 @@
 title: Terms of Service - Arkon Discord Bot
 description: Terms of service for the Arkon Discord bot. Usage terms, premium subscriptions, acceptable use policy, and dispute resolution for Arkon users.
 published: true
-date: 2026-06-13T00:00:00.000Z
+date: 2026-06-15T00:00:00.000Z
 tags: legal, terms-of-service
 editor: markdown
 dateCreated: 2023-12-12T02:48:07.415Z
@@ -115,7 +115,7 @@ In no event shall we be liable for any claim, damages or other liability whether
 tort or otherwise, arising from, out of or in connection with the service or the use or other dealings in the service.
 
 ## Privacy
-Please review our [Privacy Policy](/privacypolicy) for further information about what we collect about you.
+Please review our [Privacy Policy](/legal/privacypolicy) for further information about what we collect about you.
 
 ## Governing law
 These Terms are governed by the law of the place where the Owner is based, as disclosed in the 
