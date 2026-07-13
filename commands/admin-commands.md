@@ -2,7 +2,7 @@
 title: Admin Commands - Arkon Server Owner and Admin Reference
 description: Full list of Arkon admin commands for Ark server management. RCON execution, ban sync, player management, scheduled commands, and server configuration.
 published: true
-date: 2026-06-13T00:00:00.000Z
+date: 2026-07-13T00:00:00.000Z
 tags: commands, admin, reference
 editor: markdown
 dateCreated: 2023-12-25T19:33:59.122Z
@@ -10,7 +10,7 @@ dateCreated: 2023-12-25T19:33:59.122Z
 
 # Ark Admin Commands (Arkon)
 
-Arkon's admin commands give Ark: Survival Evolved (ASE) and Ark: Survival Ascended (ASA) server owners full control from Discord: RCON execution, cluster and server setup, ban sync, scheduled commands, the RCON shop, and Xbox crossplay tools. Every command below is restricted to the ADMIN role. Looking for raw game console commands instead? See the [Ark RCON Commands](/guides/ark-rcon-commands) reference.
+Arkon is a full Ark admin manager and admin tool that runs from Discord, giving Ark: Survival Evolved (ASE) and Ark: Survival Ascended (ASA) server owners complete control: RCON execution, cluster and server setup, ban sync, scheduled commands, the RCON shop, and Xbox crossplay tools. Run `+viewservers` (alias `+ark`) to open the admin menu for managing every server in your cluster, or use any of the admin commands below directly. Every command is restricted to the ADMIN role. Looking for raw game console commands instead? See the [Ark RCON Commands](/guides/ark-rcon-commands) reference.
 
 
 ## serverstatus
