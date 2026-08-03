@@ -2,7 +2,7 @@
 title: Quick Reference - Essential Arkon Commands at a Glance
 description: Quick reference card for the most-used Arkon bot commands. Server setup, player management, moderation, shop, and RCON commands in one page.
 published: true
-date: 2026-01-17T00:00:00.000Z
+date: 2026-08-03T00:00:00.000Z
 tags: commands, reference, quick-start
 editor: markdown
 dateCreated: 2026-01-17T00:00:00.000Z
@@ -257,6 +257,7 @@ Essential commands organized by user type. Default prefix is `+`.
 - [Full Admin Commands](/commands/admin-commands)
 - [Full Mod Commands](/commands/mod-commands)
 - [Full Player Commands](/commands/player-commands)
+- [Ark RCON Commands](/guides/ark-rcon-commands) - raw game console command reference
 - [FAQ & Troubleshooting](/guides/faq)
 - [Glossary](/guides/glossary)
 - [Discord Support](https://discord.gg/RaR3wR4MgY)

@@ -2,7 +2,7 @@
 title: Getting Started With Arkon - Setup Guide for Ark Server Owners
 description: Add Arkon to your Discord and connect your Ark servers in about 10 minutes. Step-by-step setup guide with screenshots for ASE and ASA server owners.
 published: true
-date: 2026-06-13T00:00:00.000Z
+date: 2026-08-03T00:00:00.000Z
 tags: setup, getting-started, guide, server-owner
 editor: markdown
 dateCreated: 2023-12-10T05:14:02.435Z
@@ -183,6 +183,7 @@ Once the basics work, you can layer these on. None are required to run a server.
 ## 🎉 What's Next?
 
 - [Quick Reference](/guides/quick-reference) - All essential commands in one place
+- [Ark RCON Commands](/guides/ark-rcon-commands) - Full raw game console command reference
 - [FAQ & Troubleshooting](/guides/faq) - Solutions to common issues
 - [Premium](/guides/premium) - Compare Free vs Premium features
 
