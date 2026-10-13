@@ -48,7 +48,7 @@ Arkon is a Discord bot that helps you run Ark: Survival Evolved (ASE) and Ark: S
 
 ### Is Arkon free?
 
-Yes. Free covers the basics for a small number of servers. [Premium](/guides/premium) removes limits and unlocks a few extra tools.
+Yes. Free covers the basics for 1 Ark server. [Premium](/guides/premium) removes limits and unlocks a few extra tools.
 
 ### What is the prefix?
 
@@ -732,9 +732,9 @@ The host Gamertag must be signed in first (`+xsapi authenticate`), and the playe
 
 Guide: [Premium](/guides/premium).
 
-### "You cannot have more than N server(s) using the free version of Arkon"
+### "You cannot have more than 1 server using the free version of Arkon"
 
-You hit the free server limit. Switched-off servers still count.
+You hit the free server limit: the free version allows 1 server. Switched-off servers still count.
 **Fix:** subscribe, or remove a server.
 
 ### "You have reached the maximum number of schedules for the free tier." or "You have reached the maximum number of schedules."

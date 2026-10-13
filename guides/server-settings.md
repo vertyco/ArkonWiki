@@ -36,7 +36,7 @@ graph TD
     C --> F["Own settings:<br/>RCON login, chat channel,<br/>on or off"]
 ```
 
-You can have up to 25 clusters and 100 servers in one Discord server. The free version of Arkon allows fewer servers; see [Free vs Premium](/guides/premium).
+You can have up to 25 clusters and 100 servers in one Discord server. The free version of Arkon allows 1 server; see [Free vs Premium](/guides/premium).
 
 ## Add your first cluster and server
 
@@ -214,7 +214,7 @@ To rename a server, use the memo button and change the "Server Name" field. The 
 
 ### Free version limits on enabling servers
 
-On the free version, you can only have so many servers turned on. If you press **Disabled** to enable a server and you are at the limit, you see: "You have reached the maximum number of enabled servers for the free tier!". [Arkon Premium](/guides/premium) raises the limit.
+On the free version, you can only have 1 server turned on. If you press **Disabled** to enable a server and you are at the limit, you see: "You have reached the maximum number of enabled servers for the free tier!". [Arkon Premium](/guides/premium) raises the limit.
 
 Arkon also turns servers off by itself if they have not been online for 30 days, or if their host or port is invalid. It posts a message in your alert channel (see `+arkset alertchannel`).
 
@@ -441,7 +441,7 @@ Use these at the start of a new season, when you wipe your Ark servers. Each one
 | "Failed to connect!" with "Wrong password!" | You used the join password, not the admin password. | Use the admin password. See [RCON Setup](/guides/rcon-setup). |
 | "Failed to connect!" with "Connection timed out!" or "No response!" | Arkon cannot reach the RCON port. | Check the server has a fixed IP, the RCON port is forwarded as TCP in your router, and the firewall allows it. Make sure you used the RCON port, not the query port. |
 | "A cluster with the name `x` doesn't exist!" | `+addserver` needs the exact lowercase cluster name. | Type the name as it was created, in lowercase. |
-| "You cannot have more than N servers using the free version" | You hit the free server limit. | Remove a server or see [Free vs Premium](/guides/premium). |
+| "You cannot have more than 1 server using the free version of Arkon" | You hit the free server limit. | Remove a server or see [Free vs Premium](/guides/premium). |
 | "This isn't your menu!" | Someone else pressed a button. | Run `+viewservers` yourself. |
 | "This cluster has no servers added to it!" | You pressed **Servers** on an empty cluster. | Add a server with `+addserver`. |
 | "That tribelog channel is already in use by another log in this cluster!" (or a similar channel error) | Channel sharing rules were broken. | Pick a channel that follows the rules in the Logs section. Nothing was saved, so try again. |

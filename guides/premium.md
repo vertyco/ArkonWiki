@@ -10,7 +10,7 @@ dateCreated: 2024-12-19T23:11:32.671Z
 
 # Arkon Premium: Free vs Premium
 
-Arkon is free to start. Premium removes the limits (more servers, longer graphs) and unlocks a few extra tools. It costs $10/month and you buy it on Upgrade.Chat (a payment site that Arkon uses).
+Arkon is free to start. Premium removes the limits (up to 100 servers instead of 1, longer graphs) and unlocks a few extra tools. It costs $10/month and you buy it on Upgrade.Chat (a payment site that Arkon uses).
 
 **You need:**
 
@@ -36,7 +36,7 @@ D --> E["Your Discord server<br/>is Premium"]
 
 | | Free | Premium |
 |---|---|---|
-| Ark servers per Discord server | A small free limit (Arkon tells you the exact number when you hit it) | Up to 100 |
+| Ark servers per Discord server | 1 | Up to 100 |
 | Scheduled commands | 3 | 20 |
 | Player count history kept | 7 days | Up to 5 years |
 | Status graph length | 1 hour | Up to 12 hours |
@@ -144,7 +144,7 @@ Admin means someone allowed to manage Arkon. See [Getting Started](/guides/getti
 
 | Problem | Why it happens | Fix |
 |---|---|---|
-| "You cannot have more than N server(s) using the free version of Arkon" | You hit the free server limit | Subscribe, or remove a server. Switched-off servers still count |
+| "You cannot have more than 1 server using the free version of Arkon" | You hit the free server limit | Subscribe, or remove a server. Switched-off servers still count |
 | "You have reached the maximum number of enabled servers for the free tier!" | Re-enabling a server in `+viewservers` while at the free limit | Subscribe to Premium, or switch another server off first |
 | "The total amount of servers I can manage is 100..." | The 100 server cap, even on Premium | Remove a server you no longer use |
 | "Sorry, the maximum time the free version of Arkon allows is 1 hour" | Status graph over 3600 seconds on Free | Use 3600 or less, or subscribe |
