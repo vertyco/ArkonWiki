@@ -1,6 +1,6 @@
 ---
 title: Mod Commands - Arkon Moderator Reference for Ark Servers
-description: Arkon moderator commands for Ark servers: bans, player lookups, join logs, map investigation tools and RCON, with links to step-by-step guides.
+description: "Arkon moderator commands for Ark servers: bans, player lookups, join logs, map investigation tools and RCON, with links to step-by-step guides."
 published: true
 date: 2026-10-12T00:00:00.000Z
 tags: commands, moderator, reference

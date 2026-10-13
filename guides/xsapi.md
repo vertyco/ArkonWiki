@@ -1,6 +1,6 @@
 ---
 title: Xbox and Microsoft Store Features - Arkon Ark Discord Bot
-description: Set up Arkon host Gamertags for Xbox and Microsoft Store Ark ASE servers on Discord: friend adds, game invites, Xbox messages and alt account detection.
+description: "Set up Arkon host Gamertags for Xbox and Microsoft Store Ark ASE servers on Discord: friend adds, game invites, Xbox messages and alt account detection."
 published: true
 date: 2026-10-12T00:00:00.000Z
 tags: xbox, microsoft-store, xsapi, autofriend, alt-detection, gamertag

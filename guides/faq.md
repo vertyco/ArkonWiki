@@ -1,6 +1,6 @@
 ---
 title: FAQ & Troubleshooting - Arkon Ark Discord Bot
-description: Fix common Arkon problems for your Ark Discord server: RCON connection errors, registration, shop, tribe logs, status channel, ArkView, Xbox and permissions.
+description: "Fix common Arkon problems for your Ark Discord server: RCON connection errors, registration, shop, tribe logs, status channel, ArkView, Xbox and permissions."
 published: true
 date: 2026-10-12T00:00:00.000Z
 tags: faq, troubleshooting, help, support

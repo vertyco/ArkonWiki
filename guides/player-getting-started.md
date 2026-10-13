@@ -1,6 +1,6 @@
 ---
 title: Player Guide - Arkon Ark Discord Bot
-description: A step-by-step guide for Ark players using Arkon in Discord: register your character, use the shop and lootboxes, claim a tribe thread and look up stats.
+description: "A step-by-step guide for Ark players using Arkon in Discord: register your character, use the shop and lootboxes, claim a tribe thread and look up stats."
 published: true
 date: 2026-10-12T00:00:00.000Z
 tags: player, registration, shop, lootbox, tribe, stats, guide, getting-started

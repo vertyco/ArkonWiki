@@ -1,6 +1,6 @@
 ---
 title: Admin Commands - Arkon Server Owner and Admin Reference
-description: Every Arkon admin command for Ark server management: server setup, settings, the RCON shop, tribe logs, security and Xbox tools, with links to step-by-step guides.
+description: "Every Arkon admin command for Ark server management: server setup, settings, the RCON shop, tribe logs, security and Xbox tools, with links to step-by-step guides."
 published: true
 date: 2026-10-12T00:00:00.000Z
 tags: commands, admin, reference

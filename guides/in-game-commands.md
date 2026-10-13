@@ -1,6 +1,6 @@
 ---
 title: In-Game Chat Commands, Kits, Payday, Votes and More - Arkon Ark Discord Bot
-description: Set up Arkon in-game chat commands for your Ark server from Discord: starter kits, automatic kits, payday, imstuck, day and night votes, dino wipe votes, rename and the other chat commands.
+description: "Set up Arkon in-game chat commands for your Ark server from Discord: starter kits, automatic kits, payday, imstuck, day and night votes, dino wipe votes, rename and the other chat commands."
 published: true
 date: 2026-10-12T00:00:00.000Z
 tags: in-game, kit, payday, imstuck, autokit, voteday, votenight, rename, setup, guide

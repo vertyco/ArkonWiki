@@ -1,5 +1,5 @@
 ---
-title: Security: RDP Dupes, Imposters and Name Blacklist - Arkon Ark Discord Bot
+title: "Security: RDP Dupes, Imposters and Name Blacklist - Arkon Ark Discord Bot"
 description: Stop Ark dupe exploits and admin-password abuse with Arkon, the Ark Discord bot. Set up RDP dupe protection, imposter bans and a name blacklist.
 published: true
 date: 2026-10-12T00:00:00.000Z

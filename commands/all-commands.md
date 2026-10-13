@@ -1,6 +1,6 @@
 ---
 title: All Commands - Complete Arkon Bot Command Reference
-description: Every Arkon bot command for Ark: Survival Evolved and Ascended servers, with syntax, who can use it, and a link to the step-by-step guide.
+description: "Every Arkon bot command for Ark: Survival Evolved and Ascended servers, with syntax, who can use it, and a link to the step-by-step guide."
 published: true
 date: 2026-10-12T00:00:00.000Z
 tags: commands, reference, complete-list

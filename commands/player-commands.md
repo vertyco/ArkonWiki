@@ -1,6 +1,6 @@
 ---
 title: Player Commands - Arkon Commands for Ark Server Players
-description: Commands every player can use on an Arkon-managed Ark server: registration, the shop, lootboxes, tribe log threads, map tools and leaderboards.
+description: "Commands every player can use on an Arkon-managed Ark server: registration, the shop, lootboxes, tribe log threads, map tools and leaderboards."
 published: true
 date: 2026-10-12T00:00:00.000Z
 tags: commands, player, reference
