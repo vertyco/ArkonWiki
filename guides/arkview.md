@@ -1,8 +1,8 @@
 ---
 title: ArkView Setup Guide - Map Tools for the Arkon Ark Discord Bot
-description: Install ArkView, the free companion plugin that lets Arkon read your Ark save and unlock map commands like +hunt, +findtame, +structures, and private tribelogs. Windows, Linux, and Docker setup for ASE and ASA.
+description: Install ArkView, the free companion plugin that lets Arkon read your Ark save and unlock map commands like +hunt, +findtame, and +structures. Windows, Linux, and Docker setup for ASE and ASA.
 published: true
-date: 2026-10-12T00:00:00.000Z
+date: 2026-10-13T00:00:00.000Z
 tags: arkview, arkviewer, setup, guide, server-owner, map-tools
 editor: markdown
 dateCreated: 2026-10-12T00:00:00.000Z
@@ -26,7 +26,6 @@ Everything marked 🔹 on the wiki needs ArkView. The main ones:
 | **Map tools** | `+hunt`, `+findtame`, `+mytames`, `+mapstats`, `+playerheat` |
 | **Map analysis** | `+structures`, `+territory`, `+findexpired`, `+checkmassbreed`, `+finditem` |
 | **Anti-cheat** | `+scanforeigntames`, `+tamestatcheck`, `+uncryocheck` |
-| **Tribes** | Private tribelogs, tribelog alerts |
 
 See the [Quick Reference](/guides/quick-reference) for what each command does.
 
@@ -71,7 +70,7 @@ ArkView needs the full path to your map's `.ark` file.
 
 Swap `TheIsland` for your map's name.
 
-> **Player and tribe files must sit next to the save.** ArkView reads the `.arkprofile` (players) and `.arktribe` (tribes) files from the same folder as the `.ark` file. Your server already puts them there. If you copy saves somewhere else, copy those files too, or tribes, players, and tribelogs will come up empty.
+> **Player and tribe files must sit next to the save.** ArkView reads the `.arkprofile` (players) and `.arktribe` (tribes) files from the same folder as the `.ark` file. Your server already puts them there. If you copy saves somewhere else, copy those files too, or ArkView's player and tribe data will come up empty. (Some ASA hosts keep that data inside the `.ark` instead; ArkView 2.25.0 and newer reads it from there when the files don't exist.)
 {.is-warning}
 
 > **No spaces in the path.** ArkView refuses a save path that contains a space. If your server sits under a folder like `Program Files`, see the fix in [Troubleshooting](#troubleshooting).
@@ -248,7 +247,7 @@ Repeat for each map. The **ArkView Toggles** button next to it has **Hunt**, **F
 
 If results come back, you're done. ArkView re-reads the save every time your server saves, so the data stays current on its own.
 
-To turn on private tribelogs, set a tribelog channel for the cluster with `+tribeset logchannel <cluster> #channel`.
+Tribe logs don't need ArkView. They run over RCON, so set a channel with `+tribeset logchannel <cluster> #channel` whether or not ArkView is running.
 
 ---
 
@@ -271,7 +270,7 @@ If your host gives you **FTP access** to the save folder, you can copy the save 
 | Works on the same PC but not from outside (Linux) | ArkView is only listening locally | Make sure the service's `ExecStart` line ends in `main.py 0.0.0.0` (the `sed` line in [Option B](#option-b-linux-systemd)), then restart the service. |
 | "Invalid API key" or "No API key provided" | The key in `config.ini` doesn't match Arkon's | Copy the key again from `+arkset view`, paste it into `APIKey`, and restart ArkView. |
 | Commands return nothing right after starting | The first read hasn't finished yet | Wait a few minutes on a big map, then check `+arkviewer`. |
-| Map data works but tribes, players, or tribelogs are empty | The `.arkprofile` and `.arktribe` files aren't next to the `.ark` file | Point `MapFilePath` at the save in its real folder, or copy those files along with the save. |
+| Map data works but ArkView's players and tribes are empty | The `.arkprofile` and `.arktribe` files aren't next to the `.ark` file | Point `MapFilePath` at the save in its real folder, or copy those files along with the save. |
 | ArkView says the map path has invalid characters | The path has a space in it | Link a folder without spaces to it. On Windows (Command Prompt as administrator): `mklink /J C:\ArkSaves "C:\Program Files\ArkServer\ShooterGame\Saved\SavedArks"`, then use `C:\ArkSaves\...` in `MapFilePath`. |
 | The Linux service restarts in the middle of reading | It ran out of its memory limit | Raise `MemoryMax=4G` in `/etc/systemd/system/arkview@.service`, then run `sudo systemctl daemon-reload` and restart the service. |
 

@@ -1,8 +1,8 @@
 ---
 title: ArkView on Nitrado (ASA) - Advanced Setup for the Arkon Bot
-description: Run ArkView for a Nitrado-hosted Ark Survival Ascended server. Copy the save over FTP to a Linux machine you control, then connect Arkon map commands, tribes, and tribelogs. Optional VPS relay for CGNAT.
+description: Run ArkView for a Nitrado-hosted Ark Survival Ascended server. Copy the save over FTP to a Linux machine you control, then connect Arkon map commands and player and tribe lookups. Optional VPS relay for CGNAT.
 published: true
-date: 2026-10-12T00:00:00.000Z
+date: 2026-10-13T00:00:00.000Z
 tags: arkview, nitrado, asa, advanced, guide, server-owner
 editor: markdown
 dateCreated: 2026-10-12T00:00:00.000Z
@@ -130,7 +130,7 @@ Then make it runnable:
 sudo chmod +x /usr/local/bin/arkview-sync.sh
 ```
 
-> **Don't skip the `.arkprofile` and `.arktribe` parts.** The `.ark` file holds the map. Players live in the `.arkprofile` files and tribes (and their tribelogs) live in the `.arktribe` files. Without them, map commands work but tribes, players, and tribelogs come up empty.
+> **Keep the `.arkprofile` and `.arktribe` parts.** Most servers keep players in `.arkprofile` files and tribes in `.arktribe` files next to the `.ark`. Some Nitrado servers write none of those files and keep the same data inside the `.ark` instead. ArkView 2.25.0 and newer reads it from there automatically, so on those servers the `.ark` alone is enough. The line above handles both cases, so leave it as is.
 {.is-warning}
 
 4. Run it every 2 minutes:
@@ -156,7 +156,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now arkview-sync.timer
 ```
 
-5. Check it after a minute or two. This should list the `.ark` file plus a pile of `.arkprofile` and `.arktribe` files:
+5. Check it after a minute or two. This should list the `.ark` file, plus a pile of `.arkprofile` and `.arktribe` files if your server writes them (some Nitrado servers don't, and that's fine):
 
 ```bash
 ls -la /srv/arkview/map
@@ -338,9 +338,12 @@ To confirm tribes and players loaded, run this on the ArkView machine:
 sudo cat /opt/arkviewer/maps/nitrado/output/_parse_stats.json
 ```
 
-`tribes_loaded` and `profiles_loaded` should be above 0. If they're 0, the `.arktribe` and `.arkprofile` files didn't download (see [Step 1](#step-1-download-the-save-from-nitrado)).
+`tribes_loaded` and `profiles_loaded` should be above 0. `player_data_source` says where that data came from: `files` (the `.arkprofile` / `.arktribe` files) or `save` (read from inside the `.ark`).
 
-To turn on private tribelogs, set a tribelog channel with `+tribeset logchannel <cluster> #channel`.
+- **Both are 0 and `player_data_source` is `none`:** ArkView found no player or tribe data anywhere. Make sure you're on ArkView 2.25.0 or newer, then check that the files downloaded (see [Step 1](#step-1-download-the-save-from-nitrado)).
+- **Tribes and players look out of date:** if your server keeps its data inside the `.ark` but old `.arkprofile` / `.arktribe` files are still in `/srv/arkview/map`, ArkView keeps reading those old files. Delete them and the next read uses the data in the save.
+
+Tribe logs don't need ArkView. They run over RCON, so set a channel with `+tribeset logchannel <cluster> #channel` whether or not ArkView is running.
 
 If Arkon times out, run `sudo tcpdump -ni any tcp port 8000` on the machine Arkon connects to, then run the command again. Lines appearing means Arkon's traffic arrives, so look at the firewall and the relay. No lines means the problem is before that: the provider's firewall, the router, or the Host and Port in `+viewservers`.
 
@@ -370,7 +373,7 @@ sudo netfilter-persistent save
 |-------|-------|---------|-------------|
 | Download timer runs | ArkView machine | `systemctl list-timers arkview-sync.timer` | Last run under 2 minutes ago |
 | Download errors | ArkView machine | `sudo journalctl -u arkview-sync -n 15 --no-pager` | "Finished" with no errors |
-| Save files arrived | ArkView machine | `ls /srv/arkview/map` | The `.ark` plus `.arkprofile` and `.arktribe` files |
+| Save files arrived | ArkView machine | `ls /srv/arkview/map` | The `.ark` (plus `.arkprofile` and `.arktribe` files if your server writes them) |
 | ArkView running | ArkView machine | `systemctl is-active arkview@nitrado` | `active` |
 | ArkView answers | ArkView machine | `curl -s -o /dev/null -w "%{http_code}\n" http://127.0.0.1:8000/` | `401` or `200` |
 | Tribes and players loaded | ArkView machine | `sudo cat /opt/arkviewer/maps/nitrado/output/_parse_stats.json` | `tribes_loaded` above 0 |
