@@ -1,8 +1,8 @@
 ---
 title: Player Commands - Arkon Commands for Ark Server Players
-description: Commands available to players on Arkon-managed Ark servers. Registration, stats, shop, leaderboards, suggestions, leveling, and in-game commands.
+description: Commands every player can use on an Arkon-managed Ark server: registration, the shop, lootboxes, tribe log threads, map tools and leaderboards.
 published: true
-date: 2026-06-13T00:00:00.000Z
+date: 2026-10-12T00:00:00.000Z
 tags: commands, player, reference
 editor: markdown
 dateCreated: 2023-12-25T18:45:05.484Z
@@ -10,147 +10,114 @@ dateCreated: 2023-12-25T18:45:05.484Z
 
 # Ark Player Commands (Arkon)
 
-These are the Arkon commands available to players on an Arkon-managed Ark server: register your character, open the RCON shop, hunt wild dinos, find lost tames, check your stats, and climb the leaderboards. Most work both in Discord and in-game.
+These are the Arkon commands any member can use: link your Discord account to your character, buy items in the shop, open lootboxes, manage your tribe log thread, hunt dinos and check the leaderboards. New player? Read the [Player Guide](/guides/player-getting-started) first.
 
+**How to read this page**
 
-## register
- - Usage: `+register [username]`
- - Checks: `server_only`
+- Type commands in any Discord channel Arkon can see. The default prefix is `+`.
+- `<value>` means you must fill it in. `[value]` means it is optional.
+- **Who can use it:** *Admin* and *Mod* are the roles you set when you [set up Arkon](/guides/getting-started). *Everyone* means any member. *Server owner* means the owner of the Discord server.
+- 🔹 needs [ArkView](/guides/arkview). 🔸 is for Xbox / Microsoft Store ASE servers only.
+- Each section links to the guide that explains the commands step by step.
 
-Register your in-game account with the database.
+Full details for every command are on the [All Commands](/commands/all-commands) page.
 
-## addme (Hybrid Command)
- - Usage: `+addme`
- - Slash Usage: `/addme`
- - Checks: `server_only`
+## Turn On RCON and Find Your RCON Details
 
-(Xbox/Win10 CROSSPLAY ONLY)Add yourself as a friend<br/><br/>Make the host Gamertags add you as a friend<br/><br/>This command requires api keys to be set for the servers
+Guide: [Turn On RCON and Find Your RCON Details](/guides/rcon-setup)
 
-## unregister
- - Usage: `+unregister`
- - Aliases: `unregisterme`
- - Checks: `server_only`
+| Command | What it does | Who |
+|---|---|---|
+| `+rconhelp` | Get a guide for finding your ARK server's RCON port and admin password | Everyone |
 
-Unregister yourself<br/><br/>Removes you from any Gamertags you have registered to
+## Live Server Status Channel and Player Count Graphs
 
-## setcluster
- - Usage: `+setcluster`
- - Checks: `server_only`
+Guide: [Live Server Status Channel and Player Count Graphs](/guides/status-channel)
 
-Unregister yourself<br/><br/>Removes you from any Gamertags you have registered to
+| Command | What it does | Who |
+|---|---|---|
+| `+servergraph [timespan] [clusters_only] [include_total] [search_query] [start_time] [end_time]` | See how your player count changed over time. | Everyone |
+| `+playercounts [local]` | View player counts either globally or locally | Everyone |
 
-## rshop (Hybrid Command)
- - Usage: `+rshop [search_query]`
- - Slash Usage: `/rshop [search_query]`
- - Checks: `server_only`
+## Player Registration
 
-Open the RCON shop<br/><br/>**Arguments**<br/>`search_query: `Search directly for an item
+Guide: [Player Registration: Link Discord Accounts to Ark Players](/guides/player-registration)
 
-## tribe (Hybrid Command)
- - Usage: `+tribe`
- - Slash Usage: `/tribe`
- - Aliases: `mytribe`
+| Command | What it does | Who |
+|---|---|---|
+| `+register [username]` | Register your in-game account with the database. | Everyone |
+| `+unregister` | Unregister yourself | Everyone |
+| `+specimen <specimen_number>` | Set your specimen number to use the Rshop | Everyone |
+| `+findsurvivor <survivor_name>` | Look up a survivor by character name. | Everyone |
+| `+kickme` | Kick your character from the server. | Everyone |
 
-Open the tribe menu to view and/or claim your tribes, toggle notifications, and see your tribe stats.
+## The RCON Shop (Rshop)
 
-## kicktribemate (Hybrid Command)
- - Usage: `+kicktribemate <member>`
- - Slash Usage: `/kicktribemate <member>`
- - Aliases: `kickmate and kickfromtribelogs`
+Guide: [The RCON Shop (Rshop): Sell In-Game Items](/guides/rshop)
 
-Kick a member from your tribelog thread
+| Command | What it does | Who |
+|---|---|---|
+| `+rshop [item]` | Open the in-game RCON shop. | Everyone |
+| `/quickbuy <item> [quantity] [quality] [blueprint]` | Buy something from the shop without opening the menu. | Everyone |
+| `+shopoverview` | Generate a visual summary of the guild's shop economy. | Everyone |
+| `+shopsettings` | Show the current shop configuration for this guild.   Examples: - +shopsettings | Everyone |
+| `+shopstats [user]` | Show purchase stats for you or another member. | Everyone |
 
-## hunt (Hybrid Command)
- - Usage: `+hunt <dino>`
- - Slash Usage: `/hunt <dino>`
- - Cooldown: `1 per 15.0 seconds`
- - Checks: `server_only`
+## Lootboxes
 
-Hunt for a dino!<br/><br/>Use the slash version of this command to make it private!
+Guide: [Lootboxes](/guides/lootboxes)
 
-## findtame (Hybrid Command)
- - Usage: `+findtame <search_query>`
- - Slash Usage: `/findtame <search_query>`
- - Cooldown: `1 per 30.0 seconds`
- - Checks: `server_only`
+| Command | What it does | Who |
+|---|---|---|
+| `+lootbox` | Open a lootbox | Everyone |
 
-Find tames by tame name, imprinter, tamer, or tribe name<br/><br/>`search_query` can be one of the following.<br/>The dino's name.<br/>The name of the person who tamed the dino.<br/>The name of the person who imprinted on the tame.<br/>The name of the tribe that owns the dino.<br/>The ID of the tribe that tamed the dino.<br/><br/>*You can search for unclaimed dinos by specifying `unclaimed`*
+## Tribe Logs in Discord and Private Tribe Threads
 
-## mapstats
- - Usage: `+mapstats`
- - Cooldown: `1 per 5.0 seconds`
- - Checks: `server_only`
+Guide: [Tribe Logs in Discord and Private Tribe Threads](/guides/tribe-logs)
 
-Get detailed stats for a map
+| Command | What it does | Who |
+|---|---|---|
+| `+tribe [user]` | Open the tribe menu! | Everyone |
+| `+threadadd <member>` | Add a member to your tribelog thread | Everyone |
+| `+threadkick <member>` | Remove a member from your tribelog thread | Everyone |
+| `+threadpurge <confirm>` | Remove ALL members from your tribelog thread except yourself | Everyone |
+| `+threadmembers` | List all members in your tribelog thread | Everyone |
+| `+threadtransfer <member>` | Transfer thread ownership to another member | Everyone |
 
-## creaturepie
- - Usage: `+creaturepie [count=10]`
- - Aliases: `wildpie`
- - Cooldown: `1 per 5.0 seconds`
- - Checks: `server_only`
+## Map Tools
 
-Get a pie chart of wild dinos on a map
+Guide: [Map Tools: Hunt Dinos, Find Tames and Map Structures](/guides/map-tools)
 
-## structurepie
- - Usage: `+structurepie [count=10]`
- - Cooldown: `1 per 5.0 seconds`
- - Checks: `server_only`
+| Command | What it does | Who |
+|---|---|---|
+| `+hunt <dino>` 🔹 | Hunt for a dino! | Everyone |
+| `+findtame <search_query>` 🔹 | Find tames by tame name, imprinter, tamer, or tribe name | Everyone |
+| `+mytames` 🔹 | Check your tribe's tames on a map | Everyone |
+| `+mystructures` 🔹 | Count structures near your last known location on a map | Everyone |
+| `+mapstats` 🔹 | Get detailed stats for a map | Everyone |
+| `+creaturepie [count]` 🔹 | Get a pie chart of wild dinos on a map | Everyone |
+| `+structurepie [count]` 🔹 | Get pie chart of structures | Everyone |
+| `+tamepie [count]` 🔹 | Get a pie chart of tamed dinos on a map | Everyone |
+| `+playerheat` 🔹 | Get a heatmap of player locations | Everyone |
+| `+arkviewer` 🔹 | Quickly view your servers' ArkView metrics | Everyone |
 
-Get pie chart of structures
+## Player Stats and Leaderboards
 
-## tamepie
- - Usage: `+tamepie [count=10]`
- - Cooldown: `1 per 5.0 seconds`
- - Checks: `server_only`
+Guide: [Player Stats and Leaderboards](/guides/stats-and-leaderboards)
 
-Get a pie chart of tamed dinos on a map
+| Command | What it does | Who |
+|---|---|---|
+| `+playerstats [player]` | View info about a player | Everyone |
+| `+players [timespan] [cluster]` | Show the playtime leaderboard. | Everyone |
+| `+clusterlb [sort_by]` | Show the top players on a specific cluster. | Everyone |
+| `+tribelb <sort_by> [cluster]` | See which tribes are leading the pack. | Everyone |
+| `+dbstats [showglobal]` | Show ArkTools stats for this guild or globally. | Everyone |
 
-## players
- - Usage: `+players [cluster=None]`
- - Aliases: `arkleaderboard, arklb, and arktop`
- - Checks: `server_only`
+## Xbox and Microsoft Store Features
 
-View the playtime leaderboard
+Guide: [Xbox and Microsoft Store Features](/guides/xsapi)
 
-## tribelb
- - Usage: `+tribelb <sort_by> [cluster=None]`
- - Aliases: `tribetop`
- - Checks: `server_only`
-
-View leaderboard for all tribes<br/>**Arguments**<br/>`sort_by` - Sort the leaderboard by kills, dinos tamed, or structures destroyed<br/><br/>**Examples**<br/>`+tribelb kills` - Tribe kill leaderboard<br/>`+tribelb tamed` - Tribe tame leaderboard<br/>`+tribelb destroyed` - Tribe destruction leaderboard<br/><br/>*Also accepted: `k`, `t`, or `d`*
-
-## findsurvivor
- - Usage: `+findsurvivor <survivor_name>`
- - Aliases: `findcharname`
- - Checks: `server_only`
-
-Find info about a particular survivor name
-
-## dbstats
- - Usage: `+dbstats`
-
-Stats about the ArkTools database
-
-## servergraph (Hybrid Command)
- - Usage: `+servergraph [timespan=1h] [clusters_only=False] [include_total=False] [search_query]`
- - Slash Usage: `/servergraph [timespan=1h] [clusters_only=False] [include_total=False] [search_query]`
- - Cooldown: `3 per 30.0 seconds`
- - Checks: `server_only`
-
-View a graph of player count over a set time<br/>**Arguments**<br/>`<timespan>` How long to look for, or `all` for all-time data. Defaults to 1 hour.<br/>Must be at least 1 hour.<br/><br/>**Optional Arguments**<br/>`clusters_only:` (True/False) Only show playercounts by cluster, default is False<br/>`include_total:` (True/False) Include another line representing the Total<br/>`search_query: ` Filter by a specific map, cluster, or both<br/><br/>Example: +servergraph 4h<br/>Example: +servergraph 12d<br/>Example: +servergraph 3w2d<br/>Example: +servergraph 7w
-
-## playerstats (Hybrid Command)
- - Usage: `+playerstats [player]`
- - Slash Usage: `/playerstats [player]`
- - Aliases: `player`
- - Checks: `bot_has_server_permissions and server_only`
-
-View info about a player<br/><br/>The optional **player** argument can be one of the following.<br/>- Gamertag or Username<br/>- XUID, Steam ID, PSN ID, or EOS ID<br/>- Discord ID or Username<br/>- @mention
-
-## Related references
-- [All Commands](/commands/all-commands) - complete command list
-- [Admin Commands](/commands/admin-commands) - server owner / admin
-- [Mod Commands](/commands/mod-commands) - moderator tools
-- [Player Commands](/commands/player-commands) - player commands
-- [Ark RCON Commands](/guides/ark-rcon-commands) - raw game console reference
-- [Getting Started](/guides/getting-started) - connect your first server
+| Command | What it does | Who |
+|---|---|---|
+| `+addme` 🔸 | (Xbox/Win10 CROSSPLAY ONLY)Add yourself as a friend | Everyone |
+| `+inviteme` 🔸 | Get an Xbox game invite to one of our servers | Everyone |

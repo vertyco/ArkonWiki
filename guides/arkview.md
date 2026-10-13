@@ -247,7 +247,7 @@ Repeat for each map. The **ArkView Toggles** button next to it has **Hunt**, **F
 
 If results come back, you're done. ArkView re-reads the save every time your server saves, so the data stays current on its own.
 
-Tribe logs don't need ArkView. They run over RCON, so set a channel with `+tribeset logchannel <cluster> #channel` whether or not ArkView is running.
+Tribe logs don't need ArkView. They run over RCON, so set a channel with `+tribeset logchannel <cluster> #channel` whether or not ArkView is running. Full setup: [Tribe Logs](/guides/tribe-logs).
 
 ---
 

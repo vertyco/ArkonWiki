@@ -1,6 +1,6 @@
 ---
-title: Getting Started With Arkon - Setup Guide for Ark Server Owners
-description: Add Arkon to your Discord and connect your Ark servers in about 10 minutes. Step-by-step setup guide with screenshots for ASE and ASA server owners.
+title: Getting Started - Arkon Ark Discord Bot
+description: Invite Arkon to Discord and connect your first Ark server with the /setup wizard or by hand. Covers ASE and ASA, Admin and Mod roles, and +checklist.
 published: true
 date: 2026-10-12T00:00:00.000Z
 tags: setup, getting-started, guide, server-owner
@@ -8,183 +8,299 @@ editor: markdown
 dateCreated: 2023-12-10T05:14:02.435Z
 ---
 
-# Server Owner Setup Guide
+# Getting Started: Connect Your First Ark Server
 
-Get Arkon running on your Ark server in about 10 minutes. The fastest way is the **`/setup` wizard**, which connects and tests your first server for you. Prefer to do it by hand? A manual path is below too.
+This page gets Arkon into your Discord and connected to your first Ark server. When you finish, Arkon can talk to your server and everything else in this wiki will work. It takes about 10 minutes.
 
-> **New to Arkon?** Check out the [Glossary](/guides/glossary) if you encounter unfamiliar terms, or the [FAQ](/guides/faq) if you run into issues.
-{.is-info}
+**You need:**
 
----
+- An Ark server (ASE or ASA) that you can edit settings for. Arkon does not install or host servers for you.
+- RCON turned on, with its IP, port and password written down. RCON (the remote-control connection Arkon uses to send commands to your server) is explained step by step in [RCON Setup](/guides/rcon-setup).
+- A Discord server where you are the owner, or where you have the **Manage Server** permission.
 
-## ✅ Prerequisites Checklist
-
-Before you begin, make sure you have:
-
-- [ ] An Ark server (ASE or ASA) that you can manage - *this guide won't teach server hosting*
-- [ ] **RCON enabled** on your server with a known port and password
-- [ ] A **public IP address** that does not change (or a Dynamic DNS hostname)
-- [ ] **Port forwarding** set up for your RCON port
-- [ ] Basic Discord knowledge (roles, permissions, channels)
-
-**Not sure what some of these mean? Here is the plain-language version:**
-
-| Term | What it means |
-|------|---------------|
-| **RCON** | A remote console that lets Arkon send commands to your server. Enable it in `GameUserSettings.ini` with `RCONEnabled=True` and `RCONPort=27020` (27020 is the default for both ASE and ASA). Your RCON password is the `ServerAdminPassword` from that same file. See [RCON in the glossary](/guides/glossary). |
-| **Public vs local IP** | Arkon connects to your **public** IP (the one at [whatismyip.com](https://whatismyip.com)), not a local `192.168.x.x` or `10.x.x.x` address. |
-| **Port forwarding** | If you self-host, your router must forward the RCON port (TCP) to the PC running the server. [Router guides](https://portforward.com/router.htm). |
-| **CGNAT** | If your ISP puts you behind Carrier-Grade NAT you cannot port forward. Ask your ISP for a public IP, or use a server host that gives you one. |
-| **Dynamic IP** | If your IP changes on its own, use a free Dynamic DNS service ([No-IP](https://noip.com), [DuckDNS](https://duckdns.org)) and give Arkon the hostname instead. |
-
-> **Using a game host?** Most providers support RCON and show the port and password in their control panel. **Nitrado (ASE only) does NOT support RCON, so Arkon cannot work with ASE on Nitrado.**
+> **Nitrado ASE servers do not work.** Nitrado does not allow RCON on ASE, so Arkon cannot connect. Nitrado ASA servers do work.
 {.is-warning}
 
-> If your router or firewall filters by address, whitelist Arkon's IP `51.79.109.160` and allow TCP inbound on your RCON port.
-{.is-info}
+## The big picture
 
-**[👉 Invite Arkon to your Discord](https://discord.com/api/oauth2/authorize?client_id=857070505294430218&permissions=1495118769367&scope=applications.commands%20bot)**
+You do two things: give Arkon a **cluster** (a named group of servers, you need one even for a single server) and then a **server** (your IP, RCON port and RCON password). Arkon tests the connection before it saves anything.
 
-Make sure the bot has permission to **Send Messages** and **Embed Links** in your channels!
-
----
-
-## Path A: The `/setup` Wizard (Recommended)
-
-The quickest way to connect your first server. Run the slash command in your server:
-
-> `/setup`
-{.is-success}
-
-The wizard walks you through everything with buttons and pop-up forms. Have your server's **IP address**, **RCON port**, and **admin password** ready. It will:
-
-1. **Pick your game** - ARK: Survival Evolved (ASE) or ARK: Survival Ascended (ASA).
-2. **Check prerequisites** - a built-in checklist with an **I Need Help** button covering public IP, dynamic DNS, port forwarding, firewall, and hosting providers.
-3. **Name your cluster** - a group for your servers. Use something simple like `pvp`, `pve`, or `main` (letters and numbers only). Even with one server you need a cluster.
-4. **Enter server details** - server name, IP address (without the port), RCON port (default `27020`), and admin password.
-5. **Test the connection** - Arkon live-tests RCON before saving. If something is wrong, it tells you exactly what (wrong password, timed out, connection refused) and how to fix it, then lets you edit and retry.
-6. **Set chat channels** - pick a **server chat channel** (recommended, shows this server's chat plus command feedback) and optionally a **cluster chat channel** (combined chat from all servers in the cluster). You can skip and do this later.
-7. **Crossplay (ASE only)** - if your server is Xbox/Win10 crossplay, the wizard points you to [autofriend.arkonbot.com](https://autofriend.arkonbot.com) and the `+addme` / `+gamertag` / `+xsapi` commands.
-
-When it finishes, your cluster and server are saved and connected. Jump to **[After Setup](#after-setup)** to finish configuring.
-
-> Already ran `/setup` before? Running it again shows a summary of your current clusters and servers with quick links instead of starting over.
-{.is-info}
+```mermaid
+graph TD
+A["Invite Arkon"] --> B["Set Admin and Mod roles"]
+B --> C{"Pick a way"}
+C -->|easy| D["Run /setup wizard"]
+C -->|by hand| E["+addcluster then +addserver"]
+D --> F["Arkon tests RCON"]
+E --> F
+F -->|passes| G["Server saved"]
+F -->|fails| H["Fix details and retry"]
+G --> I["Run +checklist"]
+```
 
 ---
 
-## Path B: Manual Setup
+## Step 1. Invite Arkon
 
-Prefer to set things up by hand, or adding more servers later? Use these commands.
+1. Open this link in your web browser: **[Invite Arkon to your Discord](https://discord.com/api/oauth2/authorize?client_id=857070505294430218&permissions=1495118769367&scope=applications.commands%20bot)**
+2. Pick your Discord server from the list and click **Authorize**.
+3. Leave all the permission boxes ticked. Arkon asks for what it needs (send messages, embeds, manage roles, create threads and similar). It does **not** ask for Administrator.
 
-> When giving command examples below, you do **not** include the `<>` or `[]` - those are just placeholders. `<required>` means you must provide a value, `[optional]` means it's optional. The default prefix is `+`; change it any time with `+set serverprefix <newprefix>`.
-{.is-info}
+> Do not remove the permissions. If Arkon cannot **Send Messages** and **Embed Links** in a channel, its commands will not answer there.
+{.is-danger}
 
-## Step 1. Create a cluster
+**Check it worked:** Arkon shows up in your Discord member list. The server owner also gets a private message from Arkon titled "Thanks for adding me!" that points here and mentions `/setup`.
 
-Even with one server you need a cluster. This is separate from Ark's own "cluster" concept; it is how Arkon groups related servers.
+## Step 2. Set your Admin and Mod roles
 
-> `+addcluster <cluster_name>`
-> Example: `+addcluster MyArkCluster`
-{.is-success}
+Arkon uses two kinds of staff roles:
 
-## Step 2. Add a server to the cluster
+- **Admin**: can change settings and run the setup commands on this page.
+- **Mod**: can run the moderation commands. See [Mod Commands](/commands/mod-commands) for the list.
 
-> **Before adding your server, confirm:**
-> -- You have a static or semi-static public IP (CGNAT will not work).
-> -- The PC hosting your server has a static private IP (assigned by your router).
-> -- The RCON port is forwarded in your router to that private IP.
-> -- If Windows, a firewall exception exists for TCP inbound on the RCON port.
-> -- If applicable, your router/firewall has the bot IP `51.79.109.160` whitelisted.
+Anyone with Discord's **Manage Server** permission also counts as an Admin for the commands on this page. Roles are optional if only you will run them, but you need them as soon as you want staff to help.
+
+1. Make sure the roles exist in Discord (Server Settings, then Roles). For example `ArkAdmin` and `ArkMod`.
+2. Type this in any channel Arkon can see. **Only the server owner can run it.**
+
+```
++set roles addadminrole ArkAdmin
+```
+
+3. Do the same for mods:
+
+```
++set roles addmodrole ArkMod
+```
+
+4. Run a command again with another role name to add more roles.
+
+**Check it worked:** Arkon replies "That role is now considered an admin role." for the admin command. If the role was already set it says "This role is already an admin role."
+
+---
+
+## Step 3. Connect your first server
+
+Pick **one** of the two paths. The wizard is easier. The manual path is what you use to add more servers later.
+
+Before you start either path, have these three things ready:
+
+| What | Where to find it | Example |
+|------|------------------|---------|
+| **Public IP address** (or hostname) | [whatismyip.com](https://whatismyip.com) on the PC that hosts the server, or your host's control panel | `203.0.113.25` |
+| **RCON port** | `RCONPort=` in `GameUserSettings.ini`. Not your game port or query port | `27020` |
+| **Admin password** | `ServerAdminPassword=` in `GameUserSettings.ini`. Not the password players use to join | `MyAdminPass123` |
+
+> Use your **public** IP, not one that starts with `192.168.` or `10.`. Arkon connects over the internet, so a home-network address will never work.
 {.is-warning}
 
-> `+addserver <cluster_name>`
-> Example: `+addserver MyArkCluster`
-{.is-success}
+If you host at home, your router must forward the RCON port (TCP) to your server PC, and Windows must allow it through the firewall. Arkon connects from the IP `51.79.109.160`, so allow that address if your router or firewall filters by IP. Details are in [RCON Setup](/guides/rcon-setup).
 
-A menu pops up:
-![addserver.png](/assets/addserver.png)
-Click `Set Connection Info`:
-![addservermodal.png](/assets/addservermodal.png)
-Enter your server's connection info and click `Submit`:
-![addserverconnect.png](/assets/addserverconnect.png)
-Review the details, then click `Test & Save!` to test the connection and save.
-> The server is only saved if the connection succeeds. Fix things on your end and click test again until it works.
+### Path A: The /setup wizard (recommended)
+
+The wizard asks one question at a time, tests the connection, and saves everything. Only you see it (the messages are private).
+
+1. In a Discord channel Arkon can see, type this and press Enter. It is a slash command, so pick it from the popup list.
+
+```
+/setup
+```
+
+<img src="/assets/guide-getting-started-setup-welcome.png" alt="The first screen of the /setup wizard asking which type of Ark server you have" style="width: 600px; max-width: 100%;"/>
+
+2. Click **ARK: Survival Evolved** or **ARK: Survival Ascended**.
+3. Read the prerequisites screen. Click **I'm Ready!** when your server is set up. Click **I Need Help** if any word on that screen is new to you.
+4. Click **Set Cluster Name** and type a short name using letters and numbers only. Examples: `pvp`, `pve`, `main`.
+5. Click **Enter Server Details**. A form pops up. Fill it in, then submit.
+
+<img src="/assets/guide-getting-started-setup-server-modal.png" alt="The Server Connection Details popup form in the /setup wizard" style="width: 464px; max-width: 100%;"/>
+
+   - **Server Name**: any name you like. Letters, numbers, spaces, hyphens and underscores only. Example: `The Island`.
+   - **IP Address (without port!)**: only the IP, no `:27020`. Example: `203.0.113.25`.
+   - **RCON Port**: already filled in as `27020`. Change it if yours is different.
+   - **Admin Password**: your `ServerAdminPassword`.
+
+   Not sure where these are? Click **Where do I find these?** and pick your hosting company. The choices are Nitrado, G-Portal, Shockbyte, Host Havoc, Self-Hosted (PC/Dedicated), and Other / Not Listed.
+
+6. Wait a few seconds. Arkon tests the connection. If it fails, it tells you why and shows **Edit & Retry**. Fix the detail and try again.
+7. Pick a **server chat channel** (recommended). In-game chat for this server will show up there. You can also pick a **cluster chat channel** (chat from all servers in the cluster). These two must be different channels. Click **Continue**, or **Skip (Set up later)**.
+8. ASE only: Arkon asks if your server is crossplay. Click **Yes, it's crossplay** and it points you to the Xbox tools in [Xbox / Microsoft Store Features](/guides/xsapi). Click **No, Steam only** otherwise. ASA skips this step.
+
+<img src="/assets/guide-getting-started-setup-complete.png" alt="The Setup Complete screen listing recommended next steps" style="width: 600px; max-width: 100%;"/>
+
+**Check it worked:** you see "🎉 Setup Complete!" with a summary of your cluster and server. Click **Run Checklist** to see what is left to set up.
+
+> The wizard stops after 10 minutes of no clicking and shows "Setup Timed Out". Run `/setup` again. You can also click **Cancel** at any step.
 {.is-info}
 
-![addserverconnected.png](/assets/addserverconnected.png)
-> Your server is added! The configured channels should start streaming logs from your server.
-{.is-success}
-
----
-
-## After Setup
-
-Both paths connect your server, but a few settings are still worth doing. (The wizard recommends these on its success screen.)
-
-## 1. Set your Admin and Mod roles
-Arkon uses Red-DiscordBot's role system. **Admin** roles get full configuration access; **Mod** roles get moderation commands like `+banplayer`, `+rcon`, and `+findplayer` but cannot change settings.
-
-> `+set roles addadminrole <role>` Example: `+set roles addadminrole @ArkAdmin`
-> `+set roles addmodrole <role>` Example: `+set roles addmodrole @ArkMod`
-{.is-success}
-
-> **Tip:** Run these multiple times to assign more than one admin or mod role.
+> If you already have a server saved, `/setup` does not restart. It shows "You're Already Set Up!" with your clusters and buttons to view servers or add more.
 {.is-info}
 
-## 2. Set the status channel
-A live-updating embed showing all your servers with a player-count graph.
+> Only the server owner or people with the **Manage Server** permission see `/setup` in the command list by default.
+{.is-info}
 
-> `+serverstatus channel #status-channel`
-> `+serverstatus time <seconds>` Example: `+serverstatus time 3600` shows the last hour.
-{.is-success}
+### Path B: Add the cluster and server by hand
 
-<img src="/assets/statusgraph.png" style="max-width: 40%;"/>
+1. Create the cluster. Type this in any channel Arkon can see:
 
-## 3. Set your timezone
-So the status graph uses your local time.
+```
++addcluster main
+```
 
-> `+arkset timezone <YourTimezone>` Example: `+arkset timezone US/Eastern`
-{.is-success}
+Arkon replies "**main** cluster created!"
 
-## 4. Set the cluster type
-Controls registration behavior. Options: `xbox`, `steam`, `both`. For ASA, use `both`.
+2. Add a server to it. **Type the cluster name in lowercase**, because Arkon saves cluster names in lowercase and `+addserver` is picky about it:
 
-> `+arkset clustertype <type>`
-{.is-success}
+```
++addserver main
+```
 
----
+<img src="/assets/guide-getting-started-addserver-menu.png" alt="The +addserver message with Set Connection Info and Test and Save buttons" style="width: 600px; max-width: 100%;"/>
 
-## ✅ Verify It Works
+3. Click **Set Connection Info**. A form titled "Edit Server" pops up. Fill in:
+   - **Server Name**: `The Island`
+   - **Host IP**: `203.0.113.25` (IP only, no port)
+   - **RCON Port**: `27020`
+   - **Admin Password**: your `ServerAdminPassword`
+   - **Crosschat Channel** (optional): the channel where this server's in-game chat should appear.
 
-Confirm your setup actually took:
+4. Click submit. The message changes to "Connection Info Set!" and shows what you typed. The password appears as asterisks.
 
-- `+checklist` - shows which features are configured and what is still missing.
-- `+viewservers` - opens the server menu; your server should be listed.
-- `+players` - shows who is currently online across your servers.
+<img src="/assets/guide-getting-started-addserver-info-set.png" alt="The Connection Info Set message showing server name, host, port and hidden password" style="width: 600px; max-width: 100%;"/>
 
-If your server appears and `+players` responds, you are connected.
+5. Click **Test & Save!**. Arkon connects to your server. It only saves the server if the test passes. If it fails you see "Failed to connect!" and a checklist of things to check. Fix them and click **Test & Save!** again. You do not have to start over.
 
----
+**Check it worked:** the message becomes "Success!" and says "Server named **The Island** has been added!"
 
-## ⚙️ Optional Power Features
+> **Using `+addserver` with ASA?** Arkon guesses ASE or ASA by looking at players who are online during the test. If nobody is online it saves the server as ASE. The `/setup` wizard asks you directly, so use it for an ASA server if you can. There is no ASE/ASA field in the Edit Server form.
+{.is-warning}
 
-Once the basics work, you can layer these on. None are required to run a server.
-
-- **In-game systems** (`+viewservers` to configure): `Interchat` syncs chat across every map in a cluster; `Kit` gives new players a one-time starter kit; `Imstuck` hands stuck players a respawn care package; `Payday` rewards players on a timer. Set the item paths with `+arkset ingame`.
-  <img src="/assets/arksetingame.png" style="max-width: 40%;"/>
-- **ArkView plugin** - unlocks map and investigation commands like `+hunt`, `+findtame`, `+structures`, `+mapstats`, plus detailed tribelogs. See the [ArkView Setup Guide](/guides/arkview).
-- **Mapvote** - toggle in-game voting commands per map with cooldowns.
-- **[Shop Setup](/guides/rshop)** - an automated RCON item shop for players.
-- **[Xbox/Crossplay Tools](/guides/xsapi)** - authenticate a host Gamertag for auto-friend and alt detection (ASE Microsoft Store).
+> The free version limits how many servers you can add (the default limit is 2). Premium raises it to 100. See [Premium](/guides/premium).
+{.is-info}
 
 ---
 
-## 🎉 What's Next?
+## Step 4. Check everything with +checklist
 
-- [Quick Reference](/guides/quick-reference) - All essential commands in one place
-- [Ark RCON Commands](/guides/ark-rcon-commands) - Full raw game console command reference
-- [FAQ & Troubleshooting](/guides/faq) - Solutions to common issues
-- [Premium](/guides/premium) - Compare Free vs Premium features
+`+checklist` shows every Arkon feature and whether you have set it up. Run it any time you wonder what is left.
 
-**Need help?** Join the [Discord Support Server](https://discord.gg/RaR3wR4MgY)!
+1. Type this in a channel Arkon can see:
+
+```
++checklist
+```
+
+2. Use the buttons under the message to flip between pages. Page 1 is an overview. Each next page is one topic, like Servers & Clusters or Moderation.
+
+<img src="/assets/guide-getting-started-checklist.png" alt="A checklist page showing the Servers and Clusters category" style="width: 600px; max-width: 100%;"/>
+
+| Symbol | Meaning |
+|--------|---------|
+| ✅ | Set up |
+| ⚙️ | Partly set up |
+| ⚠️ | A channel or role you chose was deleted |
+| ❌ | Not set up yet. The line tells you the command to fix it |
+| 🔒 | Needs [Premium](/guides/premium) |
+
+**Check it worked:** the Servers & Clusters page shows ✅ next to Clusters and Servers.
+
+> Some checklist lines say `+setup`. The real command is the slash command `/setup`.
+{.is-info}
+
+---
+
+## Commands on this page
+
+Who can run them: anyone with Discord's **Manage Server** permission, or an Admin role. A Mod role alone is not enough. Arkon also needs **Embed Links** and **Send Messages** in the channel.
+
+| Command | What it does | Example |
+|---------|--------------|---------|
+| `/setup` | Guided wizard to connect your first server. Slash command only | `/setup` |
+| `+addcluster <name>` | Creates a cluster (a named group of servers) | `+addcluster main` |
+| `+addserver <cluster_name>` | Adds a server to a cluster using a button menu | `+addserver main` |
+| `+delcluster <cluster_name>` | Deletes a cluster and everything in it. Also `+remcluster` | `+delcluster main` |
+| `+delserver <cluster_name> <server_name>` | Deletes one server. Also `+remserver` | `+delserver main "The Island"` |
+| `+checklist` | Shows what is and is not set up | `+checklist` |
+| `+rconhelp` | Shows a menu of hosting companies. Pick yours for a step-by-step guide to finding your RCON port and admin password. Anyone can run it | `+rconhelp` |
+| `+viewservers` | Opens the main server settings menu (see below) | `+viewservers` |
+
+### +addcluster
+
+- **Name rules:** letters and numbers only. If it has spaces, Arkon removes them and lowercases everything. `My Cluster` is saved as `mycluster`.
+- **Limit:** 25 clusters per Discord server.
+- **Name taken:** "A cluster by that name already exists!"
+
+### +addserver
+
+- Needs at least one cluster first.
+- Type the cluster name in lowercase.
+- Hard limit of 100 servers per Discord server. The free version allows fewer (see Path B).
+
+### +delserver
+
+- Names are not case-sensitive. Put a name with spaces in quotes, like `"The Island"`.
+- Arkon does not ask "are you sure". It replies "Server deleted!"
+
+### +delcluster
+
+> `+delcluster` does **not** ask for confirmation. It deletes every server in the cluster, plus its saved player counts and tribes, then the cluster itself.
+{.is-danger}
+
+Arkon replies "Deleting relevant servers" and ends with "Cluster deleted!" Names are not case-sensitive.
+
+### +rconhelp
+
+Use this when you cannot find your RCON port or admin password. Arkon posts a dropdown titled "Who hosts your server? Get a guide..." Pick your hosting company and Arkon shows the steps for it. The same dropdown also appears under the "Failed to connect!" message when `+addserver` cannot reach your server. It works in any Discord server channel, not in private messages.
+
+### +viewservers (a quick look)
+
+`+viewservers` opens a menu of buttons for every cluster and server you have. You use it to rename things, set log channels, and turn features on. The full tour is in [Server Settings](/guides/server-settings). If you have no clusters yet, it tells you to run `+addcluster` first.
+
+---
+
+## What to set up next
+
+Pick what you want. None of these is required.
+
+- Show a live server status message with player graphs: [Status Channel](/guides/status-channel)
+- Show game chat, kills and joins in Discord: [Chat and Logs](/guides/chat-and-logs)
+- Let players link their Discord to their character: [Player Registration](/guides/player-registration)
+- Set your time zone and cluster type: [Server Settings](/guides/server-settings)
+- Unlock map tools like hunting and finding tames: [ArkView Setup](/guides/arkview)
+- Build a shop players can buy from: [RCON Shop](/guides/rshop)
+
+---
+
+## Common problems
+
+| Problem | Why it happens | Fix |
+|---------|----------------|-----|
+| "**Wrong password!**" | The admin password does not match. It is case-sensitive | Copy `ServerAdminPassword` again with no extra spaces. Do not use the join password |
+| "**Connection timed out**" | Wrong IP or port, port not forwarded, firewall blocking, server offline, or RCON off | Check each item in [RCON Setup](/guides/rcon-setup). Test the port at [canyouseeme.org](https://canyouseeme.org) |
+| "**Connection refused**" | Wrong port, RCON disabled, or the server is still loading | Wait for the server to finish starting. Check `RCONEnabled=True` and the port |
+| "**No response from server**" | The server gave an empty reply. It is still starting, or the port is not an RCON port | Wait a minute and retry. Use the RCON port, not the game or query port |
+| "A cluster with the name `MyCluster` doesn't exist!" | You typed capital letters. Cluster names are saved in lowercase | Type it lowercase: `+addserver mycluster` |
+| "Cluster names can only contain letters and numbers!" | The name has a dash, underscore or symbol | Use only letters and numbers |
+| "That's an address inside your home network..." | You typed a `192.168.x.x` or `10.x.x.x` address in the wizard | Use your public IP from [whatismyip.com](https://whatismyip.com) |
+| "Invalid host address. Please enter a valid IPv4 address or hostname." | You typed the port with the IP, like `203.0.113.25:27020` | Put the IP in Host IP and the port in RCON Port |
+| "You cannot have more than 2 servers using the free version" | You hit the free server limit | Remove a server or see [Premium](/guides/premium) |
+| "That chat channel is already in use by another server!" | Each server needs its own chat channel | Pick a different channel |
+| "This isn't your menu!" or "This setup wizard isn't for you!" | Only the person who ran the command can click its buttons | Run the command yourself |
+| "Database connection is not active, try again later" | Arkon's database was briefly unavailable | Wait a minute and try again |
+| Arkon does not answer commands | It lacks Send Messages or Embed Links in that channel | Fix the channel permissions for Arkon |
+| `/setup` is not in the command list | You lack Manage Server, or slash commands are not showing yet | Ask someone with Manage Server, or use Path B |
+
+More help: [FAQ](/guides/faq), [Glossary](/guides/glossary), or the [Arkon support server](https://discord.gg/RaR3wR4MgY).
+
+## Related pages
+
+- [Home](/)
+- [RCON Setup](/guides/rcon-setup)
+- [Server Settings](/guides/server-settings)
+- [Status Channel](/guides/status-channel)
+- [ArkView Setup](/guides/arkview)
+- [Premium](/guides/premium)
+- [Quick Reference](/guides/quick-reference)
+- [FAQ](/guides/faq)
+- [Glossary](/guides/glossary)
+- [Admin Commands](/commands/admin-commands)

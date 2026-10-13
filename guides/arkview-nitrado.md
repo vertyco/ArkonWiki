@@ -343,7 +343,7 @@ sudo cat /opt/arkviewer/maps/nitrado/output/_parse_stats.json
 - **Both are 0 and `player_data_source` is `none`:** ArkView found no player or tribe data anywhere. Make sure you're on ArkView 2.25.0 or newer, then check that the files downloaded (see [Step 1](#step-1-download-the-save-from-nitrado)).
 - **Tribes and players look out of date:** if your server keeps its data inside the `.ark` but old `.arkprofile` / `.arktribe` files are still in `/srv/arkview/map`, ArkView keeps reading those old files. Delete them and the next read uses the data in the save.
 
-Tribe logs don't need ArkView. They run over RCON, so set a channel with `+tribeset logchannel <cluster> #channel` whether or not ArkView is running.
+Tribe logs don't need ArkView. They run over RCON, so set a channel with `+tribeset logchannel <cluster> #channel` whether or not ArkView is running. Full setup: [Tribe Logs](/guides/tribe-logs).
 
 If Arkon times out, run `sudo tcpdump -ni any tcp port 8000` on the machine Arkon connects to, then run the command again. Lines appearing means Arkon's traffic arrives, so look at the firewall and the relay. No lines means the problem is before that: the provider's firewall, the router, or the Host and Port in `+viewservers`.
 

@@ -1,8 +1,8 @@
 ---
 title: All Commands - Complete Arkon Bot Command Reference
-description: Complete list of every Arkon bot command with syntax, permissions, and descriptions. The full reference for all server management, shop, and moderation commands.
+description: Every Arkon bot command for Ark: Survival Evolved and Ascended servers, with syntax, who can use it, and a link to the step-by-step guide.
 published: true
-date: 2026-06-13T00:00:00.000Z
+date: 2026-10-12T00:00:00.000Z
 tags: commands, reference, complete-list
 editor: markdown
 dateCreated: 2023-12-12T01:56:40.592Z
@@ -10,2380 +10,2676 @@ dateCreated: 2023-12-12T01:56:40.592Z
 
 # All Arkon Commands
 
-The complete Arkon command reference: every command for Ark: Survival Evolved (ASE) and Ark: Survival Ascended (ASA) server management. Includes setup, the RCON shop, player tracking, moderation, and Xbox crossplay. For role-specific lists see [Admin](/commands/admin-commands), [Mod](/commands/mod-commands), and [Player](/commands/player-commands) commands.
+Every command the public Arkon bot offers (244 in total), grouped by topic. New to Arkon? Start with the [Getting Started guide](/guides/getting-started) instead, or use the [Quick Reference](/guides/quick-reference) for a one-page cheat sheet.
 
-## /setup (Slash Command)
+**How to read this page**
 
-Guided setup wizard to connect your first ARK server<br/>
+- Type commands in any Discord channel Arkon can see. The default prefix is `+`.
+- `<value>` means you must fill it in. `[value]` means it is optional.
+- **Who can use it:** *Admin* and *Mod* are the roles you set when you [set up Arkon](/guides/getting-started). *Everyone* means any member. *Server owner* means the owner of the Discord server.
+- 🔹 needs [ArkView](/guides/arkview). 🔸 is for Xbox / Microsoft Store ASE servers only.
+- Each section links to the guide that explains the commands step by step.
 
- - Usage: `/setup`
- - Checks: `Server Only`
+**Topics:** [Getting Started](/guides/getting-started) · [Turn On RCON and Find Your RCON Details](/guides/rcon-setup) · [Server Settings](/guides/server-settings) · [Playtime Tracking, Playtime Roles and Welcome Messages](/guides/playtime-and-roles) · [Live Server Status Channel and Player Count Graphs](/guides/status-channel) · [Player Registration](/guides/player-registration) · [In-Game Chat Commands](/guides/in-game-commands) · [The RCON Shop (Rshop)](/guides/rshop) · [Lootboxes](/guides/lootboxes) · [Tribe Logs in Discord and Private Tribe Threads](/guides/tribe-logs) · [Game Chat in Discord, Kill Feed and Join Logs](/guides/chat-and-logs) · [Moderation](/guides/moderation) · [Server Control](/guides/server-control) · [Security](/guides/security) · [Map Tools](/guides/map-tools) · [Anti-Cheat](/guides/anti-cheat) · [Player Stats and Leaderboards](/guides/stats-and-leaderboards) · [Xbox and Microsoft Store Features](/guides/xsapi)
 
-## /quickbuy (Slash Command)
+## Getting Started
 
-Quickly buy an item from the Rshop!<br/>
+Step-by-step guide: [Getting Started: Connect Your First Ark Server](/guides/getting-started)
 
- - Usage: `/quickbuy <item> [quantity] [quality] [blueprint]`
- - `item:` (Required) The item you want to buy
- - `quantity:` (Optional) The quantity of the item you want to buy
- - `quality:` (Optional) The quality of the item you want to buy
- - `blueprint:` (Optional) Whether or not the item is a blueprint
+### /setup
 
- - Checks: `Server Only`
+Start the guided setup wizard.
 
-## /bulksend (Slash Command)
+- **Usage:** `/setup`
+- **Who can use it:** Members with the Manage Server permission
+- **Slash command only**
 
-Bulk send an item to a player<br/>
+### +addcluster
 
- - Usage: `/bulksend <cluster> <server> <implant> <item> <amount> <runcount> [quality] [blueprint]`
- - `cluster:` (Required) The cluster to send the item to
- - `server:` (Required) The server to send the item to
- - `implant:` (Required) The specimen # to send the item to
- - `item:` (Required) The item to send
- - `amount:` (Required) How many items to send in each run
- - `runcount:` (Required) How many times to run the command
- - `quality:` (Optional) The quality of the item to send
- - `blueprint:` (Optional) Whether the item is a blueprint
+Create a cluster to group your servers.
 
- - Checks: `Server Only`
+One cluster collects join, leave, and admin logs for a set of maps.  
+Configure log channels later from the server management menu.
 
-## +susrating
+Arguments:  
+`name` - Unique name for the cluster.
 
-Get a rating for how likely an xbox account is to be an alt<br/>
+Examples:
+- +addcluster mycluster
 
- - Usage: `+susrating <player>`
- - Restricted to: `MOD`
+- **Usage:** `+addcluster <name>`
+- **Who can use it:** Admin
 
-## +xdm (Hybrid Command)
+### +addserver
 
-DM a player on Xbox<br/>
+Add a server to one of your clusters.
 
-The message sender will be the host Gamertag of the last server they were on.<br/>
+We'll guide you through setting IP, RCON, and other details once you start.  
+Set the chat relay channel later from the server configuration menu.
 
- - Usage: `+xdm <player> <message>`
- - Slash Usage: `/xdm <player> <message>`
- - Restricted to: `MOD`
- - Cooldown: `1 per 10.0 seconds`
- - Checks: `guild_only`
+Arguments:  
+`cluster_name` - Name of the cluster this server belongs to.
 
-## +xsapi
+Examples:
+- +addserver mycluster
 
-Xbox crossplay tools/settings<br/>
+- **Usage:** `+addserver <cluster_name>`
+- **Who can use it:** Admin
 
- - Usage: `+xsapi`
- - Restricted to: `ADMIN`
+### +delcluster
 
-### +xsapi friendinvites
+Delete a cluster
 
-Get a list of pending friend invites for the host gamertag<br/>
+- **Usage:** `+delcluster <cluster_name>`
+- **Who can use it:** Admin
+- **Also called:** `+remcluster`
 
- - Usage: `+xsapi friendinvites <cluster> <server>`
+### +delserver
 
-### +xsapi authenticate
+Delete a server
 
-Authenticate a host gamertag (MS Crossplay Only)<br/>
+- **Usage:** `+delserver <cluster_name> <server_name>`
+- **Who can use it:** Admin
+- **Also called:** `+remserver`
 
- - Usage: `+xsapi authenticate`
- - Aliases: `auth`
+### +checklist
 
-### +xsapi friendrequests
+View a configuration checklist for all ArkTools features
 
-Get a list of friend requests for the host gamertag<br/>
+- **Usage:** `+checklist`
+- **Who can use it:** Admin
 
- - Usage: `+xsapi friendrequests <cluster> <server>`
+## Turn On RCON and Find Your RCON Details
 
-### +xsapi view
+Step-by-step guide: [Turn On RCON and Find Your RCON Details](/guides/rcon-setup)
 
-View settings related to the xbox api<br/>
+### +rconhelp
 
- - Usage: `+xsapi view`
+Get a guide for finding your ARK server's RCON port and admin password
 
-### +xsapi cleanfriends
+- **Usage:** `+rconhelp`
+- **Who can use it:** Everyone
 
-Trim old friends from a host gamertag.<br/>
+## Server Settings
 
-    Removes players who haven't been on the specified map within the given timeframe.<br/>
+Step-by-step guide: [Server Settings: Clusters, Servers and Bot Settings](/guides/server-settings)
 
-Arguments:<br/>
-`cluster` - Cluster name to check.<br/>
-`server` - Server name within that cluster.<br/>
-`days` - How many days of inactivity before removing a friend.<br/>
+### +viewservers
 
-    Examples:<br/>
-    - +xsapi cleanfriends valguero pve 30<br/>
-    - +xsapi cleanfriends fjordur main 14<br/>
+Open the main menu for server management
 
- - Usage: `+xsapi cleanfriends <cluster> <server> [days=30]`
+- **Usage:** `+viewservers`
+- **Who can use it:** Admin
 
-### +xsapi viewhosts
+### +arkset
 
-View XSAPI info of your servers<br/>
+ArkTools configuration
 
- - Usage: `+xsapi viewhosts`
-
-### +xsapi autofriend
-
-Auto host gamertag friend/unfriend system<br/>
-
- - Usage: `+xsapi autofriend`
- - Aliases: `smartmanage`
-
-#### +xsapi autofriend toggle
-
-Toggle the auto-friend system<br/>
-
-This will enable automatically adding new players as a friend by the host Gamertag<br/>
-and automatically unfriending them after the set number of days of inactivity (Default is 30).<br/>
-The Gamertags will also unfriend anyone that isn't following them back<br/>
-or leaves the discord after registering.<br/>
-
-You must have Arkon Premium to use this!<br/>
-
- - Usage: `+xsapi autofriend toggle`
-
-#### +xsapi autofriend unfriendtime
-
-Set days of inactivity to auto-unfriend<br/>
-
-This is the number of days of inactivity for the host Gamertags to unfriend a player.<br/>
-
-This keeps the xbox host Gamertag friends lists clean since the max you can have is 1000.<br/>
-
- - Usage: `+xsapi autofriend unfriendtime <days>`
-
-### +xsapi gettokens
-
-Get a payload dump of your server tokens (Careful not to do in public channel)<br/>
-
- - Usage: `+xsapi gettokens <cluster> <server>`
-
-### +xsapi dumpfriends
-
-Dump a player's friends list and check which ones are in the database.<br/>
-
-This will show which other players in your database are friends with this player.<br/>
-
- - Usage: `+xsapi dumpfriends <xuid>`
- - Restricted to: `MOD`
-
-### +xsapi altdetection
-
-Alt detection for newly discovered players in-game<br/>
-
-Get alerts in the event log when a suspicious account joins a server,<br/>
-and optionally Auto-ban them or send a warning message based on customizable settings<br/>
-
-Arkon Premium is required to use this system<br/>
-
- - Usage: `+xsapi altdetection`
- - Aliases: `alt`
-
-#### +xsapi altdetection toggle
-
-Toggle alt detection system on/off<br/>
-
-Arkon Premium is required to use this system<br/>
-
- - Usage: `+xsapi altdetection toggle`
-
-#### +xsapi altdetection autoban
-
-Toggle alt detection autoban on/off<br/>
-
-**NOTE**<br/>
-Auto-ban only applies to Silver accounts. Xbox Gold accounts will be logged but not auto-banned.<br/>
-
- - Usage: `+xsapi altdetection autoban`
-
-#### +xsapi altdetection whitelist
-
-Whitelist a cluster for auto-ban<br/>
-
- - Usage: `+xsapi altdetection whitelist <cluster_name>`
-
-#### +xsapi altdetection channel
-
-Set the channel for alt detection alerts<br/>
-
- - Usage: `+xsapi altdetection channel <channel>`
-
-#### +xsapi altdetection threshold
-
-Set the threshold for alt detection<br/>
-
- - Usage: `+xsapi altdetection threshold <threshold>`
-
-## +tribe (Hybrid Command)
-
-Open the tribe menu!<br/>
-
- - Usage: `+tribe [user]`
- - Slash Usage: `/tribe [user]`
- - Aliases: `mytribe`
-
-## +kicktribemate (Hybrid Command)
-
-Kick a member from your tribelog thread<br/>
-
- - Usage: `+kicktribemate <member>`
- - Slash Usage: `/kicktribemate <member>`
- - Aliases: `kickmate and kickfromtribelogs`
-
-## +tribeset
-
-Configure tribe settings<br/>
-
- - Usage: `+tribeset`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
-
-### +tribeset view
-
-View tribe settings<br/>
-
- - Usage: `+tribeset view`
-
-### +tribeset logchannel
-
-Set master tribelogs for a cluster<br/>
-
- - Usage: `+tribeset logchannel <clustername> <channel>`
-
-### +tribeset claimrole
-
-Add/Remove roles that can claim their tribes<br/>
-
- - Usage: `+tribeset claimrole <role>`
-
-### +tribeset resetclaims
-
-Wipe the threads from the claimlog channel and reset all claimed tribes<br/>
-
- - Usage: `+tribeset resetclaims <confirm>`
-
-### +tribeset claimchannel
-
-Set the channel that private tribelogs threads will be created from<br/>
-
- - Usage: `+tribeset claimchannel <channel>`
-
-## +serverstatus
-
-Server status channel settings<br/>
-
- - Usage: `+serverstatus`
- - Restricted to: `ADMIN`
-
-### +serverstatus channel
-
-Set the status channel for your Ark servers<br/>
-
- - Usage: `+serverstatus channel <channel>`
-
-### +serverstatus time
-
-Set the status graph timedelta<br/>
-
- - Usage: `+serverstatus time <seconds>`
-
-### +serverstatus init
-
-Initialize the status message<br/>
-
- - Usage: `+serverstatus init`
-
-## +tribeitemsmanual
-
-Get a list of all tribes that have a specific item along with the quantity<br/>
-
- - Usage: `+tribeitemsmanual <item_path> <cluster_name> <server_name>`
- - Restricted to: `ADMIN`
- - Aliases: `tribeitemsm`
- - Checks: `guild_only`
-
-## +tribeitems
-
-Get a list of all tribes that have a specific item along with the quantity<br/>
-
- - Usage: `+tribeitems <item_path>`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
-
-## +tamedupes
-
-Find duplicated tames if a tribe has more than X of the same dino ID<br/>
-
- - Usage: `+tamedupes <cluster_name> <server_name> <threshold>`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
-
-## +viewservers
-
-Open the main menu for server management<br/>
-
- - Usage: `+viewservers`
- - Restricted to: `ADMIN`
- - Checks: `ensure_db_connection`
-
-## +addcluster
-
-Create a cluster to group your servers.<br/>
-
-    One cluster collects join, leave, and admin logs for a set of maps.<br/>
-    Configure log channels later from the server management menu.<br/>
-
-Arguments:<br/>
-`name` - Unique name for the cluster.<br/>
-
-    Examples:<br/>
-    - +addcluster mycluster<br/>
-
- - Usage: `+addcluster <name>`
- - Restricted to: `ADMIN`
- - Checks: `ensure_db_connection`
-
-## +delcluster
-
-Delete a cluster<br/>
-
- - Usage: `+delcluster <cluster_name>`
- - Restricted to: `ADMIN`
- - Aliases: `remcluster`
- - Checks: `ensure_db_connection`
-
-## +addserver
-
-Add a server to one of your clusters.<br/>
-
-We'll guide you through setting IP, RCON, and other details once you start.<br/>
-Set the chat relay channel later from the server configuration menu.<br/>
-
-Arguments:<br/>
-`cluster_name` - Name of the cluster this server belongs to.<br/>
-
-    Examples:<br/>
-    - +addserver mycluster<br/>
-
- - Usage: `+addserver <cluster_name>`
- - Restricted to: `ADMIN`
- - Checks: `ensure_db_connection`
-
-## +delserver
-
-Delete a server<br/>
-
- - Usage: `+delserver <cluster_name> <server_name>`
- - Restricted to: `ADMIN`
- - Aliases: `remserver`
- - Checks: `ensure_db_connection`
-
-## +scheduledrcon
-
-Schedule an RCON command to run at a later time.<br/>
-
- - Usage: `+scheduledrcon [query]`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
-
-## +rshopset
-
-Admin setup commands for the RCON shop.<br/>
-
-Run with a subcommand to manage pricing, discounts, and exports.<br/>
-Examples:<br/>
-- +rshopset view<br/>
-- +rshopset discount 0.15<br/>
-
- - Usage: `+rshopset`
- - Restricted to: `ADMIN`
- - Aliases: `rss`
- - Checks: `guild_only`
-
-### +rshopset maxquality
-
-Limit the highest item quality a user can request.<br/>
-
-    Set it to 0 to remove the cap entirely.<br/>
-
-Arguments:<br/>
-`max_quality` - Highest quality value the command should allow.<br/>
-`cluster` - Optional cluster name for a targeted override.<br/>
-
-    Examples:<br/>
-    - +rshopset maxquality 100<br/>
-    - +rshopset maxquality 0 valguero<br/>
-
- - Usage: `+rshopset maxquality <max_quality> [cluster]`
-
-### +rshopset template
-
-Download the Excel template for building your shop.<br/>
-
-Use this file as the base when creating or updating item listings.<br/>
-
-Examples:<br/>
-- +rshopset template<br/>
-
- - Usage: `+rshopset template`
-
-### +rshopset reprice
-
-Recalculate shop prices from a base price sheet.<br/>
-
-The Excel file needs a `base_prices` sheet with two columns: resource and price. Include every base ingredient you can't break down further.<br/>
-
-    Examples:<br/>
-    - +rshopset reprice (with base_prices.xlsx attached)<br/>
-
- - Usage: `+rshopset reprice`
-
-### +rshopset download
-
-Export the current shop to Excel.<br/>
-
-Useful for backups or editing in bulk before re-uploading.<br/>
-
-Examples:<br/>
-- +rshopset download<br/>
-
- - Usage: `+rshopset download`
-
-### +rshopset view
-
-Show the current shop configuration for this guild.<br/>
-Examples:<br/>
-- +rshopset view<br/>
-
- - Usage: `+rshopset view`
-
-### +rshopset bpmultiplier
-
-Adjust the blueprint pricing multiplier.<br/>
-
-    Helps offset extra work when players request blueprints instead of items. Use 0 to disable.<br/>
-
-Arguments:<br/>
-`blueprint_multiplier` - Multiplier value, zero or higher.<br/>
-`cluster` - Optional cluster name for a local rule.<br/>
-
-    Examples:<br/>
-    - +rshopset bpmultiplier 1.5<br/>
-    - +rshopset bpmultiplier 0 fjordur<br/>
-
- - Usage: `+rshopset bpmultiplier <blueprint_multiplier> [cluster]`
-
-### +rshopset readstacks
-
-Read stack sizes from a Game.ini file.<br/>
-
-Attach your `Game.ini` and we'll sync custom stack amounts for matching items.<br/>
-
-    Examples:<br/>
-    - +rshopset readstacks (with Game.ini attached)<br/>
-
- - Usage: `+rshopset readstacks`
-
-### +rshopset discountdays
-
-Set a specific day's discount rotation.<br/>
-
-    Use numbers 0-6 for Monday through Sunday. Put 0 to clear that day's promo.<br/>
-
-Arguments:<br/>
-`day` - Day index (0 = Monday ... 6 = Sunday).<br/>
-`discount` - Percent as a decimal, between 0 and 0.99.<br/>
-
-    Examples:<br/>
-    - +rshopset discountdays 5 0.15<br/>
-    - +rshopset discountdays 2 0<br/>
-
- - Usage: `+rshopset discountdays <day> <discount>`
- - Aliases: `discountday and dd`
-
-### +rshopset autorefund
-
-Toggle automatic refunds when purchases fail.<br/>
-
-When enabled, players get their currency back if a command errors out. One-command purchases always refund.<br/>
-Examples:<br/>
-- +rshopset autorefund<br/>
-
- - Usage: `+rshopset autorefund`
- - Aliases: `refunds and refund`
-
-### +rshopset delimiter
-
-Set the delimiter used inside pack rows.<br/>
-
-    Choose how multiple blueprint paths or commands are separated in the packs sheet.<br/>
-
-Arguments:<br/>
-`delimiter` - The separator character or string to use.<br/>
-
-    Examples:<br/>
-    - +rshopset delimiter |<br/>
-    - +rshopset delimiter ;<br/>
-
- - Usage: `+rshopset delimiter <delimiter>`
-
-### +rshopset maxbpquality
-
-Limit the highest blueprint quality a user can request.<br/>
-
-Use 0 to lift the limit.<br/>
-
-Arguments:<br/>
-`max_bp_quality` - Highest blueprint quality to allow.<br/>
-`cluster` - Optional cluster name for an override.<br/>
-
-Examples:<br/>
-- +rshopset maxbpquality 120<br/>
-- +rshopset maxbpquality 0 aberration<br/>
-
- - Usage: `+rshopset maxbpquality <max_bp_quality> [cluster]`
-
-### +rshopset upload
-
-Upload an Excel sheet to refresh the shop.<br/>
-
-Attach the exported template with your changes and the bot will replace the current listings.<br/>
-
-    Examples:<br/>
-    - +rshopset upload (with your sheet attached)<br/>
-
- - Usage: `+rshopset upload`
-
-### +rshopset discount
-
-Set a flat discount for the shop.<br/>
-
-    Provide 0 to disable. Target a cluster or leave blank for all of them.<br/>
-
-Arguments:<br/>
-`discount` - Percent as a decimal, between 0 and 0.99.<br/>
-`cluster` - Optional cluster name to scope the discount.<br/>
-
-    Examples:<br/>
-    - +rshopset discount 0.2<br/>
-    - +rshopset discount 0 extinction<br/>
-
- - Usage: `+rshopset discount <discount> [cluster]`
-
-### +rshopset qualityexp
-
-Tweak the quality exponent multiplier.<br/>
-
-    Lower values make high-quality requests pricier. Use 0 to turn the modifier off.<br/>
-
-Arguments:<br/>
-`exponent` - Multiplier value, zero or higher.<br/>
-`cluster` - Optional cluster name to scope the change.<br/>
-
-    Examples:<br/>
-    - +rshopset qualityexp 0.6<br/>
-    - +rshopset qualityexp 0 crystal<br/>
-
- - Usage: `+rshopset qualityexp <exponent> [cluster]`
-
-### +rshopset discountrole
-
-Give a role a permanent shop discount.<br/>
-
-    Set the value to 0 to remove the role from the list.<br/>
-
-Arguments:<br/>
-`role` - Discord role to adjust.<br/>
-`discount` - Percent as a decimal, between 0 and 0.99.<br/>
-
-    Examples:<br/>
-    - +rshopset discountrole @VIP 0.1<br/>
-    - +rshopset discountrole @Member 0<br/>
-
- - Usage: `+rshopset discountrole <role> <discount>`
-
-## +shopsettings
-
-Show the current shop configuration for this guild.<br/>
-Examples:<br/>
-- +shopsettings<br/>
-
- - Usage: `+shopsettings`
- - Checks: `guild_only`
-
-## +rshop (Hybrid Command)
-
-Open the in-game RCON shop.<br/>
-
-    Start typing to filter items, or browse the full catalog.<br/>
-
-Arguments:<br/>
-`item` - Optional search term to jump straight to an item.<br/>
-
-    Examples:<br/>
-    - +rshop<br/>
-    - +rshop shotgun<br/>
-
- - Usage: `+rshop [item]`
- - Slash Usage: `/rshop [item]`
- - Checks: `guild_only`
-
-## +shopstats (Hybrid Command)
-
-Show purchase stats for you or another member.<br/>
-
-    Defaults to your own stats unless you mention someone else.<br/>
-
-Arguments:<br/>
-`user` - Optional member to inspect.<br/>
-
-    Examples:<br/>
-    - +shopstats<br/>
-    - +shopstats @Vert<br/>
-
- - Usage: `+shopstats [user=None]`
- - Slash Usage: `/shopstats [user=None]`
- - Checks: `guild_only`
-
-## +shopoverview (Hybrid Command)
-
-Generate a visual summary of the guild's shop economy.<br/>
-
-Builds charts and totals for spending, popular items, and top buyers.<br/>
-
-Examples:<br/>
-- +shopoverview<br/>
-
- - Usage: `+shopoverview`
- - Slash Usage: `/shopoverview`
- - Checks: `guild_only`
-
-## +registerplayer (Hybrid Command)
-
-Register another user to the database.<br/>
-
- - Usage: `+registerplayer <member> <gameid> [overwrite=False]`
- - Slash Usage: `/registerplayer <member> <gameid> [overwrite=False]`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
-
-## +setplayerimplant (Hybrid Command)
-
-Set the implant number for a player.<br/>
-
- - Usage: `+setplayerimplant <gameid> <implant>`
- - Slash Usage: `/setplayerimplant <gameid> <implant>`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
-
-## +register (Hybrid Command)
-
-Register your in-game account with the database.<br/>
-
- - Usage: `+register [username]`
- - Slash Usage: `/register [username]`
- - Checks: `guild_only`
-
-## +addme
-
-(Xbox/Win10 CROSSPLAY ONLY)Add yourself as a friend<br/>
-
-Make the host Gamertags add you as a friend<br/>
-
-This command requires api keys to be set for the servers<br/>
-
- - Usage: `+addme`
- - Checks: `guild_only`
-
-## +addplayer
-
-(Xbox/Win10 CROSSPLAY ONLY) Add a player to a host Gamertag's friends list<br/>
-
-This command requires api keys to be set for the servers<br/>
-
- - Usage: `+addplayer <player>`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
-
-## +removeplayer
-
-Unfriend a player from the host Gamertag<br/>
-
- - Usage: `+removeplayer <xuid>`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
-
-## +unregisterplayer
-
-Unlink the discord account from a player<br/>
-
-The optional **player** argument can be one of the following.<br/>
-- Gamertag or Steam Username<br/>
-- XUID or Steam ID<br/>
-- Discord ID or Username<br/>
-- @mention<br/>
-
- - Usage: `+unregisterplayer <player>`
- - Restricted to: `MOD`
- - Checks: `guild_only`
-
-## +unregister
-
-Unregister yourself<br/>
-
-Removes you from any Gamertags you have registered to<br/>
-
- - Usage: `+unregister`
- - Aliases: `unregisterme`
- - Checks: `guild_only`
-
-## +specimen
-
-Set your specimen number to use the Rshop<br/>
-
-Your specimen number (aka Implant ID) can be found in the top left of your player inventory.<br/>
-
- - Usage: `+specimen <specimen_number>`
- - Aliases: `implant, speciment, implantid, and specimen#`
- - Checks: `guild_only`
-
-## +alpharole
-
-Set or clear the alpha role for a cluster<br/>
-
-Members of the #1 tribe on the alpha leaderboard will receive this role.<br/>
-If no role is provided, the alpha role will be cleared.<br/>
-
-**Arguments**<br/>
-- `cluster` - The cluster name<br/>
-- `role` - The role to assign (optional, omit to clear)<br/>
-
- - Usage: `+alpharole <cluster> [role=None]`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
-
-## +mystats
-
-View your personal alpha system statistics<br/>
-
-Shows your current rank, alpha points, power rating, activity status,<br/>
-bounty board position, most wanted status, and active rivalries.<br/>
-
- - Usage: `+mystats`
- - Aliases: `alphainfo`
- - Cooldown: `1 per 5.0 seconds`
- - Checks: `guild_only`
-
-## +mostwanted
-
-View the top 3 killers in the cluster with bounty values<br/>
-
-Shows the most dangerous players ranked by total PvP kills,<br/>
-their bounty bonuses, tribe affiliations, and kill counts.<br/>
-
- - Usage: `+mostwanted`
- - Cooldown: `1 per 5.0 seconds`
- - Checks: `guild_only`
-
-## +rivalries
-
-View all active rivalries in the cluster<br/>
-
-Shows tribes with ongoing conflicts (10+ combined kills in last 7 days),<br/>
-kill counts for each side, and total encounter numbers.<br/>
-
- - Usage: `+rivalries`
- - Cooldown: `1 per 5.0 seconds`
- - Checks: `guild_only`
-
-## +checkraid
-
-Check if your tribe has any alliance conflicts with another tribe.<br/>
-
-This helps you understand if a raid will earn alpha points BEFORE you start.<br/>
-
-**Usage:**<br/>
-`.conflicts <tribe name>` - Select a server and check the specified tribe<br/>
-
- - Usage: `+checkraid <target_tribe_name>`
- - Cooldown: `1 per 10.0 seconds`
- - Checks: `guild_only`
-
-## +alliances
-
-Show which tribes you're connected to through shared home tribe memberships.<br/>
-
-This shows all tribes that share the same home tribe as your tribe's active members.<br/>
-You CANNOT earn alpha points from interactions with these tribes.<br/>
-
- - Usage: `+alliances`
- - Cooldown: `1 per 10.0 seconds`
- - Checks: `guild_only`
-
-## +playerstats (Hybrid Command)
-
-View info about a player<br/>
-
-The optional **player** argument can be one of the following.<br/>
-- Gamertag or Username<br/>
-- XUID, Steam ID, PSN ID, or EOS ID<br/>
-- Discord ID or Username<br/>
-- @mention<br/>
-
- - Usage: `+playerstats [player]`
- - Slash Usage: `/playerstats [player]`
- - Checks: `guild_only`
-
-## +clusterlb
-
-Show the top players on a specific cluster.<br/>
-
-    Pick which stat to sort by: playtime, tamed, kills, or tamekills.<br/>
-
-Arguments:<br/>
-`sort_by` - Stat to highlight. Defaults to kills.<br/>
-
-    Examples:<br/>
-    - +clusterlb playtime<br/>
-    - +clusterlb tamekills<br/>
-
- - Usage: `+clusterlb [sort_by=kills]`
- - Checks: `guild_only`
-
-## +players
-
-Show the overall playtime leaderboard.<br/>
-
-    Filter to a cluster if you just want local rankings.<br/>
-
-Arguments:<br/>
-`cluster` - Optional cluster name to limit the results.<br/>
-
-    Examples:<br/>
-    - +players<br/>
-    - +players scorchedearth<br/>
-
- - Usage: `+players [cluster=None]`
- - Aliases: `arkleaderboard, arklb, and arktop`
- - Checks: `guild_only`
-
-## +tribelb
-
-See which tribes are leading the pack.<br/>
-
-    Sort by kills, dinos tamed, or structures destroyed. Short forms k, t, and d work too.<br/>
-
-Arguments:<br/>
-`sort_by` - What stat to rank by.<br/>
-`cluster` - Optional cluster name for a local board.<br/>
-
-    Examples:<br/>
-    - +tribelb kills<br/>
-    - +tribelb d fjordur<br/>
-
- - Usage: `+tribelb <sort_by> [cluster=None]`
- - Aliases: `tribetop`
- - Checks: `guild_only`
-
-## +findsurvivor
-
-Look up a survivor by character name.<br/>
-
-    Returns their servers, tribes, and recent activity if we have it logged.<br/>
-
-Arguments:<br/>
-`survivor_name` - Anything we can use to match the character name.<br/>
-
-    Examples:<br/>
-    - +findsurvivor Vertyco<br/>
-    - +findsurvivor "Super Survivor"<br/>
-
- - Usage: `+findsurvivor <survivor_name>`
- - Aliases: `findcharname`
- - Checks: `guild_only`
-
-## +dbstats
-
-Show ArkTools stats for this guild or globally.<br/>
-
-    Toggle global mode to compare against all ArkTools servers.<br/>
-
-Arguments:<br/>
-`showglobal` - True to show global totals instead of this guild.<br/>
-
-    Examples:<br/>
-    - +dbstats<br/>
-    - +dbstats true<br/>
-
- - Usage: `+dbstats [showglobal=False]`
- - Checks: `guild_only`
-
-## +kickme
-
-Kick your character from the server.<br/>
-
-Use this when you're stuck in a loading screen or need a fresh join.<br/>
-
-Examples:<br/>
-- +kickme<br/>
-
- - Usage: `+kickme`
- - Cooldown: `1 per 60.0 seconds`
- - Checks: `guild_only`
-
-## +hometribe
-
-View your home tribe (or another member's) for the alpha system.<br/>
-
-Your home tribe is the tribe with the highest power that you belong to.<br/>
-This determines which tribe gets credit for your PvP kills.<br/>
-
-Arguments:<br/>
-`member` - Optional member to check. Defaults to yourself.<br/>
-
- - Usage: `+hometribe [member=None]`
- - Checks: `guild_only`
-
-## +playercounts
-
-View player counts either globally or locally<br/>
-
- - Usage: `+playercounts [local=False]`
- - Cooldown: `1 per 10.0 seconds`
-
-## +excelsend
-
-Send yourself in-game commands from an Excel sheet.<br/>
-
-Your excel file must have two columns, `command` and `amount`.<br/>
-- `command` is the command you want to send to yourself.<br/>
-- `amount` is the amount of times you want to send the command.<br/>
-
-Command Column Example:<br/>
-```
-"Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_Element.PrimalItemResource_Element'" 5 0 0
-```
-Amount Column Example:<br/>
-```
-5
-```
-This would send the command 5 times.<br/>
-Each command gives you 5 element.<br/>
-This would give you a total of 25 element.<br/>
-
- - Usage: `+excelsend`
- - Restricted to: `ADMIN`
- - Aliases: `xlsend`
- - Checks: `guild_only`
-
-## +dummywall
-
-Build a list of spawn commands for a loadout dummy wall.<br/>
-
-    Handy when you want quick cover, cave fillers, or to plug rat holes.<br/>
-
-Arguments:<br/>
-`width` - How many dummies wide the wall should be.<br/>
-`height` - How many dummies tall the wall should be.<br/>
-
-    Examples:<br/>
-    - +dummywall 2 2<br/>
-    - +dummywall 4 3<br/>
-
- - Usage: `+dummywall <width> <height>`
- - Restricted to: `ADMIN`
-
-## +dummyfloor
-
-Build a list of spawn commands for a loadout dummy floor.<br/>
-
-    Perfect for quick foundations or filling cave floors.<br/>
-
-Arguments:<br/>
-`width` - How many dummies wide the floor should be.<br/>
-`depth` - How many rows of dummies to spawn.<br/>
-
-    Examples:<br/>
-    - +dummyfloor 3 3<br/>
-    - +dummyfloor 5 2<br/>
-
- - Usage: `+dummyfloor <width> <depth>`
- - Restricted to: `ADMIN`
-
-## +rcon (Hybrid Command)
-
-Run an RCON command<br/>
-
-Note that `+doexit`, `+dorestartlevel`, `+banplayer` and `+unbanplayer`<br/>
-are standalone commands, running these commands with pure rcon will not execute<br/>
-the extra steps associated with these commands like countdowns,<br/>
-saving, or player blocking.<br/>
-
- - Usage: `+rcon <cluster> <server> <command>`
- - Slash Usage: `/rcon <cluster> <server> <command>`
- - Restricted to: `MOD`
- - Aliases: `run`
- - Checks: `ensure_db_connection and guild_only`
-
-## +bulksend
-
-Run GiveItem commands multiple times in a row.<br/>
-
-    Handy when you need to load someone with stacks that craft commands can't handle in one go. Your blueprint string must already include amount, quality, and blueprint flags.<br/>
-
-Arguments:<br/>
-`cluster` - Cluster the player is on.<br/>
-`server` - Server name within that cluster.<br/>
-`implant` - Specimen number to send items to.<br/>
-`count` - How many times to run the command.<br/>
-`blueprint_string` - Full GiveItem blueprint string including numbers.<br/>
-
-    Examples:<br/>
-    - +bulksend main rag 12345 50 "Blueprint'/Game/...Polymer' 100 1 0"<br/>
-
- - Usage: `+bulksend <cluster> <server> <implant> <count> <blueprint_string>`
- - Restricted to: `ADMIN`
- - Checks: `ensure_db_connection and guild_only`
-
-## +banplayer (Hybrid Command)
-
-Ban a player from all servers<br/>
-
- - Usage: `+banplayer <game_id> <reason>`
- - Slash Usage: `/banplayer <game_id> <reason>`
- - Restricted to: `MOD`
- - Checks: `guild_only and ensure_db_connection`
-
-## +unbanplayer (Hybrid Command)
-
-Unban a player from all servers<br/>
-
- - Usage: `+unbanplayer <game_id> [reason]`
- - Slash Usage: `/unbanplayer <game_id> [reason]`
- - Restricted to: `MOD`
- - Checks: `guild_only and ensure_db_connection`
-
-## +tempbanplayer (Hybrid Command)
-
-Temporarily ban a player from all servers<br/>
-
-`duration` is the amount of time the player should be banned for.<br/>
-`days` is the amount of days of messages to cleanup on tempban.<br/>
-
-Examples:<br/>
-- `+tempbanplayer 2535437775463072 Because I say so`<br/>
-    This will ban the player with ID 2535437775463072 for the default amount of time set by an administrator.<br/>
-- `+tempbanplayer 2535437775463072 15m You need a timeout`<br/>
-    This will ban the player with ID 2535437775463072 for 15 minutes.<br/>
-
- - Usage: `+tempbanplayer <game_id> [duration=None] [reason]`
- - Slash Usage: `/tempbanplayer <game_id> [duration=None] [reason]`
- - Restricted to: `MOD`
- - Aliases: `tbp`
- - Checks: `guild_only and ensure_db_connection`
-
-## +setplayertime
-
-Set the tracked playtime for a player.<br/>
-
-    Use common time shorthand like 1d, 6h, or 45m. Combine them for longer spans, such as 3d12h.<br/>
-
-Arguments:<br/>
-`time` - How much playtime to assign.<br/>
-`player_query` - Name, ID, or partial match for the player.<br/>
-
-    Examples:<br/>
-    - +setplayertime 2d6h Vertyco<br/>
-    - +setplayertime 45m "Player Name"<br/>
-
- - Usage: `+setplayertime <time> <player_query>`
- - Restricted to: `ADMIN`
- - Checks: `guild_only and ensure_db_connection`
-
-## +unbanfromtext
-
-Unban players from a list of player IDs<br/>
-
-The text should be a list of player IDs separated by spaces or new lines.<br/>
-
-**NOTE**: This will not unblock players on Xbox, you will need to do that manually.<br/>
-
- - Usage: `+unbanfromtext`
- - Restricted to: `MOD`
- - Checks: `guild_only and ensure_db_connection`
-
-## +banfromtext
-
-Ban players from a list of player IDs<br/>
-
-The text should be a list of player IDs separated by commas or new lines.<br/>
-
-**NOTE**: This will not block players on Xbox, you will need to do that manually.<br/>
-
- - Usage: `+banfromtext`
- - Restricted to: `MOD`
- - Checks: `ensure_db_connection and guild_only`
-
-## +doexit (Hybrid Command)
-
-Shut a game server down completely.<br/>
-
-    Sends a countdown broadcast first so players can get safe before it closes.<br/>
-
-Arguments:<br/>
-`cluster` - Which cluster to target, or all for every cluster.<br/>
-`server` - Which map to stop, or all for every map.<br/>
-`countdown` - Optional delay like 30s, 1m, or 1m30s before the shutdown.<br/>
-
-    Examples:<br/>
-    - +doexit main ragnarok 5m<br/>
-    - +doexit all all<br/>
-
- - Usage: `+doexit <cluster> <server> [countdown=None]`
- - Slash Usage: `/doexit <cluster> <server> [countdown=None]`
- - Restricted to: `MOD`
- - Checks: `guild_only and ensure_db_connection`
-
-## +dorestartlevel (Hybrid Command)
-
-Restart a server without a full shutdown.<br/>
-
-    Great for rolling fresh map updates while letting players prep during the countdown.<br/>
-
-Arguments:<br/>
-`cluster` - Which cluster to restart, or all for every cluster.<br/>
-`server` - Which map to restart, or all for every map.<br/>
-`countdown` - Optional delay like 30s, 1m, or 1m30s before the restart.<br/>
-
-    Examples:<br/>
-    - +dorestartlevel main fjordur 2m<br/>
-    - +dorestartlevel all all<br/>
-
- - Usage: `+dorestartlevel <cluster> <server> [countdown=None]`
- - Slash Usage: `/dorestartlevel <cluster> <server> [countdown=None]`
- - Restricted to: `MOD`
- - Checks: `guild_only and ensure_db_connection`
-
-## +resetkit
-
-Reset a players claimed kit<br/>
-
-If per-server kits are enabled, this will reset the kit for all servers in the cluster.<br/>
-
- - Usage: `+resetkit <gameid>`
- - Restricted to: `ADMIN`
- - Checks: `ensure_db_connection and guild_only`
-
-## +cleantribelogs
-
-Delete tribelog threads that arent associated with a tribe<br/>
-
- - Usage: `+cleantribelogs`
- - Restricted to: `ADMIN`
- - Checks: `ensure_db_connection and guild_only`
-
-## +resetclusterkits
-
-Reset all player kits for a cluster<br/>
-
-If per-server kits are enabled, this will reset all kits for all servers in the cluster.<br/>
-
- - Usage: `+resetclusterkits <cluster_name>`
- - Restricted to: `ADMIN`
- - Checks: `ensure_db_connection and guild_only`
-
-## +remreacts
-
-Remove reactions from a message based on the following.<br/>
-- `min_playtime`: Minimum playtime required in hours<br/>
-- `min_joined`: Minimum time in discord in hours<br/>
-- `min_age`: Minimum age of discord account in hours<br/>
-
- - Usage: `+remreacts <message> [min_playtime=0] [min_joined=0] [min_age=0]`
- - Restricted to: `ADMIN`
- - Checks: `ensure_db_connection and guild_only`
-
-## +bans
-
-Manage player bans<br/>
-
- - Usage: `+bans [query]`
- - Restricted to: `MOD`
- - Checks: `ensure_db_connection and guild_only`
-
-## +globalbans
-
-View global player bans<br/>
-
- - Usage: `+globalbans [query]`
- - Restricted to: `MOD`
- - Aliases: `allbans`
- - Checks: `ensure_db_connection and guild_only`
-
-## +pollvotetime
-
-Check how much playtime each poll voter has logged.<br/>
-
-    Pulls totals from either overall playtime or just this wipe's map data.<br/>
-
-Arguments:<br/>
-`message` - The Discord message containing the poll.<br/>
-`cluster` - Optional cluster name to filter hours.<br/>
-`use_maptime` - True to only count playtime from the current wipe.<br/>
-
-    Examples:<br/>
-    - +pollvotetime 123456789012345678<br/>
-    - +pollvotetime 123456789012345678 valguero true<br/>
-
- - Usage: `+pollvotetime <message> [cluster=None] [use_maptime=False]`
- - Restricted to: `MOD`
- - Checks: `ensure_db_connection and guild_only`
-
-## +pollvotefilter
-
-Filter poll votes from players who haven't played on a cluster.<br/>
-
-    Optionally limit it to hours logged this wipe to keep polls fair.<br/>
-
-Arguments:<br/>
-`message` - The Discord message containing the poll.<br/>
-`cluster_name` - Name of the cluster the poll is about.<br/>
-`this_wipe` - True to only count players active this season.<br/>
-
-    Examples:<br/>
-    - +pollvotefilter 123456789012345678 valguero<br/>
-    - +pollvotefilter 123456789012345678 extinction true<br/>
-
- - Usage: `+pollvotefilter <message> <cluster_name> [this_wipe=False]`
- - Restricted to: `MOD`
- - Checks: `ensure_db_connection and guild_only`
-
-## +suswatch
-
-Add/Remove players from the watchlist.<br/>
-
-Admins will be alerted when players on the watchlist join or leave a server<br/>
-
-`gameid` is their XUID, SteamID, or EOS ID (NOT their username)<br/>
-
- - Usage: `+suswatch [gameid=None]`
- - Restricted to: `ADMIN`
- - Checks: `ensure_db_connection and guild_only`
-
-## +unhex
-
-Unhex a string<br/>
-
- - Usage: `+unhex <text>`
- - Restricted to: `MOD`
- - Checks: `guild_only and ensure_db_connection`
-
-## +warntribe
-
-Warn all members of a tribe at once<br/>
-
- - Usage: `+warntribe <tribe_id> <warning>`
- - Restricted to: `ADMIN`
- - Checks: `ensure_db_connection and guild_only`
-
-## +bantribe
-
-Ban all members of a tribe at once<br/>
-
- - Usage: `+bantribe <tribe_id> <reason>`
- - Restricted to: `ADMIN`
- - Checks: `ensure_db_connection and guild_only`
-
-## +arkset
-
-ArkTools configuration<br/>
-
- - Usage: `+arkset`
- - Restricted to: `ADMIN`
- - Aliases: `arktools`
-
-### +arkset wipeclustertribes
-
-Reset all player tribes for a cluster<br/>
-
- - Usage: `+arkset wipeclustertribes <cluster_name>`
-
-### +arkset ingame
-
-Configure in-game settings<br/>
-
- - Usage: `+arkset ingame`
-
-#### +arkset ingame payday
-
-Toggle payday rewards for a cluster<br/>
-
- - Usage: `+arkset ingame payday <cluster_name>`
-
-#### +arkset ingame imstuck
-
-Enable or disable the /imstuck rescue command for a cluster.<br/>
-
-Arguments:<br/>
-`cluster_name` - Cluster to toggle.<br/>
-
-Examples:<br/>
-- +ingame imstuck main<br/>
-
- - Usage: `+arkset ingame imstuck <cluster_name>`
-
-#### +arkset ingame getimstuckpaths
-
-Get the current imstuck paths for a cluster<br/>
-
- - Usage: `+arkset ingame getimstuckpaths <cluster_name>`
- - Restricted to: `ADMIN`
-
-#### +arkset ingame getpaydaypaths
-
-Get the current payday paths for a cluster<br/>
-
- - Usage: `+arkset ingame getpaydaypaths <cluster_name>`
- - Restricted to: `ADMIN`
-
-#### +arkset ingame setpaydaypaths
-
-Upload the blueprint paths used for payday rewards.<br/>
-
-Attach a `.txt` file with one line per path using `path quantity quality blueprint` format.<br/>
-
-Arguments:<br/>
-`cluster_name` - Cluster whose payday rewards you're updating.<br/>
-
-Examples:<br/>
-- +ingame setpaydaypaths main (with payday_paths.txt attached)<br/>
-
- - Usage: `+arkset ingame setpaydaypaths <cluster_name>`
- - Restricted to: `ADMIN`
-
-#### +arkset ingame kit
-
-Toggle new player kit claiming for a cluster<br/>
-
- - Usage: `+arkset ingame kit <cluster_name>`
-
-#### +arkset ingame paydaycooldown
-
-Set cooldown seconds for paydays<br/>
-
- - Usage: `+arkset ingame paydaycooldown <seconds> <cluster_name>`
-
-#### +arkset ingame paydayrandom
-
-Toggle randomization of payday rewards<br/>
-
- - Usage: `+arkset ingame paydayrandom <cluster_name>`
- - Aliases: `randompayday`
-
-#### +arkset ingame getkitpaths
-
-Get the current kit paths for a cluster<br/>
-
- - Usage: `+arkset ingame getkitpaths <cluster_name>`
- - Restricted to: `ADMIN`
-
-#### +arkset ingame setkitpaths
-
-Upload kit blueprint paths for a cluster.<br/>
-
-Attach a `.txt` file with one entry per line in the format `path quantity quality blueprint`.<br/>
-
-Arguments:<br/>
-`cluster_name` - Cluster whose kit paths you're updating.<br/>
-
-Examples:<br/>
-- +ingame setkitpaths main (with kit_paths.txt attached)<br/>
-
- - Usage: `+arkset ingame setkitpaths <cluster_name>`
- - Restricted to: `ADMIN`
-
-#### +arkset ingame setimstuckpaths
-
-Upload the teleport paths used for /imstuck.<br/>
-
-Attach a `.txt` file with one line per path using `path quantity quality blueprint` format.<br/>
-
-Arguments:<br/>
-`cluster_name` - Cluster whose teleport paths you're updating.<br/>
-
-Examples:<br/>
-- +ingame setimstuckpaths main (with imstuck_paths.txt attached)<br/>
-
- - Usage: `+arkset ingame setimstuckpaths <cluster_name>`
- - Restricted to: `ADMIN`
-
-#### +arkset ingame imstuckcooldown
-
-Change the cooldown for the /imstuck rescue command.<br/>
-
-Arguments:<br/>
-`seconds` - How many seconds users must wait between uses.<br/>
-`cluster_name` - Cluster to apply the cooldown to.<br/>
-
-Examples:<br/>
-- +ingame imstuckcooldown 900 main<br/>
-
- - Usage: `+arkset ingame imstuckcooldown <seconds> <cluster_name>`
-
-### +arkset killfeed
-
-Toggle the killfeed<br/>
-
-The killfeed shows player kills in the map chats in a silly way, it will also shame bob killers publicly<br/>
-
- - Usage: `+arkset killfeed`
-
-### +arkset shoplog
-
-Set the shop log channel<br/>
-
-All purchases will be logged here<br/>
-
- - Usage: `+arkset shoplog <channel>`
-
-### +arkset autowelcome
-
-Toggle auto welcoming of new players discovered in-game<br/>
-
-This is just a broadcast in the server, not a DM<br/>
-
- - Usage: `+arkset autowelcome`
-
-### +arkset wipeclusterstats
-
-Reset all player stats like kills/tames/deaths for a cluster<br/>
-
- - Usage: `+arkset wipeclusterstats <cluster_name>`
-
-### +arkset registerrole
-
-Set the role required to register<br/>
-
- - Usage: `+arkset registerrole [role]`
-
-### +arkset autowelcomemessage
-
-Set the welcome message sent when a new player is found<br/>
-
-Placeholders<br/>
-- `{username}` - Player's username<br/>
-- `{gameid}` - Player's game ID<br/>
-
- - Usage: `+arkset autowelcomemessage [message]`
- - Aliases: `welcomemsg`
-
-### +arkset regenkey
-
-Generate a fresh ArkView API key.<br/>
-
-This replaces the existing key immediately, so update any integrations that use it.<br/>
-
-Examples:<br/>
-- +arkset regenkey<br/>
-
- - Usage: `+arkset regenkey`
- - Restricted to: `GUILD_OWNER`
-
-### +arkset usedisplaynames
-
-Toggle whether discord->ark messages use display names<br/>
-
-If Enabled, messages sent to Ark will use the user's nickname or username instead of their username<br/>
-
- - Usage: `+arkset usedisplaynames`
-
-### +arkset timezone
-
-Set your server's timezone<br/>
-
- - Usage: `+arkset timezone <timezone>`
-
-### +arkset initroles
-
-Initialize playtime roles<br/>
-
- - Usage: `+arkset initroles`
- - Cooldown: `1 per 900.0 seconds`
-
-### +arkset linkrole
-
-Add a playtime role<br/>
-
- - Usage: `+arkset linkrole <hours> <role>`
-
-### +arkset countdown
-
-Set the `doexit` and `dorestartlevel` countdowns<br/>
-
- - Usage: `+arkset countdown <seconds>`
-
-### +arkset clustertype
-
-Set the type of ark servers you host<br/>
-
-Valid arguments are `xbox, steam, both`<br/>
-
- - Usage: `+arkset clustertype <cluster_type>`
-
-### +arkset refundserverdelta
-
-Refund purchases for a specific server within a time window.<br/>
-
-    Use `YYYY-MM-DDTHH:MM:SS` for both timestamps.<br/>
-
-Arguments:<br/>
-`start_time` - Oldest timestamp to refund from.<br/>
-`end_time` - Newest timestamp to refund through.<br/>
-`server_name` - Server name within the cluster.<br/>
-`cluster_name` - Cluster the server belongs to.<br/>
-
-    Examples:<br/>
-    - +arkset refundserverdelta 2024-04-03T20:00:00 2024-05-05T18:00:00 volcanic pvp<br/>
-
- - Usage: `+arkset refundserverdelta <start_time> <end_time> <server_name> <cluster_name>`
-
-### +arkset tempbandefault
-
-Set the default tempban duration<br/>
-
-Example: 1h30m<br/>
-
- - Usage: `+arkset tempbandefault <duration>`
- - Restricted to: `GUILD_OWNER`
-
-### +arkset eventlog
-
-Set the event log<br/>
-
-The logs include the following events:<br/>
-- New players that are added to the database<br/>
-- Welcome messages sent to new players(if enabled)<br/>
-- Old players that are unfriended for inactivity(if enabled)<br/>
-- Players that are unfriended for leaving the Discord(if enabled)<br/>
-- Players that are unfriended due to unfriending a host Gamertag<br/>
-
- - Usage: `+arkset eventlog <channel>`
-
-### +arkset modcommands
-
-Mod command allow list<br/>
-
- - Usage: `+arkset modcommands <command>`
- - Aliases: `modcmd`
-
-### +arkset ucstats
-
-View Upgrade.Chat purchases by cluster<br/>
-
- - Usage: `+arkset ucstats`
- - Restricted to: `GUILD_OWNER`
-
-### +arkset refundclusterdelta
-
-Refund shop purchases for a cluster within a time window.<br/>
-
-    Provide the start and end timestamps using `YYYY-MM-DDTHH:MM:SS`.<br/>
-
-Arguments:<br/>
-`start_time` - Oldest timestamp to refund from.<br/>
-`end_time` - Newest timestamp to refund through.<br/>
-`cluster_name` - Cluster whose purchases you want to reverse.<br/>
-
-    Examples:<br/>
-    - +arkset refundclusterdelta 2024-04-03T20:00:00 2024-05-05T18:00:00 pvp<br/>
-
- - Usage: `+arkset refundclusterdelta <start_time> <end_time> <cluster_name>`
-
-### +arkset banimposters
-
-Protect your server if anyone discovers your admin password<br/>
-
- - Usage: `+arkset banimposters`
-
-### +arkset characternameblacklist
-
-Character name blacklist<br/>
-
- - Usage: `+arkset characternameblacklist <name>`
- - Aliases: `charnameblacklist, charbl, and badname`
+- **Usage:** `+arkset <subcommand>`
+- **Who can use it:** Admin
+- **Also called:** `+arktools`
 
 ### +arkset view
 
-View ark settings<br/>
+View ark settings
 
- - Usage: `+arkset view`
- - Restricted to: `MOD`
+- **Usage:** `+arkset view`
+- **Who can use it:** Mod
 
-### +arkset exportregisteredplayers
+### +arkset timezone
 
-Export all registered players to a CSV file<br/>
+Set your server's timezone
 
-**Arguments**<br/>
-`specimen_set` - Set to True to only export players that also have a specimen number set<br/>
+- **Usage:** `+arkset timezone <timezone>`
+- **Who can use it:** Admin
 
- - Usage: `+arkset exportregisteredplayers <specimen_set>`
- - Cooldown: `3 per 300.0 seconds`
+### +arkset clustertype
 
-### +arkset uncryolimit
+Set the type of ark servers you host
 
-Set how many uncryoed tames a tribe can have.<br/>
+Valid arguments are `xbox, steam, both`
 
-    Put 0 to disable the limit entirely.<br/>
-
-Arguments:<br/>
-`limit` - Maximum number of active tames allowed.<br/>
-`cluster_name` - Cluster to apply the rule to.<br/>
-
-    Examples:<br/>
-    - +arkset uncryolimit 200 main<br/>
-    - +arkset uncryolimit 0 pve<br/>
-
- - Usage: `+arkset uncryolimit <limit> <cluster_name>`
-
-### +arkset wipeclusterimplants
-
-Reset all player's set specimen numbers for a cluster<br/>
-
- - Usage: `+arkset wipeclusterimplants <cluster_name>`
+- **Usage:** `+arkset clustertype <cluster_type>`
+- **Who can use it:** Admin
 
 ### +arkset alertchannel
 
-Set a channel to receive alerts<br/>
+Set a channel to receive alerts
 
-The following alerts are sent here:<br/>
-- Server goes down<br/>
-- Unauthorized admin command in-game<br/>
-- Tribe auto-banned for foreign tames<br/>
+The following alerts are sent here:
+- Server goes down
+- Unauthorized admin command in-game
+- Tribe auto-banned for foreign tames
 
-**These events will fall back to the event log if no alert channel is set**<br/>
+**These events will fall back to the event log if no alert channel is set**
 
- - Usage: `+arkset alertchannel <channel>`
+- **Usage:** `+arkset alertchannel <channel>`
+- **Who can use it:** Admin
 
-### +arkset imposterwhitelist
+### +arkset eventlog
 
-Whitelist certain game IDs from triggering imposter bans<br/>
+Set the event log
 
- - Usage: `+arkset imposterwhitelist <player_id>`
+The logs include the following events:
+- New players that are added to the database
+- Welcome messages sent to new players(if enabled)
+- Old players that are unfriended for inactivity(if enabled)
+- Players that are unfriended for leaving the Discord(if enabled)
+- Players that are unfriended due to unfriending a host Gamertag
 
-### +arkset commandblacklist
-
-Set forbidden commands<br/>
-
- - Usage: `+arkset commandblacklist <command>`
-
-### +arkset viewranks
-
-View playtime roles<br/>
-
- - Usage: `+arkset viewranks`
-
-### +arkset refundplaytimedelta
-
-Award players credits based on playtime over a time window.<br/>
-
-Arguments:<br/>
-`credits_per_hour` - How many credits to award per hour of playtime.<br/>
-`start_date` - Start of the time range (e.g. Aug 12, 2025 or 2024-12-01).<br/>
-`end_date` - End of the time range (e.g. Dec 15, 2025 or 2024-12-15).<br/>
-`dry_run` - If true, show what would be awarded without actually awarding.<br/>
-
-    Examples:<br/>
-    - +arkset refundplaytimedelta 100 "Aug 1, 2025" "Aug 15, 2025"<br/>
-    - +arkset refundplaytimedelta 50 2024-12-01 2024-12-15 true<br/>
-
- - Usage: `+arkset refundplaytimedelta <credits_per_hour> <start_date> <end_date> [dry_run=False]`
-
-### +arkset unlinkrole
-
-Remove a playtime role<br/>
-
- - Usage: `+arkset unlinkrole <hours>`
-
-### +arkset toggleshopcluster
-
-Disable the shop for a specific cluster<br/>
-
- - Usage: `+arkset toggleshopcluster <cluster_name>`
-
-### +arkset ansicolors
-
-Toggle ANSI color codes in RCON output.<br/>
-
- - Usage: `+arkset ansicolors`
- - Aliases: `ansi`
+- **Usage:** `+arkset eventlog <channel>`
+- **Who can use it:** Admin
 
 ### +arkset retention
 
-Set the days worth of playercount data to keep<br/>
+Set the days worth of playercount data to keep
 
- - Usage: `+arkset retention <days>`
+- **Usage:** `+arkset retention <days>`
+- **Who can use it:** Admin
 
-### +arkset toggleshop
+### +arkset usedisplaynames
 
-Toggle the shop on/off<br/>
+Toggle whether discord->ark messages use display names
 
- - Usage: `+arkset toggleshop`
+If Enabled, messages sent to Ark will use the user's nickname or username instead of their username
 
-### +arkset autoremoverole
+- **Usage:** `+arkset usedisplaynames`
+- **Who can use it:** Admin
 
-Toggle auto-removal of previous playtime role<br/>
+### +arkset regenkey
 
- - Usage: `+arkset autoremoverole`
+Generate a fresh ArkView API key.
+
+This replaces the existing key immediately, so update any integrations that use it.
+
+Examples:
+- +arkset regenkey
+
+- **Usage:** `+arkset regenkey`
+- **Who can use it:** Server owner
+
+### +arkset tempbandefault
+
+Set the default tempban duration
+
+Example: 1h30m
+
+- **Usage:** `+arkset tempbandefault <duration>`
+- **Who can use it:** Server owner
+
+### +arkset uncryolimit
+
+Set how many uncryoed tames a tribe can have.
+
+Put 0 to disable the limit entirely.
+
+Arguments:  
+`limit` - Maximum number of active tames allowed.  
+`cluster_name` - Cluster to apply the rule to.
+
+Examples:
+- +arkset uncryolimit 200 main
+- +arkset uncryolimit 0 pve
+
+- **Usage:** `+arkset uncryolimit <limit> <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset exportregisteredplayers
+
+Export all registered players to a CSV file
+
+**Arguments**  
+`specimen_set` - Set to True to only export players that also have a specimen number set
+
+- **Usage:** `+arkset exportregisteredplayers <specimen_set>`
+- **Who can use it:** Admin
 
 ### +arkset recentlycreated
 
-List players created after a specific date.<br/>
+List players created after a specific date.
 
-    Use the ISO format `YYYY-MM-DDTHH:MM:SS` so we know where to start.<br/>
+Use the ISO format `YYYY-MM-DDTHH:MM:SS` so we know where to start.
 
-Arguments:<br/>
-`created_after` - ISO timestamp marking the oldest creation time to include.<br/>
+Arguments:  
+`created_after` - ISO timestamp marking the oldest creation time to include.
 
-    Examples:<br/>
-    - +arkset recentlycreated 2024-04-03T20:00:00<br/>
+Examples:
+- +arkset recentlycreated 2024-04-03T20:00:00
 
- - Usage: `+arkset recentlycreated <created_after>`
- - Aliases: `rc`
+- **Usage:** `+arkset recentlycreated <created_after>`
+- **Who can use it:** Admin
+- **Also called:** `+arkset rc`
 
-## +totalplaytime
+### +arkset wipeclusterimplants
 
-Calculate a player's total playtime between two dates.<br/>
+Reset all player's set specimen numbers for a cluster
 
-Arguments:<br/>
-`player_query` - The player's XUID, SteamID, EOSID, Discord ID, Character Implant, ect.<br/>
-`start_date` - Start of the time range (e.g. Aug 12, 2025 or 2024-12-01).<br/>
-`end_date` - End of the time range (e.g. Dec 15, 2025 or 2024-12-15T23:59:59).<br/>
+- **Usage:** `+arkset wipeclusterimplants <cluster_name>`
+- **Who can use it:** Admin
 
-    Examples:<br/>
-    - +totalplaytime 2535412345678901 "Aug 1, 2025" "Aug 15, 2025"<br/>
-    - +totalplaytime 76561198012345678 2024-12-01 2024-12-15<br/>
+### +arkset wipeclusterstats
 
- - Usage: `+totalplaytime <player_query> <start_date> <end_date>`
- - Restricted to: `MOD`
+Reset all player stats like kills/tames/deaths for a cluster
 
-## +lootbox
+- **Usage:** `+arkset wipeclusterstats <cluster_name>`
+- **Who can use it:** Admin
 
-Open a lootbox<br/>
+### +arkset wipeclustertribes
 
- - Usage: `+lootbox`
- - Aliases: `lootcrate`
- - Checks: `guild_only`
+Reset all player tribes for a cluster
 
-## +lootboxset
+- **Usage:** `+arkset wipeclustertribes <cluster_name>`
+- **Who can use it:** Admin
 
-Setup the lootbox system<br/>
+## Playtime Tracking, Playtime Roles and Welcome Messages
 
- - Usage: `+lootboxset`
- - Restricted to: `ADMIN`
- - Aliases: `lbs`
+Step-by-step guide: [Playtime Tracking, Playtime Roles and Welcome Messages](/guides/playtime-and-roles)
 
-### +lootboxset template
+### +arkset linkrole
 
-Get an example Excel file for the lootbox system<br/>
+Add a playtime role
 
- - Usage: `+lootboxset template`
+- **Usage:** `+arkset linkrole <hours> <role>`
+- **Who can use it:** Admin
 
-### +lootboxset simulate
+### +arkset unlinkrole
 
-Simulate opening a lootbox X times and generate a summary of selections.<br/>
+Remove a playtime role
 
- - Usage: `+lootboxset simulate [times=100]`
- - Aliases: `sim`
+- **Usage:** `+arkset unlinkrole <hours>`
+- **Who can use it:** Admin
 
-### +lootboxset view
+### +arkset autoremoverole
 
-View general lootbox settings<br/>
+Toggle auto-removal of previous playtime role
 
- - Usage: `+lootboxset view`
+- **Usage:** `+arkset autoremoverole`
+- **Who can use it:** Admin
 
-### +lootboxset upload
+### +arkset viewranks
 
-Set the lootbox items<br/>
+View playtime roles
 
- - Usage: `+lootboxset upload`
+- **Usage:** `+arkset viewranks`
+- **Who can use it:** Admin
+
+### +arkset initroles
+
+Initialize playtime roles
+
+- **Usage:** `+arkset initroles`
+- **Who can use it:** Admin
+
+### +arkset registerrole
+
+Set the role required to register
+
+- **Usage:** `+arkset registerrole [role]`
+- **Who can use it:** Admin
+
+### +arkset autowelcome
+
+Toggle auto welcoming of new players discovered in-game
+
+This is just a broadcast in the server, not a DM
+
+- **Usage:** `+arkset autowelcome`
+- **Who can use it:** Admin
+
+### +arkset autowelcomemessage
+
+Set the welcome message sent when a new player is found
+
+Placeholders
+- `{username}` - Player's username
+- `{gameid}` - Player's game ID
+
+- **Usage:** `+arkset autowelcomemessage [message]`
+- **Who can use it:** Admin
+- **Also called:** `+arkset welcomemsg`
+
+### +arkset autoinvite
+
+Toggle posting a Discord invite in-game when a player mentions 'discord' in chat
+
+On by default. Turn it off if the bot runs from a Discord you don't want players joining.
+
+**Example**
+- `+arkset autoinvite off`
+
+- **Usage:** `+arkset autoinvite <enabled>`
+- **Who can use it:** Admin
+
+### +arkset invitelink
+
+Set the Discord address given to players in-game when they mention 'discord' in chat
+
+Leave it blank to go back to picking an invite automatically.  
+Discord invite links are checked before saving.  
+Anything else, like a website that redirects to your Discord, is saved as typed.
+
+**Examples**
+- `+arkset invitelink discord.gg/yourserver`
+- `+arkset invitelink` (back to automatic)
+
+- **Usage:** `+arkset invitelink [address]`
+- **Who can use it:** Admin
+- **Also called:** `+arkset discordlink`
+
+### +arkset resetplaytime
+
+Reset player playtime (useful for monthly playtime contests)
+
+Lowering playtime can also lower a player's playtime rank roles.
+
+- **Usage:** `+arkset resetplaytime <subcommand>`
+- **Who can use it:** Admin
+
+### +arkset resetplaytime all
+
+Reset ALL playtime for every player on every server
+
+- **Usage:** `+arkset resetplaytime all`
+- **Who can use it:** Admin
+
+### +arkset resetplaytime cluster
+
+Reset playtime for all players on every server in a cluster
+
+The time played on that cluster is also removed from each player's total playtime.
+
+Examples:
+- +arkset resetplaytime cluster pvp
+
+- **Usage:** `+arkset resetplaytime cluster <cluster>`
+- **Who can use it:** Admin
+
+### +arkset resetplaytime server
+
+Reset playtime for all players on a server
+
+Leave out the server (or use `all`) to reset every server in the cluster.  
+The time played there is also removed from each player's total playtime.
+
+Examples:
+- +arkset resetplaytime server pvp island
+- +arkset resetplaytime server pvp all
+
+- **Usage:** `+arkset resetplaytime server <cluster> [server]`
+- **Who can use it:** Admin
+
+### +arkset resetplaytime player
+
+Reset a single player's playtime
+
+With no cluster, their overall playtime is reset on every server.  
+With a cluster (and optionally a server), only the time played there is reset and  
+removed from their total playtime.
+
+Arguments:  
+`player` - The player's XUID, SteamID, EOSID, Discord ID, Specimen #, ect.  
+`cluster` - Optional cluster to limit the reset to.  
+`server` - Optional server in that cluster to limit the reset to.
+
+Examples:
+- +arkset resetplaytime player 2535412345678901
+- +arkset resetplaytime player 2535412345678901 pvp
+- +arkset resetplaytime player 2535412345678901 pvp island
+
+- **Usage:** `+arkset resetplaytime player <player> [cluster] [server]`
+- **Who can use it:** Admin
+
+### +setplayertime
+
+Set the tracked playtime for a player.
+
+Use common time shorthand like 1d, 6h, or 45m. Combine them for longer spans, such as 3d12h.
+
+Arguments:  
+`time` - How much playtime to assign.  
+`player_query` - Name, ID, or partial match for the player.
+
+Examples:
+- +setplayertime 2d6h SurvivorSam
+- +setplayertime 45m "Player Name"
+
+- **Usage:** `+setplayertime <time> <player_query>`
+- **Who can use it:** Admin
+
+## Live Server Status Channel and Player Count Graphs
+
+Step-by-step guide: [Live Server Status Channel and Player Count Graphs](/guides/status-channel)
+
+### +serverstatus
+
+Server status channel settings
+
+- **Usage:** `+serverstatus <subcommand>`
+- **Who can use it:** Admin
+
+### +serverstatus channel
+
+Set the status channel for your Ark servers
+
+- **Usage:** `+serverstatus channel <channel>`
+- **Who can use it:** Admin
+
+### +serverstatus init
+
+Initialize the status message
+
+- **Usage:** `+serverstatus init`
+- **Who can use it:** Admin
+
+### +serverstatus time
+
+Set the status graph timedelta
+
+- **Usage:** `+serverstatus time <seconds>`
+- **Who can use it:** Admin
+
+### +serverstatus view
+
+View the status channel for your Ark servers
+
+- **Usage:** `+serverstatus view`
+- **Who can use it:** Admin
+
+### +servergraph
+
+See how your player count changed over time.
+
+Arguments:  
+`timespan` - How far back to check. Use values like 4h, 12d, 3w2d, or all. Defaults to 1 hour.  
+`clusters_only` - true to merge maps by cluster instead of showing every map.  
+`include_total` - true to add a line that shows the combined player count.  
+`search_query` - Filter to specific clusters or maps.  
+`start_time` - Override the start time, e.g. April 10 2032 5:00pm.  
+`end_time` - Optional end time that pairs with start_time.
+
+Examples:  
++servergraph 4h  
++servergraph 12d  
++servergraph 3w2d  
++servergraph 7w
+
+- **Usage:** `+servergraph [timespan] [clusters_only] [include_total] [search_query] [start_time] [end_time]`
+- **Who can use it:** Everyone
+- **Slash command:** also works as `/servergraph`
+  - `timespan`: How far back you want to view
+  - `clusters_only`: (T/F) Group the maps by cluster
+  - `include_total`: (T/F) Include a 'total' line in the graph
+  - `search_query`: Search for a specific set of clusters or maps
+  - `start_time`: Start time for the graph (e.g. April 10, 2032 5:00pm)
+  - `end_time`: End time for the graph (e.g. April 11, 2032 5:00pm)
+
+### +playercounts
+
+View player counts either globally or locally
+
+- **Usage:** `+playercounts [local]`
+- **Who can use it:** Everyone
+
+## Player Registration
+
+Step-by-step guide: [Player Registration: Link Discord Accounts to Ark Players](/guides/player-registration)
+
+### +register
+
+Register your in-game account with the database.
+
+- **Usage:** `+register [username]`
+- **Who can use it:** Everyone
+- **Slash command:** also works as `/register`
+
+### +unregister
+
+Unregister yourself
+
+Removes you from any Gamertags you have registered to
+
+- **Usage:** `+unregister`
+- **Who can use it:** Everyone
+- **Also called:** `+unregisterme`
+
+### +registerplayer
+
+Register another user to the database.
+
+- **Usage:** `+registerplayer <member> <gameid> [overwrite]`
+- **Who can use it:** Admin
+- **Slash command:** also works as `/registerplayer`
+
+### +unregisterplayer
+
+Unlink the discord account from a player
+
+The optional **player** argument can be one of the following.
+- Gamertag or Steam Username
+- XUID or Steam ID
+- Discord ID or Username
+- @mention
+
+- **Usage:** `+unregisterplayer <player>`
+- **Who can use it:** Mod
+
+### +specimen
+
+Set your specimen number to use the Rshop
+
+Your specimen number (aka Implant ID) can be found in the top left of your player inventory.
+
+- **Usage:** `+specimen <specimen_number>`
+- **Who can use it:** Everyone
+- **Also called:** `+implant`, `+speciment`, `+implantid`, `+specimen#`
+
+### +setplayerimplant
+
+Set the implant number for a player.
+
+- **Usage:** `+setplayerimplant <gameid> <implant>`
+- **Who can use it:** Admin
+- **Slash command:** also works as `/setplayerimplant`
+
+### +findsurvivor
+
+Look up a survivor by character name.
+
+Returns their servers, tribes, and recent activity if we have it logged.
+
+Arguments:  
+`survivor_name` - Anything we can use to match the character name.
+
+Examples:
+- +findsurvivor SurvivorSam
+- +findsurvivor "Super Survivor"
+
+- **Usage:** `+findsurvivor <survivor_name>`
+- **Who can use it:** Everyone
+- **Also called:** `+findcharname`
+
+### +kickme
+
+Kick your character from the server.
+
+Use this when you're stuck in a loading screen or need a fresh join.
+
+Examples:
+- +kickme
+
+- **Usage:** `+kickme`
+- **Who can use it:** Everyone
+
+## In-Game Chat Commands
+
+Step-by-step guide: [In-Game Chat Commands: Kits, Payday and Unstuck](/guides/in-game-commands)
+
+### +arkset ingame
+
+Configure in-game settings
+
+- **Usage:** `+arkset ingame <subcommand>`
+- **Who can use it:** Admin
+
+### +arkset ingame kit
+
+Toggle new player kit claiming for a cluster
+
+- **Usage:** `+arkset ingame kit <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset ingame getkitpaths
+
+Get the current kit paths for a cluster
+
+- **Usage:** `+arkset ingame getkitpaths <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset ingame setkitpaths
+
+Upload kit blueprint paths for a cluster.
+
+Attach a `.txt` file with one entry per line in the format `path quantity quality blueprint`.
+
+Arguments:  
+`cluster_name` - Cluster whose kit paths you're updating.
+
+Examples:
+- +arkset ingame setkitpaths main (with kit_paths.txt attached)
+
+- **Usage:** `+arkset ingame setkitpaths <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset ingame autokit
+
+Toggle automatic starter kit delivery on a player's first-ever join to a cluster
+
+Delivers the cluster's kit paths as soon as the new player has a character,  
+then sends the auto-kit welcome message in-game. Uses the same claim list as  
+the in-game kit command, so players can never receive the kit twice.
+
+- **Usage:** `+arkset ingame autokit <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset ingame autokitplaytime
+
+Set the lifetime playtime cap for auto-kit eligibility
+
+Players whose total guild-wide playtime exceeds this many hours will not  
+receive an auto-kit. Lifetime playtime survives season wipes.
+
+Arguments:  
+`hours` - Max lifetime playtime in hours (default 10).  
+`cluster_name` - Cluster to apply the cap to.
+
+- **Usage:** `+arkset ingame autokitplaytime <hours> <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset ingame autokitwindow
+
+Set the seeding recency window for auto-kit
+
+When auto-kit is enabled on a cluster, only players seen within this many  
+days are queued for a backfilled kit. Joins after enabling are unaffected.
+
+Arguments:  
+`days` - Seeding window in days (default 30).  
+`cluster_name` - Cluster to apply the window to.
+
+- **Usage:** `+arkset ingame autokitwindow <days> <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset ingame autokitwelcome
+
+Set the in-game welcome message sent after an auto-kit delivery
+
+Placeholder: `{username}`.  
+Quote the cluster name if it contains spaces. Run with no template to reset to the default.
+
+Examples:
+- +arkset ingame autokitwelcome main Welcome {username}! Type register to link your Discord!
+
+- **Usage:** `+arkset ingame autokitwelcome <cluster_name> [template]`
+- **Who can use it:** Admin
+
+### +arkset ingame payday
+
+Toggle payday rewards for a cluster
+
+- **Usage:** `+arkset ingame payday <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset ingame paydaycooldown
+
+Set cooldown seconds for paydays
+
+- **Usage:** `+arkset ingame paydaycooldown <seconds> <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset ingame paydayrandom
+
+Toggle randomization of payday rewards
+
+- **Usage:** `+arkset ingame paydayrandom <cluster_name>`
+- **Who can use it:** Admin
+- **Also called:** `+arkset ingame randompayday`
+
+### +arkset ingame getpaydaypaths
+
+Get the current payday paths for a cluster
+
+- **Usage:** `+arkset ingame getpaydaypaths <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset ingame setpaydaypaths
+
+Upload the blueprint paths used for payday rewards.
+
+Attach a `.txt` file with one line per path using `path quantity quality blueprint` format.
+
+Arguments:  
+`cluster_name` - Cluster whose payday rewards you're updating.
+
+Examples:
+- +arkset ingame setpaydaypaths main (with payday_paths.txt attached)
+
+- **Usage:** `+arkset ingame setpaydaypaths <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset ingame imstuck
+
+Enable or disable the /imstuck rescue command for a cluster.
+
+Arguments:  
+`cluster_name` - Cluster to toggle.
+
+Examples:
+- +arkset ingame imstuck main
+
+- **Usage:** `+arkset ingame imstuck <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset ingame imstuckcooldown
+
+Change the cooldown for the /imstuck rescue command.
+
+Arguments:  
+`seconds` - How many seconds users must wait between uses.  
+`cluster_name` - Cluster to apply the cooldown to.
+
+Examples:
+- +arkset ingame imstuckcooldown 900 main
+
+- **Usage:** `+arkset ingame imstuckcooldown <seconds> <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset ingame getimstuckpaths
+
+Get the current imstuck paths for a cluster
+
+- **Usage:** `+arkset ingame getimstuckpaths <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset ingame setimstuckpaths
+
+Upload the teleport paths used for /imstuck.
+
+Attach a `.txt` file with one line per path using `path quantity quality blueprint` format.
+
+Arguments:  
+`cluster_name` - Cluster whose teleport paths you're updating.
+
+Examples:
+- +arkset ingame setimstuckpaths main (with imstuck_paths.txt attached)
+
+- **Usage:** `+arkset ingame setimstuckpaths <cluster_name>`
+- **Who can use it:** Admin
+
+### +resetkit
+
+Reset a players claimed kit
+
+Accepts an XUID, EOS ID, or Steam ID.
+
+If per-server kits are enabled, this will reset the kit for all servers in the cluster.
+
+- **Usage:** `+resetkit <gameid>`
+- **Who can use it:** Admin
+
+### +resetclusterkits
+
+Reset all player kits for a cluster
+
+If per-server kits are enabled, this will reset all kits for all servers in the cluster.
+
+- **Usage:** `+resetclusterkits <cluster_name>`
+- **Who can use it:** Admin
+
+## The RCON Shop (Rshop)
+
+Step-by-step guide: [The RCON Shop (Rshop): Sell In-Game Items](/guides/rshop)
+
+### +rshop
+
+Open the in-game RCON shop.
+
+Start typing to filter items, or browse the full catalog.
+
+Arguments:  
+`item` - Optional search term to jump straight to an item.
+
+Examples:
+- +rshop
+- +rshop shotgun
+
+- **Usage:** `+rshop [item]`
+- **Who can use it:** Everyone
+- **Slash command:** also works as `/rshop`
+  - `item`: Search for an item (armor/weapons/tools/ect..)
+
+### /quickbuy
+
+Buy something from the shop without opening the menu.
+
+Pick the item and optionally adjust the quantity, quality, or blueprint flag.
+
+Arguments:  
+`item` - The item name to purchase.  
+`quantity` - How many copies to buy.  
+`quality` - Desired quality value.  
+`blueprint` - Toggle to request the blueprint version.
+
+Examples:
+- /quickbuy item:"Pump-Action Shotgun" quantity:2 quality:120 blueprint:true
+- /quickbuy item:"Element" quantity:50
+
+- **Usage:** `/quickbuy <item> [quantity] [quality] [blueprint]`
+- **Who can use it:** Everyone
+- **Slash command only**
+  - `item`: The item you want to buy
+  - `quantity`: The quantity of the item you want to buy
+  - `quality`: The quality of the item you want to buy
+  - `blueprint`: Whether or not the item is a blueprint
+
+### +rshopset
+
+Admin setup commands for the RCON shop.
+
+Run with a subcommand to manage pricing, discounts, and exports.  
+Examples:
+- +rshopset view
+- +rshopset discount 0.15
+
+- **Usage:** `+rshopset <subcommand>`
+- **Who can use it:** Admin
+- **Also called:** `+rss`
+
+### +rshopset autorefund
+
+Toggle automatic refunds when purchases fail.
+
+When enabled, players get their currency back if a command errors out. One-command purchases always refund.  
+Examples:
+- +rshopset autorefund
+
+- **Usage:** `+rshopset autorefund`
+- **Who can use it:** Admin
+- **Also called:** `+rshopset refunds`, `+rshopset refund`
+
+### +rshopset bpmultiplier
+
+Adjust the blueprint pricing multiplier.
+
+Helps offset extra work when players request blueprints instead of items. Use 0 to disable.
+
+Arguments:  
+`blueprint_multiplier` - Multiplier value, zero or higher.  
+`cluster` - Optional cluster name for a local rule.
+
+Examples:
+- +rshopset bpmultiplier 1.5
+- +rshopset bpmultiplier 0 fjordur
+
+- **Usage:** `+rshopset bpmultiplier <blueprint_multiplier> [cluster]`
+- **Who can use it:** Admin
+
+### +rshopset delimiter
+
+Set the delimiter used inside pack rows.
+
+Choose how multiple blueprint paths or commands are separated in the packs sheet.
+
+Arguments:  
+`delimiter` - The separator character or string to use.
+
+Examples:
+- +rshopset delimiter |
+- +rshopset delimiter ;
+
+- **Usage:** `+rshopset delimiter <delimiter>`
+- **Who can use it:** Admin
+
+### +rshopset discount
+
+Set a flat discount for the shop.
+
+Provide 0 to disable. Target a cluster or leave blank for all of them.
+
+Arguments:  
+`discount` - Percent as a decimal, between 0 and 0.99.  
+`cluster` - Optional cluster name to scope the discount.
+
+Examples:
+- +rshopset discount 0.2
+- +rshopset discount 0 extinction
+
+- **Usage:** `+rshopset discount <discount> [cluster]`
+- **Who can use it:** Admin
+
+### +rshopset discountdays
+
+Set a specific day's discount rotation.
+
+Use numbers 0-6 for Monday through Sunday. Put 0 to clear that day's promo.
+
+Arguments:  
+`day` - Day index (0 = Monday ... 6 = Sunday).  
+`discount` - Percent as a decimal, between 0 and 0.99.
+
+Examples:
+- +rshopset discountdays 5 0.15
+- +rshopset discountdays 2 0
+
+- **Usage:** `+rshopset discountdays <day> <discount>`
+- **Who can use it:** Admin
+- **Also called:** `+rshopset discountday`, `+rshopset dd`
+
+### +rshopset discountrole
+
+Give a role a permanent shop discount.
+
+Set the value to 0 to remove the role from the list.
+
+Arguments:  
+`role` - Discord role to adjust.  
+`discount` - Percent as a decimal, between 0 and 0.99.
+
+Examples:
+- +rshopset discountrole @VIP 0.1
+- +rshopset discountrole @Member 0
+
+- **Usage:** `+rshopset discountrole <role> <discount>`
+- **Who can use it:** Admin
+
+### +rshopset download
+
+Export the current shop to Excel.
+
+Useful for backups or editing in bulk before re-uploading.
+
+Examples:
+- +rshopset download
+
+- **Usage:** `+rshopset download`
+- **Who can use it:** Admin
+
+### +rshopset maxbpquality
+
+Limit the highest blueprint quality a user can request.
+
+Use 0 to lift the limit.
+
+Arguments:  
+`max_bp_quality` - Highest blueprint quality to allow.  
+`cluster` - Optional cluster name for an override.
+
+Examples:
+- +rshopset maxbpquality 120
+- +rshopset maxbpquality 0 aberration
+
+- **Usage:** `+rshopset maxbpquality <max_bp_quality> [cluster]`
+- **Who can use it:** Admin
+
+### +rshopset maxquality
+
+Limit the highest item quality a user can request.
+
+Set it to 0 to remove the cap entirely.
+
+Arguments:  
+`max_quality` - Highest quality value the command should allow.  
+`cluster` - Optional cluster name for a targeted override.
+
+Examples:
+- +rshopset maxquality 100
+- +rshopset maxquality 0 valguero
+
+- **Usage:** `+rshopset maxquality <max_quality> [cluster]`
+- **Who can use it:** Admin
+
+### +rshopset qualityexp
+
+Tweak the quality exponent multiplier.
+
+Lower values make high-quality requests pricier. Use 0 to turn the modifier off.
+
+Arguments:  
+`exponent` - Multiplier value, zero or higher.  
+`cluster` - Optional cluster name to scope the change.
+
+Examples:
+- +rshopset qualityexp 0.6
+- +rshopset qualityexp 0 crystal
+
+- **Usage:** `+rshopset qualityexp <exponent> [cluster]`
+- **Who can use it:** Admin
+
+### +rshopset readstacks
+
+Read stack sizes from a Game.ini file.
+
+Attach your `Game.ini` and we'll sync custom stack amounts for matching items.
+
+Examples:
+- +rshopset readstacks (with Game.ini attached)
+
+- **Usage:** `+rshopset readstacks`
+- **Who can use it:** Admin
+
+### +rshopset template
+
+Download the Excel template for building your shop.
+
+Use this file as the base when creating or updating item listings.
+
+Examples:
+- +rshopset template
+
+- **Usage:** `+rshopset template`
+- **Who can use it:** Admin
+
+### +rshopset upload
+
+Upload an Excel sheet to refresh the shop.
+
+Attach the exported template with your changes and the bot will replace the current listings.
+
+Examples:
+- +rshopset upload (with your sheet attached)
+
+- **Usage:** `+rshopset upload`
+- **Who can use it:** Admin
+
+### +rshopset view
+
+Show the current shop configuration for this guild.  
+Examples:
+- +rshopset view
+
+- **Usage:** `+rshopset view`
+- **Who can use it:** Admin
+
+### +shopoverview
+
+Generate a visual summary of the guild's shop economy.
+
+Builds charts and totals for spending, popular items, and top buyers.
+
+Examples:
+- +shopoverview
+
+- **Usage:** `+shopoverview`
+- **Who can use it:** Everyone
+- **Slash command:** also works as `/shopoverview`
+
+### +shopsettings
+
+Show the current shop configuration for this guild.  
+Examples:
+- +shopsettings
+
+- **Usage:** `+shopsettings`
+- **Who can use it:** Everyone
+
+### +shopstats
+
+Show purchase stats for you or another member.
+
+Defaults to your own stats unless you mention someone else.
+
+Arguments:  
+`user` - Optional member to inspect.
+
+Examples:
+- +shopstats
+- +shopstats @Vert
+
+- **Usage:** `+shopstats [user]`
+- **Who can use it:** Everyone
+- **Slash command:** also works as `/shopstats`
+
+### +arkset toggleshop
+
+Toggle the shop on/off
+
+- **Usage:** `+arkset toggleshop`
+- **Who can use it:** Admin
+
+### +arkset toggleshopcluster
+
+Disable the shop for a specific cluster
+
+- **Usage:** `+arkset toggleshopcluster <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset shoplog
+
+Set the shop log channel
+
+All purchases will be logged here
+
+- **Usage:** `+arkset shoplog <channel>`
+- **Who can use it:** Admin
+
+### +arkset refundclusterdelta
+
+Refund shop purchases for a cluster within a time window.
+
+Provide the start and end timestamps using `YYYY-MM-DDTHH:MM:SS`.
+
+Arguments:  
+`start_time` - Oldest timestamp to refund from.  
+`end_time` - Newest timestamp to refund through.  
+`cluster_name` - Cluster whose purchases you want to reverse.
+
+Examples:
+- +arkset refundclusterdelta 2024-04-03T20:00:00 2024-05-05T18:00:00 pvp
+
+- **Usage:** `+arkset refundclusterdelta <start_time> <end_time> <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset refundserverdelta
+
+Refund purchases for a specific server within a time window.
+
+Use `YYYY-MM-DDTHH:MM:SS` for both timestamps.
+
+Arguments:  
+`start_time` - Oldest timestamp to refund from.  
+`end_time` - Newest timestamp to refund through.  
+`server_name` - Server name within the cluster.  
+`cluster_name` - Cluster the server belongs to.
+
+Examples:
+- +arkset refundserverdelta 2024-04-03T20:00:00 2024-05-05T18:00:00 volcanic pvp
+
+- **Usage:** `+arkset refundserverdelta <start_time> <end_time> <server_name> <cluster_name>`
+- **Who can use it:** Admin
+
+### +arkset refundplaytimedelta
+
+Award players credits based on playtime over a time window.
+
+Arguments:  
+`credits_per_hour` - How many credits to award per hour of playtime.  
+`start_date` - Start of the time range (e.g. Aug 12, 2025 or 2024-12-01).  
+`end_date` - End of the time range (e.g. Dec 15, 2025 or 2024-12-15).  
+`dry_run` - If true, show what would be awarded without actually awarding.
+
+Examples:
+- +arkset refundplaytimedelta 100 "Aug 1, 2025" "Aug 15, 2025"
+- +arkset refundplaytimedelta 50 2024-12-01 2024-12-15 true
+
+- **Usage:** `+arkset refundplaytimedelta <credits_per_hour> <start_date> <end_date> [dry_run]`
+- **Who can use it:** Admin
+
+## Lootboxes
+
+Step-by-step guide: [Lootboxes](/guides/lootboxes)
+
+### +lootbox
+
+Open a lootbox
+
+- **Usage:** `+lootbox`
+- **Who can use it:** Everyone
+- **Also called:** `+lootcrate`
+
+### +lootboxset
+
+Setup the lootbox system
+
+- **Usage:** `+lootboxset <subcommand>`
+- **Who can use it:** Admin
+- **Also called:** `+lbs`
 
 ### +lootboxset add
 
-Quickly add an item to the lootbox system<br/>
+Quickly add an item to the lootbox system
 
- - Usage: `+lootboxset add <chance> <quality> <quantity> <blueprint> <stacksize> <path> <name> [cluster_blacklist]`
-
-### +lootboxset logchannel
-
-Set the lootbox log channel<br/>
-
- - Usage: `+lootboxset logchannel <channel>`
-
-### +lootboxset price
-
-Set the price of a lootbox<br/>
-
-0 Will make the loot box free<br/>
-
- - Usage: `+lootboxset price <price>`
-
-### +lootboxset download
-
-Get the current lootboxes as an Excel file<br/>
-
- - Usage: `+lootboxset download`
+- **Usage:** `+lootboxset add <chance> <quality> <quantity> <blueprint> <stacksize> <path> <name> [cluster_blacklist]`
+- **Who can use it:** Admin
 
 ### +lootboxset cooldown
 
-Set the lootbox cooldown<br/>
+Set the lootbox cooldown
 
- - Usage: `+lootboxset cooldown <cooldown>`
+- **Usage:** `+lootboxset cooldown <cooldown>`
+- **Who can use it:** Admin
+
+### +lootboxset download
+
+Get the current lootboxes as an Excel file
+
+- **Usage:** `+lootboxset download`
+- **Who can use it:** Admin
+
+### +lootboxset logchannel
+
+Set the lootbox log channel
+
+- **Usage:** `+lootboxset logchannel <channel>`
+- **Who can use it:** Admin
+
+### +lootboxset price
+
+Set the price of a lootbox
+
+0 Will make the loot box free
+
+- **Usage:** `+lootboxset price <price>`
+- **Who can use it:** Admin
+
+### +lootboxset simulate
+
+Simulate opening a lootbox X times and generate a summary of selections.
+
+- **Usage:** `+lootboxset simulate [times]`
+- **Who can use it:** Admin
+- **Also called:** `+lootboxset sim`
+
+### +lootboxset template
+
+Get an example Excel file for the lootbox system
+
+- **Usage:** `+lootboxset template`
+- **Who can use it:** Admin
 
 ### +lootboxset toggle
 
-Toggle lootboxes for a specific cluster<br/>
+Toggle lootboxes for a specific cluster
 
- - Usage: `+lootboxset toggle <cluster_name>`
+- **Usage:** `+lootboxset toggle <cluster_name>`
+- **Who can use it:** Admin
 
-## +clearall (Hybrid Command)
+### +lootboxset upload
 
-Clear inventory of all players in the server.<br/>
+Set the lootbox items
 
- - Usage: `+clearall <cluster> <server> [inventory=True] [hotbar=True] [equipped=True]`
- - Slash Usage: `/clearall <cluster> <server> [inventory=True] [hotbar=True] [equipped=True]`
- - Restricted to: `MOD`
- - Checks: `ensure_db_connection and guild_only`
+- **Usage:** `+lootboxset upload`
+- **Who can use it:** Admin
 
-## +equipall (Hybrid Command)
+### +lootboxset view
 
- - Usage: `+equipall <cluster> <server>`
- - Slash Usage: `/equipall <cluster> <server>`
- - Restricted to: `MOD`
- - Checks: `ensure_db_connection and guild_only`
+View general lootbox settings
 
-## +arkviewer
+- **Usage:** `+lootboxset view`
+- **Who can use it:** Admin
 
-Quickly view your servers' ArkView metrics<br/>
+## Tribe Logs in Discord and Private Tribe Threads
 
- - Usage: `+arkviewer`
- - Aliases: `arkview and lastsynced`
- - Cooldown: `1 per 10.0 seconds`
- - Checks: `guild_only`
+Step-by-step guide: [Tribe Logs in Discord and Private Tribe Threads](/guides/tribe-logs)
 
-## +playerheat
+### +tribe
 
-Get a heatmap of player locations<br/>
+Open the tribe menu!
 
- - Usage: `+playerheat`
- - Cooldown: `1 per 5.0 seconds`
- - Checks: `guild_only`
+- **Usage:** `+tribe [user]`
+- **Who can use it:** Everyone
+- **Slash command:** also works as `/tribe`
+- **Also called:** `+mytribe`
 
-## +hunt (Hybrid Command)
+### +tribeset
 
-Hunt for a dino!<br/>
+Configure tribe settings
 
-Use the slash version of this command to make it private!<br/>
+- **Usage:** `+tribeset <subcommand>`
+- **Who can use it:** Admin
 
- - Usage: `+hunt <dino>`
- - Slash Usage: `/hunt <dino>`
- - Cooldown: `1 per 3.0 seconds`
- - Checks: `guild_only`
+### +tribeset view
 
-## +mytames
+View tribe settings
 
-Check your tribe's tames on a map<br/>
+- **Usage:** `+tribeset view`
+- **Who can use it:** Admin
 
- - Usage: `+mytames`
- - Cooldown: `1 per 20.0 seconds`
- - Checks: `guild_only`
+### +tribeset logchannel
 
-## +tamesfor
+Set master tribelogs for a cluster
 
-Check your tribe's tames on a map<br/>
+- **Usage:** `+tribeset logchannel <clustername> <channel>`
+- **Who can use it:** Admin
 
- - Usage: `+tamesfor <player>`
- - Restricted to: `MOD`
- - Cooldown: `1 per 20.0 seconds`
- - Checks: `guild_only`
+### +tribeset claimrole
 
-## +findtame (Hybrid Command)
+Add/Remove roles that can claim their tribes
 
-Find tames by tame name, imprinter, tamer, or tribe name<br/>
+- **Usage:** `+tribeset claimrole <role>`
+- **Who can use it:** Admin
 
-`search_query` can be one of the following.<br/>
-The dino's name.<br/>
-The name of the person who tamed the dino.<br/>
-The name of the person who imprinted on the tame.<br/>
-The name of the tribe that owns the dino.<br/>
-The ID of the tribe that tamed the dino.<br/>
+### +tribeset claimchannel
 
-*You can search for unclaimed dinos by specifying `unclaimed`*<br/>
+Set the channel that private tribelogs threads will be created from
 
- - Usage: `+findtame <search_query>`
- - Slash Usage: `/findtame <search_query>`
- - Cooldown: `1 per 5.0 seconds`
- - Checks: `guild_only`
+- **Usage:** `+tribeset claimchannel <channel>`
+- **Who can use it:** Admin
 
-## +mapstats
+### +tribeset resetclaims
 
-Get detailed stats for a map<br/>
+Wipe the threads from the claimlog channel and reset all claimed tribes
 
- - Usage: `+mapstats`
- - Cooldown: `1 per 5.0 seconds`
- - Checks: `guild_only`
+- **Usage:** `+tribeset resetclaims <confirm>`
+- **Who can use it:** Admin
 
-## +creaturepie
+### +tribeset unclaim
 
-Get a pie chart of wild dinos on a map<br/>
+Force-unclaim a specific member's tribe thread without deleting it
 
- - Usage: `+creaturepie [count=10]`
- - Cooldown: `1 per 5.0 seconds`
- - Checks: `guild_only`
+Resets the owner so another player can claim the tribe.  
+The thread itself is preserved.
 
-## +structurepie
+- **Usage:** `+tribeset unclaim <member>`
+- **Who can use it:** Admin
 
-Get pie chart of structures<br/>
+### +threadadd
 
- - Usage: `+structurepie [count=10]`
- - Cooldown: `1 per 5.0 seconds`
- - Checks: `guild_only`
+Add a member to your tribelog thread
 
-## +tamepie
+- **Usage:** `+threadadd <member>`
+- **Who can use it:** Everyone
+- **Slash command:** also works as `/threadadd`
+- **Also called:** `+addmember`, `+tribeaddmate`
 
-Get a pie chart of tamed dinos on a map<br/>
+### +threadkick
 
- - Usage: `+tamepie [count=10]`
- - Cooldown: `1 per 5.0 seconds`
- - Checks: `guild_only`
+Remove a member from your tribelog thread
 
-## +avsync
+- **Usage:** `+threadkick <member>`
+- **Who can use it:** Everyone
+- **Slash command:** also works as `/threadkick`
+- **Also called:** `+kicktribemate`, `+kickmate`
 
-Sync tribes, players and characters with with the database<br/>
+### +threadpurge
 
- - Usage: `+avsync`
- - Restricted to: `ADMIN`
- - Cooldown: `1 per 600.0 seconds`
- - Checks: `guild_only`
+Remove ALL members from your tribelog thread except yourself
 
-## +servermetrics
+Use this if unwanted users have been added to your thread and you need to start fresh.  
+You will need to re-add your tribemates afterwards.
 
-View current server memory usage<br/>
+**Usage:** `+threadpurge true`
 
- - Usage: `+servermetrics <metric>`
- - Restricted to: `ADMIN`
- - Cooldown: `1 per 3.0 seconds`
- - Checks: `guild_only`
+- **Usage:** `+threadpurge <confirm>`
+- **Who can use it:** Everyone
+- **Slash command:** also works as `/threadpurge`
+- **Also called:** `+kickall`, `+threadclear`
 
-## +getips
+### +threadmembers
 
-Get a list of player IPs from the database<br/>
+List all members in your tribelog thread
 
- - Usage: `+getips`
- - Restricted to: `ADMIN`
- - Cooldown: `1 per 3.0 seconds`
- - Checks: `guild_only`
+- **Usage:** `+threadmembers`
+- **Who can use it:** Everyone
+- **Slash command:** also works as `/threadmembers`
+- **Also called:** `+threadwho`, `+threadlist`
 
-## +viewsysinfo
+### +threadtransfer
 
-View data about the system running your servers<br/>
+Transfer thread ownership to another member
 
- - Usage: `+viewsysinfo`
- - Restricted to: `ADMIN`
- - Cooldown: `1 per 60.0 seconds`
- - Checks: `guild_only`
+The new owner will be able to add/remove members and manage the thread.
 
-## +clearcustomdinos
+- **Usage:** `+threadtransfer <member>`
+- **Who can use it:** Everyone
+- **Slash command:** also works as `/threadtransfer`
+- **Also called:** `+tribetransfer`, `+threadowner`
 
-Clear all custom dinos for this guild<br/>
+### +cleantribelogs
 
- - Usage: `+clearcustomdinos`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
+Delete tribelog threads that arent associated with a tribe
 
-## +setcustomdinos
+- **Usage:** `+cleantribelogs`
+- **Who can use it:** Admin
 
-Register custom dinos for features like hunt and findtame.<br/>
+## Game Chat in Discord, Kill Feed and Join Logs
 
-            Paste entries directly or attach a `.txt` file. Each line should be `FriendlyName|ClassName`.<br/>
+Step-by-step guide: [Game Chat in Discord, Kill Feed and Join Logs](/guides/chat-and-logs)
 
-        Arguments:<br/>
-        `custom_dinos` - Optional pasted list of entries. Attach a file instead if you leave this blank.<br/>
+### +arkset killfeed
 
-            Examples:<br/>
-            - +setcustomdinos Royal Griffin|RoyalOwlGriffin_MM_Character_BP_C<br/>
-Gecko|Gecko_Character_BP_C<br/>
-            - +setcustomdinos (with custom_dinos.txt attached)<br/>
-        <br/>
+Toggle the killfeed
 
- - Usage: `+setcustomdinos [custom_dinos]`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
+The killfeed shows player kills in the map chats in a silly way, it will also shame bob killers publicly
 
-## +showcustomdinos
+- **Usage:** `+arkset killfeed`
+- **Who can use it:** Admin
 
-Show the list of custom dinos for this guild<br/>
+### +joinlog
 
- - Usage: `+showcustomdinos`
- - Restricted to: `ADMIN`
- - Aliases: `listcustomdinos and getcustomdinos`
- - Checks: `guild_only`
+Show the join/leave log for a server over a time period.
 
-## +setvalidservers
+Arguments:  
+`timespan` - How far back to check, e.g. 7d, 12h, 3w.  
+`end_time` - Optional end time, e.g. April 10 2032 5:00pm. Defaults to now.
 
-Comma separated list of valid server names for this guild, any servers not in this list will be flagged when a tame is transferred to them<br/>
+- **Usage:** `+joinlog <timespan> [end_time]`
+- **Who can use it:** Mod
 
- - Usage: `+setvalidservers <valid_names>`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
+### +whowason
 
-## +showvalidservers
+List everyone who was online at a specific moment.
 
-Show the list of valid server names for this guild<br/>
+Arguments:  
+`time` - When to check. Accepts ISO times like 2024-10-15T12:00:00 or natural times such as 4:20pm April 10 2024.
 
- - Usage: `+showvalidservers`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
+- **Usage:** `+whowason <time>`
+- **Who can use it:** Mod
 
-## +scanforeigntames
+### +timeline
 
-Scan all servers for tames that are from a server not in the valid server list<br/>
+Show a player's join and leave timeline.
 
- - Usage: `+scanforeigntames`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
+Arguments:  
+`search_query` - Player name, game ID, or Discord member to inspect.  
+`start_time` - When to start the timeline, e.g. April 10 2032 5:00pm.  
+`end_time` - Optional time to stop the timeline.
 
-## +checkmassbreed
+- **Usage:** `+timeline <search_query> <start_time> [end_time]`
+- **Who can use it:** Mod
 
-Find clusters of dinos left breeding.<br/>
+### +lookback
 
-    Explanation:<br/>
-    Spots dense groups of dinos with mating enabled so you can deal with mass breeders before they lag the map.<br/>
+Find where a player was online during a specific window.
 
-Arguments:<br/>
-`threshold` - Maximum distance (lat/lon) between dinos in a cluster. Default 0.5.<br/>
-`min_dinos` - Minimum mating dinos in the area before it flags the cluster. Default 6.<br/>
+Arguments:  
+`search_query` - Player name, game ID, or Discord member to look up.  
+`start_time` - When to start looking, e.g. April 10 2032 5:00pm.  
+`end_time` - Optional time to stop looking, e.g. April 11 2032 5:00pm.
 
- - Usage: `+checkmassbreed [threshold=0.5] [min_dinos=6]`
- - Restricted to: `ADMIN`
- - Aliases: `massbreed`
- - Checks: `guild_only`
+- **Usage:** `+lookback <search_query> <start_time> [end_time]`
+- **Who can use it:** Mod
 
-## +findplayer (Hybrid Command)
+## Moderation
 
-Find the location and tribe of a player in-game<br/>
+Step-by-step guide: [Moderation: Bans, Temp Bans and Tribe Warnings](/guides/moderation)
 
-`search_query` can be one of the following.<br/>
-Player's in-game name<br/>
-Gamertag or Username<br/>
-Specimen number (exact matches only)<br/>
-XUID or SteamID (exact matches only)<br/>
-Tribe ID (exact matches only)<br/>
+### +banplayer
 
- - Usage: `+findplayer <search_query>`
- - Slash Usage: `/findplayer <search_query>`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
+Ban a player from all servers
 
-## +findtribe
+- **Usage:** `+banplayer <game_id> <reason>`
+- **Who can use it:** Mod
+- **Slash command:** also works as `/banplayer`
 
-Find details of a tribe<br/>
+### +tempbanplayer
 
-`search_query` can be one of the following.<br/>
-- Tribe name<br/>
-- Tribe ID (exact matches only)<br/>
-- Player's in-game name<br/>
-- Gamertag or Username<br/>
-- Specimen number (exact matches only)<br/>
-- XUID or SteamID (exact matches only)<br/>
+Temporarily ban a player from all servers
 
-If any tribes have the player info found in them, they will be shown<br/>
+`duration` is the amount of time the player should be banned for.  
+`days` is the amount of days of messages to cleanup on tempban.
 
- - Usage: `+findtribe <search_query>`
- - Restricted to: `MOD`
- - Checks: `guild_only`
+Examples:
+- `+tempbanplayer 2535437775463072 Because I say so`  
+This will ban the player with ID 2535437775463072 for the default amount of time set by an administrator.
+- `+tempbanplayer 2535437775463072 15m You need a timeout`  
+This will ban the player with ID 2535437775463072 for 15 minutes.
 
-## +finddbtribe
+- **Usage:** `+tempbanplayer <game_id> [duration] [reason]`
+- **Who can use it:** Mod
+- **Slash command:** also works as `/tempbanplayer`
+- **Also called:** `+tbp`
 
-Find details of a tribe from the database<br/>
+### +unbanplayer
 
-`search_query` can be one of the following.<br/>
-- Tribe name<br/>
-- Tribe ID (exact matches only)<br/>
-- Player's in-game name<br/>
-- Gamertag or Username<br/>
-- XUID or SteamID (exact matches only)<br/>
+Unban a player from all servers
 
-Shows tribe data stored in the database with alpha system stats.<br/>
+- **Usage:** `+unbanplayer <game_id> [reason]`
+- **Who can use it:** Mod
+- **Slash command:** also works as `/unbanplayer`
 
- - Usage: `+finddbtribe <search_query>`
- - Restricted to: `MOD`
- - Checks: `guild_only`
+### +bans
 
-## +structures (Hybrid Command)
+Manage player bans
 
-Get a marker map of structures for a tribe<br/>
+- **Usage:** `+bans [query]`
+- **Who can use it:** Mod
 
-`search_query` can be one of the following.<br/>
-- Tribe name<br/>
-- Tribe ID (exact matches only)<br/>
+### +globalbans
 
- - Usage: `+structures <search_query>`
- - Slash Usage: `/structures <search_query>`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
+View global player bans
 
-## +findstructure (Hybrid Command)
+- **Usage:** `+globalbans [query]`
+- **Who can use it:** Mod
+- **Also called:** `+allbans`
 
-Get a marker map of specific structures for a tribe or the whole map<br/>
+### +banfromtext
 
-`structure_class` is the class name of the structure you want to search for.<br/>
-- e.g. "CookingPot_C" or "StructureTurretTek_C<br/>
+Ban players from a list of player IDs
 
-`search_query` can be one of the following.<br/>
-- Tribe name<br/>
-- Tribe ID (exact matches only)<br/>
+The text should be a list of player IDs separated by commas or new lines.
 
- - Usage: `+findstructure <structure_class> [search_query=None]`
- - Slash Usage: `/findstructure <structure_class> [search_query=None]`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
+**NOTE**: This will not block players on Xbox, you will need to do that manually.
 
-## +structuregraph
+- **Usage:** `+banfromtext`
+- **Who can use it:** Mod
 
-Visualize controlled areas of a server by tribe.<br/>
+### +unbanfromtext
 
- - Usage: `+structuregraph`
- - Restricted to: `ADMIN`
- - Cooldown: `1 per 45.0 seconds`
- - Checks: `guild_only`
+Unban players from a list of player IDs.
 
-## +mapreveal
+The text should be a list of player IDs separated by spaces or new lines.
 
-Reveal the top tribes with the highest power on a cluster<br/>
+XUIDs in the list are also unblocked on every host gamertag (Xbox Live  
+block removal) using each server's stored XSAPI tokens.
 
-Arguments:<br/>
-`cluster`: The name of the cluster to get the top tribes from<br/>
-`top`: The number of top tribes to show (default 5)<br/>
-`power_only`: Whether to only show structures related to power (default True)<br/>
+- **Usage:** `+unbanfromtext`
+- **Who can use it:** Mod
 
- - Usage: `+mapreveal <cluster> [top=5] [power_only=True]`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
+### +bantribe
 
-## +territory
+Ban all members of a tribe at once
 
-Visualize controlled areas of a server by tribe.<br/>
+- **Usage:** `+bantribe <tribe_id> <reason>`
+- **Who can use it:** Admin
 
- - Usage: `+territory [include_other=False] [top=10]`
- - Restricted to: `ADMIN`
- - Cooldown: `1 per 5.0 seconds`
- - Checks: `guild_only`
+### +tempbantribe
 
-## +findexpired
+Temporarily ban all members of a tribe at once.
 
-Get a list of tribes that haven't been active for more than X days<br/>
+Arguments:  
+`tribe_id` - The tribe ID to ban.  
+`duration` - How long to ban for (e.g. 1d, 6h, 30m). Uses the default tempban duration if omitted.  
+`reason` - The reason for the ban.
 
-Example: +findexpired 60<br/>
-this will show tribes inactive for 60 days or more that have at least 1 structure or tame<br/>
+Examples:
+- +tempbantribe 12345 1d Meshing
+- +tempbantribe 12345 6h Griefing outside raid hours
 
- - Usage: `+findexpired <days>`
- - Restricted to: `MOD`
- - Aliases: `expired`
- - Checks: `guild_only`
+- **Usage:** `+tempbantribe <tribe_id> [duration] [reason]`
+- **Who can use it:** Admin
+- **Also called:** `+tbt`
 
-## +wipetribes
+### +warntribe
 
-Wipe all tribes that haven't been active for X days or more<br/>
+Warn all members of a tribe at once
 
-This will delete all their tames, structures, and players<br/>
+- **Usage:** `+warntribe <tribe_id> <warning>`
+- **Who can use it:** Admin
 
- - Usage: `+wipetribes <days>`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
+### +tribenote
 
-## +sortdinos
+Add a note to all members of a tribe at once
 
-Find all dinos above or equal to the specified level<br/>
+- **Usage:** `+tribenote <tribe_id> <note>`
+- **Who can use it:** Admin
 
- - Usage: `+sortdinos <level> [dino_name]`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
+### +suswatch
 
-## +tribesize
+Add/Remove players from the watchlist.
 
-Visualize a tribe's controlled territory along with their types of structures and area they take up.<br/>
+Admins will be alerted when players on the watchlist join or leave a server
 
- - Usage: `+tribesize <search_query>`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
+`gameid` is their XUID, SteamID, or EOS ID (NOT their username)
 
-## +finditem
+- **Usage:** `+suswatch [gameid]`
+- **Who can use it:** Admin
 
-Search for a specific item on a map<br/>
+### +syncbans
 
- - Usage: `+finditem <item_blueprint> [tribe_id=None]`
- - Restricted to: `MOD`
- - Checks: `guild_only`
+Sync the banlists for all servers
 
-## +tamestatcheck
-
-Find tames that hit a stat goal.<br/>
-
-Arguments:<br/>
-`stat` - Which stat to check: hp, stam, melee, weight, speed, food, or oxy.<br/>
-`points` - Minimum number of points the tame needs in that stat.<br/>
-`stat_type` - Choose tamed or wild points. Defaults to tamed.<br/>
-
- - Usage: `+tamestatcheck <stat> <points> [stat_type=tamed]`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
-
-## +uncryocheck
-
-Get a list of tribes who's uncryo'd tame count is above the specified amount<br/>
-
- - Usage: `+uncryocheck <amount>`
- - Restricted to: `ADMIN`
- - Aliases: `cryocheck`
- - Checks: `guild_only`
-
-## +syncbans
-
-Sync the banlists for all servers<br/>
-
- - Usage: `+syncbans`
- - Restricted to: `ADMIN`
- - Checks: `guild_only`
+- **Usage:** `+syncbans <subcommand>`
+- **Who can use it:** Admin
 
 ### +syncbans all
 
-Sync every ban across every server.<br/>
+Sync every ban across every server.
 
-    Explanation:<br/>
-    Runs as a dry run by default and shows what would change. Confirm true re-bans missing entries, removes stray bans, and cleans invalid IDs.<br/>
+Explanation:  
+Runs as a dry run by default and shows what would change. Confirm true re-bans missing entries, removes stray bans, and cleans invalid IDs.
 
-Arguments:<br/>
-`confirm` - true to apply the changes instead of previewing them.<br/>
+Arguments:  
+`confirm` - true to apply the changes instead of previewing them.
 
- - Usage: `+syncbans all [confirm=False]`
- - Cooldown: `1 per 600.0 seconds`
- - Checks: `bot_has_guild_permissions`
-
-### +syncbans fromserver
-
-Copy bans from the servers into the database.<br/>
-
-    Explanation:<br/>
-    Treats each server as the source of truth, cleans invalid IDs, and adds missing database entries. Run without confirm to preview.<br/>
-
-Arguments:<br/>
-`confirm` - true to make the changes instead of running a dry run.<br/>
-
- - Usage: `+syncbans fromserver [confirm=False]`
- - Cooldown: `1 per 300.0 seconds`
-
-### +syncbans fromdb
-
-Sync bans using the database as the source of truth.<br/>
-
-Explanation:<br/>
-Re-bans players missing on servers, removes bans that only exist on servers, and can run as a dry run before confirming.<br/>
-
-Arguments:<br/>
-`confirm` - true to make the changes. Leave false for a dry run.<br/>
-
- - Usage: `+syncbans fromdb [confirm=False]`
- - Cooldown: `1 per 300.0 seconds`
+- **Usage:** `+syncbans all [confirm]`
+- **Who can use it:** Admin
 
 ### +syncbans betweenservers
 
-Mirror bans between every server.<br/>
+Mirror bans between every server.
 
-    Explanation:<br/>
-    Keeps ASA maps in sync with each other, keeps ASE maps in sync, updates the database, and removes invalid IDs. Dry run first, then confirm to commit.<br/>
+Explanation:  
+Keeps ASA maps in sync with each other, keeps ASE maps in sync, updates the database, and removes invalid IDs. Dry run first, then confirm to commit.
 
-Arguments:<br/>
-`confirm` - true to apply the changes instead of previewing them.<br/>
+Arguments:  
+`confirm` - true to apply the changes instead of previewing them.
 
- - Usage: `+syncbans betweenservers [confirm=False]`
- - Cooldown: `1 per 300.0 seconds`
+- **Usage:** `+syncbans betweenservers [confirm]`
+- **Who can use it:** Admin
 
-## +servergraph (Hybrid Command)
+### +syncbans fromdb
 
-See how your player count changed over time.<br/>
+Sync bans using the database as the source of truth.
 
-Arguments:<br/>
-`timespan` - How far back to check. Use values like 4h, 12d, 3w2d, or all. Defaults to 1 hour.<br/>
-`clusters_only` - true to merge maps by cluster instead of showing every map.<br/>
-`include_total` - true to add a line that shows the combined player count.<br/>
-`search_query` - Filter to specific clusters or maps.<br/>
-`start_time` - Override the start time, e.g. April 10 2032 5:00pm.<br/>
-`end_time` - Optional end time that pairs with start_time.<br/>
+Explanation:  
+Re-bans players missing on servers, removes bans that only exist on servers, and can run as a dry run before confirming.
 
-    Examples:<br/>
-    +servergraph 4h<br/>
-    +servergraph 12d<br/>
-    +servergraph 3w2d<br/>
-    +servergraph 7w<br/>
+Arguments:  
+`confirm` - true to make the changes. Leave false for a dry run.
 
- - Usage: `+servergraph [timespan=None] [clusters_only=False] [include_total=False] [search_query=] [start_time=None] [end_time=None]`
- - Slash Usage: `/servergraph [timespan=None] [clusters_only=False] [include_total=False] [search_query=] [start_time=None] [end_time=None]`
- - Cooldown: `3 per 30.0 seconds`
- - Checks: `guild_only`
+- **Usage:** `+syncbans fromdb [confirm]`
+- **Who can use it:** Admin
 
-## +lookback
+### +syncbans fromserver
 
-Find where a player was online during a specific window.<br/>
+Copy bans from the servers into the database.
 
-Arguments:<br/>
-`search_query` - Player name, game ID, or Discord member to look up.<br/>
-`start_time` - When to start looking, e.g. April 10 2032 5:00pm.<br/>
-`end_time` - Optional time to stop looking, e.g. April 11 2032 5:00pm.<br/>
+Explanation:  
+Treats each server as the source of truth, cleans invalid IDs, and adds missing database entries. Run without confirm to preview.
 
- - Usage: `+lookback <search_query> <start_time> [end_time=None]`
- - Restricted to: `MOD`
- - Cooldown: `5 per 30.0 seconds`
- - Checks: `guild_only`
+Arguments:  
+`confirm` - true to make the changes instead of running a dry run.
 
-## +whowason
+- **Usage:** `+syncbans fromserver [confirm]`
+- **Who can use it:** Admin
 
-List everyone who was online at a specific moment.<br/>
+## Server Control
 
-Arguments:<br/>
-`time` - When to check. Accepts ISO times like 2024-10-15T12:00:00 or natural times such as 4:20pm April 10 2024.<br/>
+Step-by-step guide: [Server Control: RCON Commands, Schedules and Restarts](/guides/server-control)
 
- - Usage: `+whowason <time>`
- - Restricted to: `MOD`
- - Checks: `guild_only`
+### +rcon
 
-## +timeline
+Run an RCON command
 
-Show a player's join and leave timeline.<br/>
+Note that `+doexit`, `+dorestartlevel`, `+banplayer` and `+unbanplayer`  
+are standalone commands, running these commands with pure rcon will not execute  
+the extra steps associated with these commands like countdowns,  
+saving, or player blocking.
 
-Arguments:<br/>
-`search_query` - Player name, game ID, or Discord member to inspect.<br/>
-`start_time` - When to start the timeline, e.g. April 10 2032 5:00pm.<br/>
-`end_time` - Optional time to stop the timeline.<br/>
+- **Usage:** `+rcon <cluster> <server> <command>`
+- **Who can use it:** Mod
+- **Slash command:** also works as `/rcon`
+- **Also called:** `+run`
 
- - Usage: `+timeline <search_query> <start_time> [end_time=None]`
- - Restricted to: `MOD`
- - Checks: `guild_only`
+### +scheduledrcon
 
-## +joinlog
+Schedule an RCON command to run at a later time.
 
-Show the join/leave log for a server over a time period.<br/>
+- **Usage:** `+scheduledrcon [query]`
+- **Who can use it:** Admin
 
-Arguments:<br/>
-`timespan` - How far back to check, e.g. 7d, 12h, 3w.<br/>
-`end_time` - Optional end time, e.g. April 10 2032 5:00pm. Defaults to now.<br/>
+### +doexit
 
- - Usage: `+joinlog <timespan> [end_time]`
- - Restricted to: `MOD`
- - Checks: `guild_only`
+Shut a game server down completely.
 
-## Related references
-- [All Commands](/commands/all-commands) - complete command list
-- [Admin Commands](/commands/admin-commands) - server owner / admin
-- [Mod Commands](/commands/mod-commands) - moderator tools
-- [Player Commands](/commands/player-commands) - player commands
-- [Ark RCON Commands](/guides/ark-rcon-commands) - raw game console reference
-- [Getting Started](/guides/getting-started) - connect your first server
+Sends a countdown broadcast first so players can get safe before it closes.
+
+Arguments:  
+`cluster` - Which cluster to target, or all for every cluster.  
+`server` - Which map to stop, or all for every map.  
+`countdown` - Optional delay like 30s, 1m, or 1m30s before the shutdown.
+
+Examples:
+- +doexit main ragnarok 5m
+- +doexit all all
+
+- **Usage:** `+doexit <cluster> <server> [countdown]`
+- **Who can use it:** Mod
+- **Slash command:** also works as `/doexit`
+
+### +dorestartlevel
+
+Restart a server without a full shutdown.
+
+Great for rolling fresh map updates while letting players prep during the countdown.
+
+Arguments:  
+`cluster` - Which cluster to restart, or all for every cluster.  
+`server` - Which map to restart, or all for every map.  
+`countdown` - Optional delay like 30s, 1m, or 1m30s before the restart.
+
+Examples:
+- +dorestartlevel main fjordur 2m
+- +dorestartlevel all all
+
+- **Usage:** `+dorestartlevel <cluster> <server> [countdown]`
+- **Who can use it:** Mod
+- **Slash command:** also works as `/dorestartlevel`
+
+### +arkset countdown
+
+Set the `doexit` and `dorestartlevel` countdowns
+
+- **Usage:** `+arkset countdown <seconds>`
+- **Who can use it:** Admin
+
+### +arkset modcommands
+
+Mod command allow list
+
+- **Usage:** `+arkset modcommands <command>`
+- **Who can use it:** Admin
+- **Also called:** `+arkset modcmd`
+
+### +arkset commandblacklist
+
+Set forbidden commands
+
+- **Usage:** `+arkset commandblacklist <command>`
+- **Who can use it:** Admin
+
+### +arkset ansicolors
+
+Toggle ANSI color codes in RCON output.
+
+- **Usage:** `+arkset ansicolors`
+- **Who can use it:** Admin
+- **Also called:** `+arkset ansi`
+
+### +bulksend
+
+Run GiveItem commands multiple times in a row.
+
+Handy when you need to load someone with stacks that craft commands can't handle in one go. Your blueprint string must already include amount, quality, and blueprint flags.
+
+Arguments:  
+`cluster` - Cluster the player is on.  
+`server` - Server name within that cluster.  
+`implant` - Specimen number to send items to.  
+`count` - How many times to run the command.  
+`blueprint_string` - Full GiveItem blueprint string including numbers.
+
+Examples:
+- +bulksend main rag 12345 50 "Blueprint'/Game/...Polymer' 100 1 0"
+
+- **Usage:** `+bulksend <cluster> <server> <implant> <count> <blueprint_string>`
+- **Who can use it:** Admin
+
+### /bulksend
+
+Bulk send an item to a player
+
+- **Usage:** `/bulksend <cluster> <server> <implant> <item> <amount> <runcount> [quality] [blueprint]`
+- **Who can use it:** Members with the Kick Members permission
+- **Slash command only**
+  - `cluster`: The cluster to send the item to
+  - `server`: The server to send the item to
+  - `implant`: The specimen # to send the item to
+  - `item`: The item to send
+  - `amount`: How many items to send in each run
+  - `runcount`: How many times to run the command
+  - `quality`: The quality of the item to send
+  - `blueprint`: Whether the item is a blueprint
+
+### +excelsend
+
+Send yourself in-game commands from an Excel sheet.
+
+Your excel file must have two columns, `command` and `amount`.
+- `command` is the command you want to send to yourself.
+- `amount` is the amount of times you want to send the command.
+
+Command Column Example:  
+```  
+"Blueprint'/Game/PrimalEarth/CoreBlueprints/Resources/PrimalItemResource_Element.PrimalItemResource_Element'" 5 0 0  
+```  
+Amount Column Example:  
+```  
+5  
+```  
+This would send the command 5 times.  
+Each command gives you 5 element.  
+This would give you a total of 25 element.
+
+- **Usage:** `+excelsend`
+- **Who can use it:** Admin
+- **Also called:** `+xlsend`
+
+### +clearall
+
+Clear inventory of all players in the server.
+
+- **Usage:** `+clearall <cluster> <server> [inventory] [hotbar] [equipped]`
+- **Who can use it:** Mod
+- **Slash command:** also works as `/clearall`
+  - `cluster`: The cluster to send the item to
+  - `server`: The server to send the item to
+  - `inventory`: Clear inventory items
+  - `hotbar`: Clear hotbar items
+  - `equipped`: Clear equipped items
+
+### +equipall
+
+- **Usage:** `+equipall <cluster> <server>`
+- **Who can use it:** Mod
+- **Slash command:** also works as `/equipall`
+  - `cluster`: The cluster to send the item to
+  - `server`: The server to send the item to
+
+### +dummywall
+
+Build a list of spawn commands for a loadout dummy wall.
+
+Handy when you want quick cover, cave fillers, or to plug rat holes.
+
+Arguments:  
+`width` - How many dummies wide the wall should be.  
+`height` - How many dummies tall the wall should be.
+
+Examples:
+- +dummywall 2 2
+- +dummywall 4 3
+
+- **Usage:** `+dummywall <width> <height>`
+- **Who can use it:** Admin
+
+### +dummyfloor
+
+Build a list of spawn commands for a loadout dummy floor.
+
+Perfect for quick foundations or filling cave floors.
+
+Arguments:  
+`width` - How many dummies wide the floor should be.  
+`depth` - How many rows of dummies to spawn.
+
+Examples:
+- +dummyfloor 3 3
+- +dummyfloor 5 2
+
+- **Usage:** `+dummyfloor <width> <depth>`
+- **Who can use it:** Admin
+
+### +pollvotetime
+
+Check how much playtime each poll voter has logged.
+
+Pulls totals from either overall playtime or just this wipe's map data.
+
+Arguments:  
+`message` - The Discord message containing the poll.  
+`cluster` - Optional cluster name to filter hours.  
+`use_maptime` - True to only count playtime from the current wipe.
+
+Examples:
+- +pollvotetime 123456789012345678
+- +pollvotetime 123456789012345678 valguero true
+
+- **Usage:** `+pollvotetime <message> [cluster] [use_maptime]`
+- **Who can use it:** Mod
+
+### +pollvotefilter
+
+Filter poll votes from players who haven't played on a cluster.
+
+Optionally limit it to hours logged this wipe to keep polls fair.
+
+Arguments:  
+`message` - The Discord message containing the poll.  
+`cluster_name` - Name of the cluster the poll is about.  
+`this_wipe` - True to only count players active this season.
+
+Examples:
+- +pollvotefilter 123456789012345678 valguero
+- +pollvotefilter 123456789012345678 extinction true
+
+- **Usage:** `+pollvotefilter <message> <cluster_name> [this_wipe]`
+- **Who can use it:** Mod
+
+### +remreacts
+
+Remove reactions from a message based on the following.
+- `min_playtime`: Minimum playtime required in hours
+- `min_joined`: Minimum time in discord in hours
+- `min_age`: Minimum age of discord account in hours
+
+- **Usage:** `+remreacts <message> [min_playtime] [min_joined] [min_age]`
+- **Who can use it:** Admin
+
+### +unhex
+
+Unhex a string
+
+- **Usage:** `+unhex <text>`
+- **Who can use it:** Mod
+
+## Security
+
+Step-by-step guide: [Security: RDP Dupes, Imposters and Name Blacklist](/guides/security)
+
+### +getips 🔹
+
+Get a list of player IPs from the database
+
+- **Usage:** `+getips`
+- **Who can use it:** Admin
+
+### +rdpdupe
+
+Configure RDP dupe protection
+
+Detects when the same gameid is online on two maps in the same cluster  
+at the same time (the RDP / multi-session obelisk dupe exploit) and  
+kicks or bans the player. An alert is posted to the configured RDP-dupe  
+log channel (falls back to the alert channel) when detection fires.
+
+- **Usage:** `+rdpdupe <subcommand>`
+- **Who can use it:** Mod
+- **Also called:** `+rdp`
+
+### +rdpdupe action
+
+Set the enforcement action: `kick` or `ban`
+
+- **Usage:** `+rdpdupe action <action>`
+- **Who can use it:** Mod
+
+### +rdpdupe channel
+
+Set (or clear) the channel where RDP dupe alerts are sent.
+
+Leave `channel` blank to clear and fall back to the guild alert channel.
+
+- **Usage:** `+rdpdupe channel [channel]`
+- **Who can use it:** Mod
+
+### +rdpdupe toggle
+
+Toggle RDP dupe detection on/off
+
+- **Usage:** `+rdpdupe toggle`
+- **Who can use it:** Mod
+
+### +rdpdupe view
+
+View current RDP dupe protection settings
+
+- **Usage:** `+rdpdupe view`
+- **Who can use it:** Mod
+
+### +rdpdupe whitelist
+
+Add or remove a gameid from the RDP dupe whitelist
+
+- **Usage:** `+rdpdupe whitelist <gameid>`
+- **Who can use it:** Mod
+
+### +arkset banimposters
+
+Protect your server if anyone discovers your admin password
+
+- **Usage:** `+arkset banimposters`
+- **Who can use it:** Admin
+
+### +arkset imposterwhitelist
+
+Whitelist certain game IDs from triggering imposter bans
+
+- **Usage:** `+arkset imposterwhitelist <player_id>`
+- **Who can use it:** Admin
+
+### +arkset characternameblacklist
+
+Character name blacklist
+
+- **Usage:** `+arkset characternameblacklist <name>`
+- **Who can use it:** Admin
+- **Also called:** `+arkset charnameblacklist`, `+arkset charbl`, `+arkset badname`
+
+## Map Tools
+
+Step-by-step guide: [Map Tools: Hunt Dinos, Find Tames and Map Structures](/guides/map-tools)
+
+### +hunt 🔹
+
+Hunt for a dino!
+
+Use the slash version of this command to make it private!
+
+- **Usage:** `+hunt <dino>`
+- **Who can use it:** Everyone
+- **Slash command:** also works as `/hunt`
+  - `dino`: The name of the dino you want to search for
+
+### +findtame 🔹
+
+Find tames by tame name, imprinter, tamer, or tribe name
+
+`search_query` can be one of the following.  
+The dino's name.  
+The name of the person who tamed the dino.  
+The name of the person who imprinted on the tame.  
+The name of the tribe that owns the dino.  
+The ID of the tribe that tamed the dino.
+
+*You can search for unclaimed dinos by specifying `unclaimed`*
+
+- **Usage:** `+findtame <search_query>`
+- **Who can use it:** Everyone
+- **Slash command:** also works as `/findtame`
+  - `search_query`: Dino Name, Tamer, Imprinter, TribeName, or TribeID
+
+### +mytames 🔹
+
+Check your tribe's tames on a map
+
+- **Usage:** `+mytames`
+- **Who can use it:** Everyone
+
+### +tamesfor 🔹
+
+Check your tribe's tames on a map
+
+- **Usage:** `+tamesfor <player>`
+- **Who can use it:** Mod
+
+### +mystructures 🔹
+
+Count structures near your last known location on a map
+
+- **Usage:** `+mystructures`
+- **Who can use it:** Everyone
+
+### +mapstats 🔹
+
+Get detailed stats for a map
+
+- **Usage:** `+mapstats`
+- **Who can use it:** Everyone
+
+### +creaturepie 🔹
+
+Get a pie chart of wild dinos on a map
+
+- **Usage:** `+creaturepie [count]`
+- **Who can use it:** Everyone
+
+### +structurepie 🔹
+
+Get pie chart of structures
+
+- **Usage:** `+structurepie [count]`
+- **Who can use it:** Everyone
+
+### +tamepie 🔹
+
+Get a pie chart of tamed dinos on a map
+
+- **Usage:** `+tamepie [count]`
+- **Who can use it:** Everyone
+
+### +playerheat 🔹
+
+Get a heatmap of player locations
+
+- **Usage:** `+playerheat`
+- **Who can use it:** Everyone
+
+### +arkviewer 🔹
+
+Quickly view your servers' ArkView metrics
+
+- **Usage:** `+arkviewer`
+- **Who can use it:** Everyone
+- **Also called:** `+arkview`, `+lastsynced`
+
+### +findplayer 🔹
+
+Find the location and tribe of a player in-game
+
+Mods can use this on clusters where an admin allowed it; admins can use it anywhere.
+
+`search_query` can be one of the following.  
+Player's in-game name  
+Gamertag or Username  
+Specimen number (exact matches only)  
+XUID or SteamID (exact matches only)  
+Tribe ID (exact matches only)
+
+- **Usage:** `+findplayer <search_query>`
+- **Who can use it:** Mod
+- **Slash command:** also works as `/findplayer`
+
+### +findtribe 🔹
+
+Find details of a tribe
+
+Mods can use this on clusters where an admin allowed it; admins can use it anywhere.
+
+`search_query` can be one of the following.
+- Tribe name
+- Tribe ID (exact matches only)
+- Player's in-game name
+- Gamertag or Username
+- Specimen number (exact matches only)
+- XUID or SteamID (exact matches only)
+
+If any tribes have the player info found in them, they will be shown
+
+- **Usage:** `+findtribe <search_query>`
+- **Who can use it:** Mod
+
+### +finditem 🔹
+
+Search for a specific item on a map
+
+- **Usage:** `+finditem <item_blueprint> [tribe_id]`
+- **Who can use it:** Mod
+
+### +structures 🔹
+
+Get a marker map of structures for a tribe
+
+Mods can use this on clusters where an admin allowed it; admins can use it anywhere.
+
+`search_query` can be one of the following.
+- Tribe name
+- Tribe ID (exact matches only)
+
+- **Usage:** `+structures <search_query>`
+- **Who can use it:** Mod
+- **Slash command:** also works as `/structures`
+
+### +findstructure 🔹
+
+Get a marker map of specific structures for a tribe or the whole map
+
+`structure_class` is the class name of the structure you want to search for.
+- e.g. "CookingPot_C" or "StructureTurretTek_C
+
+`search_query` can be one of the following.
+- Tribe name
+- Tribe ID (exact matches only)
+
+- **Usage:** `+findstructure <structure_class> [search_query]`
+- **Who can use it:** Admin
+- **Slash command:** also works as `/findstructure`
+
+### +territory 🔹
+
+Visualize controlled areas of a server by tribe.
+
+- **Usage:** `+territory [include_other] [top]`
+- **Who can use it:** Admin
+
+### +structuregraph 🔹
+
+Visualize controlled areas of a server by tribe.
+
+- **Usage:** `+structuregraph`
+- **Who can use it:** Admin
+
+### +tribesize 🔹
+
+Visualize a tribe's controlled territory along with their types of structures and area they take up.
+
+- **Usage:** `+tribesize <search_query>`
+- **Who can use it:** Admin
+
+### +sortdinos 🔹
+
+Find all dinos above or equal to the specified level
+
+- **Usage:** `+sortdinos <level> [dino_name]`
+- **Who can use it:** Admin
+
+### +setcustomdinos 🔹
+
+Register custom dinos for features like hunt and findtame.
+
+Paste entries directly or attach a `.txt` file. Each line should be `FriendlyName|ClassName`.
+
+Arguments:  
+`custom_dinos` - Optional pasted list of entries. Attach a file instead if you leave this blank.
+
+Examples:
+- +setcustomdinos Royal Griffin|RoyalOwlGriffin_MM_Character_BP_C  
+Gecko|Gecko_Character_BP_C
+- +setcustomdinos (with custom_dinos.txt attached)
+
+- **Usage:** `+setcustomdinos [custom_dinos]`
+- **Who can use it:** Admin
+
+### +showcustomdinos 🔹
+
+Show the list of custom dinos for this guild
+
+- **Usage:** `+showcustomdinos`
+- **Who can use it:** Admin
+- **Also called:** `+listcustomdinos`, `+getcustomdinos`
+
+### +clearcustomdinos 🔹
+
+Clear all custom dinos for this guild
+
+- **Usage:** `+clearcustomdinos`
+- **Who can use it:** Admin
+
+### +servermetrics 🔹
+
+View current server memory usage
+
+- **Usage:** `+servermetrics <metric>`
+- **Who can use it:** Admin
+
+### +viewsysinfo 🔹
+
+View data about the system running your servers
+
+- **Usage:** `+viewsysinfo`
+- **Who can use it:** Admin
+
+### +avsync 🔹
+
+Sync tribes, players and characters with with the database
+
+- **Usage:** `+avsync`
+- **Who can use it:** Admin
+
+## Anti-Cheat
+
+Step-by-step guide: [Anti-Cheat: Dupes, Mass Breeding and Foreign Tames](/guides/anti-cheat)
+
+### +tamedupes 🔹
+
+Find duplicated tames if a tribe has more than X of the same dino ID
+
+- **Usage:** `+tamedupes <cluster_name> <server_name> <threshold>`
+- **Who can use it:** Admin
+
+### +checkmassbreed 🔹
+
+Find clusters of dinos left breeding.
+
+Explanation:  
+Spots dense groups of dinos with mating enabled so you can deal with mass breeders before they lag the map.
+
+Arguments:  
+`threshold` - Maximum distance (lat/lon) between dinos in a cluster. Default 0.5.  
+`min_dinos` - Minimum mating dinos in the area before it flags the cluster. Default 6.
+
+- **Usage:** `+checkmassbreed [threshold] [min_dinos]`
+- **Who can use it:** Admin
+- **Also called:** `+massbreed`
+
+### +scanforeigntames 🔹
+
+Scan all servers for tames that are from a server not in the valid server list
+
+- **Usage:** `+scanforeigntames`
+- **Who can use it:** Admin
+
+### +setvalidservers 🔹
+
+Comma separated list of valid server names for this guild, any servers not in this list will be flagged when a tame is transferred to them
+
+- **Usage:** `+setvalidservers <valid_names>`
+- **Who can use it:** Admin
+
+### +showvalidservers 🔹
+
+Show the list of valid server names for this guild
+
+- **Usage:** `+showvalidservers`
+- **Who can use it:** Admin
+
+### +tamestatcheck 🔹
+
+Find tames that hit a stat goal.
+
+Arguments:  
+`stat` - Which stat to check: hp, stam, melee, weight, speed, food, or oxy.  
+`points` - Minimum number of points the tame needs in that stat.  
+`stat_type` - Choose tamed or wild points. Defaults to tamed.
+
+- **Usage:** `+tamestatcheck <stat> <points> [stat_type]`
+- **Who can use it:** Admin
+
+### +uncryocheck 🔹
+
+Get a list of tribes who's uncryo'd tame count is above the specified amount
+
+- **Usage:** `+uncryocheck <amount>`
+- **Who can use it:** Admin
+- **Also called:** `+cryocheck`
+
+### +findexpired 🔹
+
+Get a list of tribes that haven't been active for more than X days
+
+Example: +findexpired 60  
+this will show tribes inactive for 60 days or more that have at least 1 structure or tame
+
+- **Usage:** `+findexpired <days>`
+- **Who can use it:** Mod
+- **Also called:** `+expired`
+
+### +finddbtribe 🔹
+
+Find details of a tribe from the database
+
+`search_query` can be one of the following.
+- Tribe name
+- Tribe ID (exact matches only)
+- Player's in-game name
+- Gamertag or Username
+- XUID or SteamID (exact matches only)
+
+Shows tribe data stored in the database.
+
+- **Usage:** `+finddbtribe <search_query>`
+- **Who can use it:** Admin
+
+### +wipetribes 🔹
+
+Wipe all tribes that haven't been active for X days or more
+
+This will delete all their tames, structures, and players
+
+- **Usage:** `+wipetribes <days>`
+- **Who can use it:** Admin
+
+## Player Stats and Leaderboards
+
+Step-by-step guide: [Player Stats and Leaderboards](/guides/stats-and-leaderboards)
+
+### +playerstats
+
+View info about a player
+
+The optional **player** argument can be one of the following.
+- Gamertag or Username
+- XUID, Steam ID, PSN ID, or EOS ID
+- Discord ID or Username
+- @mention
+
+- **Usage:** `+playerstats [player]`
+- **Who can use it:** Everyone
+- **Slash command:** also works as `/playerstats`
+
+### +players
+
+Show the playtime leaderboard.
+
+Pick a time window to see who played the most recently, or `all` for all-time playtime.  
+Filter to a cluster if you just want local rankings.
+
+Arguments:  
+`timespan` - How far back to look (e.g. 7d, 2w, 30d), or `all`. Defaults to all.  
+`cluster` - Optional cluster name to limit the results.
+
+Examples:
+- +players
+- +players 7d
+- +players 30d scorchedearth
+- +players all scorchedearth
+
+- **Usage:** `+players [timespan] [cluster]`
+- **Who can use it:** Everyone
+- **Also called:** `+arkleaderboard`, `+arklb`, `+arktop`
+
+### +clusterlb
+
+Show the top players on a specific cluster.
+
+Pick which stat to sort by: playtime, tamed, kills, or tamekills.
+
+Arguments:  
+`sort_by` - Stat to highlight. Defaults to kills.
+
+Examples:
+- +clusterlb playtime
+- +clusterlb tamekills
+
+- **Usage:** `+clusterlb [sort_by]`
+- **Who can use it:** Everyone
+
+### +tribelb
+
+See which tribes are leading the pack.
+
+Sort by kills, dinos tamed, or structures destroyed. Short forms k, t, and d work too.
+
+Arguments:  
+`sort_by` - What stat to rank by.  
+`cluster` - Optional cluster name for a local board.
+
+Examples:
+- +tribelb kills
+- +tribelb d fjordur
+
+- **Usage:** `+tribelb <sort_by> [cluster]`
+- **Who can use it:** Everyone
+- **Also called:** `+tribetop`
+
+### +totalplaytime
+
+Calculate a player's total playtime between two dates.
+
+Arguments:  
+`player_query` - The player's XUID, SteamID, EOSID, Discord ID, Character Implant, ect.  
+`start_date` - Start of the time range (e.g. Aug 12, 2025 or 2024-12-01).  
+`end_date` - End of the time range (e.g. Dec 15, 2025 or 2024-12-15T23:59:59).
+
+Examples:
+- +totalplaytime 2535412345678901 "Aug 1, 2025" "Aug 15, 2025"
+- +totalplaytime 76561198012345678 2024-12-01 2024-12-15
+
+- **Usage:** `+totalplaytime <player_query> <start_date> <end_date>`
+- **Who can use it:** Mod
+
+### +dbstats
+
+Show ArkTools stats for this guild or globally.
+
+Toggle global mode to compare against all ArkTools servers.
+
+Arguments:  
+`showglobal` - True to show global totals instead of this guild.
+
+Examples:
+- +dbstats
+- +dbstats true
+
+- **Usage:** `+dbstats [showglobal]`
+- **Who can use it:** Everyone
+
+## Xbox and Microsoft Store Features
+
+Step-by-step guide: [Xbox and Microsoft Store Features](/guides/xsapi)
+
+### +xsapi 🔸
+
+Xbox crossplay tools/settings
+
+- **Usage:** `+xsapi <subcommand>`
+- **Who can use it:** Admin
+
+### +xsapi altdetection 🔸
+
+Alt detection for newly discovered players in-game
+
+Get alerts in the event log when a suspicious account joins a server,  
+and optionally Auto-ban them or send a warning message based on customizable settings
+
+[botname] Premium is required to use this system
+
+- **Usage:** `+xsapi altdetection <subcommand>`
+- **Who can use it:** Admin
+- **Also called:** `+xsapi alt`
+
+### +xsapi altdetection autoban 🔸
+
+Toggle alt detection autoban on/off
+
+**NOTE**  
+Auto-ban only applies to Silver accounts. Xbox Gold accounts will be logged but not auto-banned.
+
+- **Usage:** `+xsapi altdetection autoban`
+- **Who can use it:** Admin
+
+### +xsapi altdetection channel 🔸
+
+Set the channel for alt detection alerts
+
+- **Usage:** `+xsapi altdetection channel <channel>`
+- **Who can use it:** Admin
+
+### +xsapi altdetection threshold 🔸
+
+Set the threshold for alt detection
+
+- **Usage:** `+xsapi altdetection threshold <threshold>`
+- **Who can use it:** Admin
+
+### +xsapi altdetection toggle 🔸
+
+Toggle alt detection system on/off
+
+[botname] Premium is required to use this system
+
+- **Usage:** `+xsapi altdetection toggle`
+- **Who can use it:** Admin
+
+### +xsapi altdetection whitelist 🔸
+
+Whitelist a cluster for auto-ban
+
+- **Usage:** `+xsapi altdetection whitelist <cluster_name>`
+- **Who can use it:** Admin
+
+### +xsapi authenticate 🔸
+
+Authenticate a host gamertag (MS Crossplay Only)
+
+- **Usage:** `+xsapi authenticate`
+- **Who can use it:** Admin
+- **Also called:** `+xsapi auth`
+
+### +xsapi autofriend 🔸
+
+Auto host gamertag friend/unfriend system
+
+- **Usage:** `+xsapi autofriend <subcommand>`
+- **Who can use it:** Admin
+- **Also called:** `+xsapi smartmanage`
+
+### +xsapi autofriend toggle 🔸
+
+Toggle the auto-friend system
+
+This will enable automatically adding new players as a friend by the host Gamertag  
+and automatically unfriending them after the set number of days of inactivity (Default is 30).  
+The Gamertags will also unfriend anyone that isn't following them back  
+or leaves the discord after registering.
+
+You must have [botname] Premium to use this!
+
+- **Usage:** `+xsapi autofriend toggle`
+- **Who can use it:** Admin
+
+### +xsapi autofriend unfriendtime 🔸
+
+Set days of inactivity to auto-unfriend
+
+This is the number of days of inactivity for the host Gamertags to unfriend a player.
+
+This keeps the xbox host Gamertag friends lists clean since the max you can have is 1000.
+
+- **Usage:** `+xsapi autofriend unfriendtime <days>`
+- **Who can use it:** Admin
+
+### +xsapi cleanfriends 🔸
+
+Trim old friends from a host gamertag.
+
+Removes players who haven't been on the specified map within the given timeframe.
+
+Arguments:  
+`cluster` - Cluster name to check.  
+`server` - Server name within that cluster.  
+`days` - How many days of inactivity before removing a friend.
+
+Examples:
+- +xsapi cleanfriends valguero pve 30
+- +xsapi cleanfriends fjordur main 14
+
+- **Usage:** `+xsapi cleanfriends <cluster> <server> [days]`
+- **Who can use it:** Admin
+
+### +xsapi dumpfriends 🔸
+
+Dump a player's friends list and check which ones are in the database.
+
+This will show which other players in your database are friends with this player.
+
+- **Usage:** `+xsapi dumpfriends <xuid>`
+- **Who can use it:** Admin
+
+### +xsapi friendinvites 🔸
+
+Get a list of pending friend invites for the host gamertag
+
+- **Usage:** `+xsapi friendinvites <cluster> <server>`
+- **Who can use it:** Admin
+
+### +xsapi friendrequests 🔸
+
+Get a list of friend requests for the host gamertag
+
+- **Usage:** `+xsapi friendrequests <cluster> <server>`
+- **Who can use it:** Admin
+
+### +xsapi gettokens 🔸
+
+Get a payload dump of your server tokens (Careful not to do in public channel)
+
+- **Usage:** `+xsapi gettokens <cluster> <server>`
+- **Who can use it:** Admin
+
+### +xsapi inviteauth 🔸
+
+Authorize a host gamertag to send game invites (needed for `inviteme`)
+
+The host must already be authorized with `xsapi authenticate`.  
+Sign in with the host Gamertag email that corresponds with the server you select.
+
+- **Usage:** `+xsapi inviteauth`
+- **Who can use it:** Admin
+
+### +xsapi view 🔸
+
+View settings related to the xbox api
+
+- **Usage:** `+xsapi view`
+- **Who can use it:** Admin
+
+### +xsapi viewhosts 🔸
+
+View XSAPI info of your servers
+
+- **Usage:** `+xsapi viewhosts`
+- **Who can use it:** Admin
+
+### +xdm 🔸
+
+DM a player on Xbox
+
+The message sender will be the host Gamertag of the last server they were on.
+
+- **Usage:** `+xdm <player> <message>`
+- **Who can use it:** Admin
+- **Slash command:** also works as `/xdm`
+
+### +susrating 🔸
+
+Get a rating for how likely an xbox account is to be an alt
+
+- **Usage:** `+susrating <player>`
+- **Who can use it:** Mod
+
+### +addme 🔸
+
+(Xbox/Win10 CROSSPLAY ONLY)Add yourself as a friend
+
+Make the host Gamertags add you as a friend
+
+This command requires api keys to be set for the servers
+
+- **Usage:** `+addme`
+- **Who can use it:** Everyone
+
+### +addplayer 🔸
+
+(Xbox/Win10 CROSSPLAY ONLY) Add a player to a host Gamertag's friends list
+
+This command requires api keys to be set for the servers
+
+- **Usage:** `+addplayer <player>`
+- **Who can use it:** Admin
+
+### +removeplayer 🔸
+
+Unfriend a player from the host Gamertag
+
+- **Usage:** `+removeplayer <xuid>`
+- **Who can use it:** Admin
+
+### +inviteme 🔸
+
+Get an Xbox game invite to one of our servers
+
+The server's host gamertag sends the invite straight to your Xbox.  
+You must be registered with an Xbox account first.
+
+- **Usage:** `+inviteme`
+- **Who can use it:** Everyone
