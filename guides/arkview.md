@@ -36,9 +36,10 @@ See the [Quick Reference](/guides/quick-reference) for what each command does.
 
 ArkView runs next to your Ark server. Every time the server saves, ArkView reads the save and gets the data ready. When someone runs a map command, Arkon asks ArkView for that data over the internet.
 
-```
-Ark server  --writes save-->  ArkView  <--asks for data--  Arkon (Discord)
-                              (your PC or server, one open port)
+```mermaid
+graph LR
+  A["Ark server"] -->|writes the save| B["ArkView<br/>on your PC or server"]
+  C["Arkon<br/>in Discord"] -->|asks for map data<br/>through one open port| B
 ```
 
 A few things follow from this:

@@ -22,9 +22,10 @@ Nitrado doesn't let you run your own programs on its game servers, so ArkView ca
 
 ## How It Works
 
-```
-Nitrado server  --FTP, every 2 min-->  ArkView machine  <--  Arkon (Discord)
-(writes the save)                      (reads the save, port 8000)
+```mermaid
+graph LR
+  A["Nitrado server<br/>writes the save"] -->|FTP, every 2 minutes| B["ArkView machine<br/>reads the save, port 8000"]
+  C["Arkon<br/>in Discord"] -->|asks for map data| B
 ```
 
 1. Nitrado saves your world.
@@ -34,8 +35,11 @@ Nitrado server  --FTP, every 2 min-->  ArkView machine  <--  Arkon (Discord)
 
 Arkon has to be able to reach your machine on one port. If your machine is at home behind CGNAT (where your internet provider shares one public IP between many customers, so port forwarding is impossible), a small VPS relays Arkon's requests to it:
 
-```
-Nitrado  --FTP-->  ArkView at home  <--Tailscale--  Relay VPS  <--port 8000--  Arkon
+```mermaid
+graph LR
+  A["Nitrado server"] -->|FTP| B["ArkView at home"]
+  C["Arkon<br/>in Discord"] -->|port 8000| D["Relay VPS"]
+  D -->|Tailscale| B
 ```
 
 Tailscale is a free tool that links your machines over a private, encrypted connection. Your home network never needs an open port.
