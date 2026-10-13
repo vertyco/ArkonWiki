@@ -2,7 +2,7 @@
 title: Getting Started With Arkon - Setup Guide for Ark Server Owners
 description: Add Arkon to your Discord and connect your Ark servers in about 10 minutes. Step-by-step setup guide with screenshots for ASE and ASA server owners.
 published: true
-date: 2026-08-03T00:00:00.000Z
+date: 2026-10-12T00:00:00.000Z
 tags: setup, getting-started, guide, server-owner
 editor: markdown
 dateCreated: 2023-12-10T05:14:02.435Z
@@ -173,7 +173,7 @@ Once the basics work, you can layer these on. None are required to run a server.
 
 - **In-game systems** (`+viewservers` to configure): `Interchat` syncs chat across every map in a cluster; `Kit` gives new players a one-time starter kit; `Imstuck` hands stuck players a respawn care package; `Payday` rewards players on a timer. Set the item paths with `+arkset ingame`.
   <img src="/assets/arksetingame.png" style="max-width: 40%;"/>
-- **ArkView plugin** - unlocks map and investigation commands like `+hunt`, `+findtame`, `+structures`, `+mapstats`, plus detailed tribelogs. [Get ArkView](https://github.com/vertyco/arkview), then set the Host/Port under a server in `+viewservers`.
+- **ArkView plugin** - unlocks map and investigation commands like `+hunt`, `+findtame`, `+structures`, `+mapstats`, plus detailed tribelogs. See the [ArkView Setup Guide](/guides/arkview).
 - **Mapvote** - toggle in-game voting commands per map with cooldowns.
 - **[Shop Setup](/guides/rshop)** - an automated RCON item shop for players.
 - **[Xbox/Crossplay Tools](/guides/xsapi)** - authenticate a host Gamertag for auto-friend and alt detection (ASE Microsoft Store).

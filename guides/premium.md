@@ -2,7 +2,7 @@
 title: Arkon Premium - Unlock Advanced Ark Server Management Features
 description: Compare Arkon Free vs Premium features. Get 100 servers, 5-year data retention, autofriend, alt detection, and more for $10/month. Upgrade via Upgrade.Chat.
 published: true
-date: 2026-01-17T18:53:44.701Z
+date: 2026-10-12T00:00:00.000Z
 tags: premium, pricing, upgrade, features
 editor: markdown
 dateCreated: 2024-12-19T23:11:32.671Z
@@ -50,6 +50,6 @@ Arkon operates on a simple two tier system, free and premium. The free tier is i
 | 🔸Xbox Alt Deteciton        |  ❌    |  ✅       |
 | 🔹Cheated Tame Scanning     |  ❌    |  ✅       |
 
-🔹 = Self-Hosting ONLY, Requires the [ArkViewer](https://github.com/vertyco/arkview) plugin (Free & Open Source)
+🔹 = Requires the free [ArkView](/guides/arkview) plugin, which needs access to your save files (self-hosted, or [Nitrado ASA via FTP](/guides/arkview-nitrado))
 🔸 = Win10/Xbox crossplay Ark from the Microsoft Store
 

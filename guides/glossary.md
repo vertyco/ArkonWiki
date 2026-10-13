@@ -2,7 +2,7 @@
 title: Glossary - Ark Server Hosting and Arkon Bot Terminology
 description: Definitions of terms used in Arkon and Ark server hosting. Covers clusters, RCON, crossplay, ArkViewer, tribes, cross-chat, and more.
 published: true
-date: 2026-01-17T00:00:00.000Z
+date: 2026-10-12T00:00:00.000Z
 tags: glossary, definitions, terminology
 editor: markdown
 dateCreated: 2026-01-17T00:00:00.000Z
@@ -20,7 +20,7 @@ Quick reference for terms used throughout the Arkon wiki.
 A Discord role configured with `+set roles addadminrole @role`. Users with this role can use all Arkon commands including server management and RCON access. This is a [Red-DiscordBot](#red-discordbot) feature.
 
 ### ArkViewer
-A free, open-source plugin that enables advanced map features like `+hunt`, `+findtame`, and detailed tribelogs. [Get ArkViewer](https://github.com/vertyco/arkview)
+A free, open-source plugin that reads your Ark save so Arkon can use map features like `+hunt`, `+findtame`, and detailed tribelogs. Also called ArkView. See the [ArkView Setup Guide](/guides/arkview).
 
 ### ASA (Ark: Survival Ascended)
 The 2023 remake of Ark on Unreal Engine 5. Fully supported by Arkon.
@@ -196,4 +196,4 @@ A player's unique Xbox identifier. Used internally by Arkon for tracking crosspl
 |--------|---------|
 | ⚡ | Premium feature - requires [Arkon Premium](/guides/premium) |
 | 🔸 | Xbox/Crossplay feature - requires Microsoft Store version |
-| 🔹 | Self-hosting feature - requires [ArkViewer](https://github.com/vertyco/arkview) plugin |
+| 🔹 | Requires the free [ArkView](/guides/arkview) plugin |
