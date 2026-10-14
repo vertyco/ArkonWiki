@@ -2,7 +2,7 @@
 title: Arkon - All-in-One Ark Discord Bot Guide
 description: Arkon is a Discord bot that runs your Ark ASE and ASA servers from chat. Pick your path, follow the setup roadmap and find a simple guide for every feature.
 published: true
-date: 2026-10-12T00:00:00.000Z
+date: 2026-10-14T00:00:00.000Z
 tags: ark, discord-bot, server-management, ase, asa, rcon, guide
 editor: markdown
 dateCreated: 2023-12-10T05:13:31.603Z
@@ -115,6 +115,32 @@ graph TD
 |-------|--------------|
 | [Xbox and Microsoft Store Features](/guides/xsapi) 🔸 | Host Gamertag friends, auto-friend, alt account detection and Xbox messages (including the Xbox DM button on player stats). |
 | [Free vs Premium](/guides/premium) | What every server gets free, what Premium adds, and the messages Arkon posts when limits are hit. |
+
+### Minigames and economy
+
+| Guide | What it does |
+|-------|--------------|
+| [Minigames](/guides/games) | Every game Arkon can run in your Discord and how they pay out. |
+| [Server Economy](/guides/economy) | Your server's own currency: balances, payday, command costs, inactivity decay and the swear jar. |
+| [Casino](/guides/game-casino) | Nine betting games with memberships, bet limits and payouts. |
+| [Dino Collector](/guides/game-dinocollector) | Catch, collect, trade and sell ARK-style dinos. |
+| [Fishing](/guides/game-fishing) | Catch fish, sell the catch and upgrade gear. |
+| [Bird Hunting](/guides/game-hunting) | Shoot birds when they fly into a channel. |
+| [Miner](/guides/game-miner) | Mine rocks together and upgrade your pickaxe. |
+| [Pupper](/guides/game-pupper) | A dog that wanders into chat and hands out credits. |
+| [Trivia](/guides/game-trivia) | Quiz games with dozens of built-in lists. |
+
+### Community tools
+
+| Guide | What it does |
+|-------|--------------|
+| [LevelUp](/guides/levelup) | XP and levels for chatting and voice, role rewards, profiles and leaderboards. |
+| [Tickets](/guides/tickets) | Support tickets members open with a button. |
+| [Idea Board](/guides/ideaboard) | A suggestion box with voting and optional anonymity. |
+| [Crafter](/guides/crafter) | Look up what any ARK item costs to craft. |
+| [Xbox Lookup](/guides/xbox-lookup) | Look up Xbox profiles, friends, games and screenshots. |
+| [Bot Profile](/guides/bot-profile) | Give Arkon its own avatar, banner and bio in your server. |
+| [More Discord Tools](/guides/extras) | Translation, contests, an AI chatbot, custom commands and Discord moderation basics. |
 
 ### Reference
 
