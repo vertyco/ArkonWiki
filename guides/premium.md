@@ -2,7 +2,7 @@
 title: Arkon Premium - Free vs Premium - Arkon Ark Discord Bot
 description: See what Arkon gives every Ark Discord server for free, what Premium unlocks, what it costs, how to buy it and how to cancel it.
 published: true
-date: 2026-10-12T00:00:00.000Z
+date: 2026-10-25T00:00:00.000Z
 tags: premium, pricing, upgrade, free, cancel
 editor: markdown
 dateCreated: 2024-12-19T23:11:32.671Z
@@ -10,7 +10,7 @@ dateCreated: 2024-12-19T23:11:32.671Z
 
 # Arkon Premium: Free vs Premium
 
-Arkon is free to start. Premium removes the limits (up to 100 servers instead of 1, longer graphs) and unlocks a few extra tools. It costs $10/month and you buy it on Upgrade.Chat (a payment site that Arkon uses).
+Arkon is free to start. Premium removes the limits (up to 100 servers instead of 1, longer graphs) and unlocks a few extra tools. It costs $10/month after a 3 day free trial, and you buy it on [GlassRelay](https://glassrelay.com/arkon) (the store site Arkon uses).
 
 **You need:**
 
@@ -23,7 +23,7 @@ The owner buys Premium. Arkon then sees that the owner holds a Premium role in t
 
 ```mermaid
 graph LR
-A["Server owner runs +upgrade"] --> B["Pays on Upgrade.Chat"]
+A["Server owner runs +upgrade"] --> B["Pays on GlassRelay"]
 B --> C["Gets a Premium role<br/>in the Arkon support Discord"]
 C --> D["Arkon sees the role"]
 D --> E["Your Discord server<br/>is Premium"]
@@ -70,7 +70,7 @@ These have no Premium lock: game chat relay, live status channel, economy and sh
 
 1. In any Discord channel Arkon can see, type `+upgrade`. (Aliases: `+donate`, `+donatelink`, `+getpremium`. Anyone can run it.)
 2. Click the green link in the message.
-3. Pay on Upgrade.Chat. Log in with the Discord account that **owns** your Discord server.
+3. Pay on GlassRelay. Log in with the Discord account that **owns** your Discord server.
 4. Make sure that account is in the Arkon support Discord.
 5. Check it worked: wait a few minutes, then type `+serverstatus time 43200` in a channel Arkon can see (this sets your status graph to 12 hours, and you can change it back later). If Premium is active, Arkon replies "Status channel graph time set!". On Free it replies that the free version allows only 1 hour.
 
@@ -82,10 +82,13 @@ These have no Premium lock: game chat relay, live status channel, economy and sh
 ## Cancel Premium
 
 1. Type `+downgrade`. (Anyone can run it.)
-2. Click the link. It opens your Upgrade.Chat profile.
+2. Click the first link. It opens your purchases page on GlassRelay.
 3. Cancel the subscription there. The command does not cancel anything by itself.
 
-<img src="/assets/guide-premium-downgrade.png" alt="The downgrade message" style="width: 600px; max-width: 100%;"/>
+> Bought Premium before Arkon moved to GlassRelay? Use the second link in the same message instead. It opens the store you bought it from.
+{.is-info}
+
+<img src="/assets/guide-premium-downgrade.png?v=2" alt="The downgrade message" style="width: 600px; max-width: 100%;"/>
 
 ## What happens when Premium ends
 

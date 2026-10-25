@@ -2,7 +2,7 @@
 title: Arkon - All-in-One Ark Discord Bot Guide
 description: Arkon is a Discord bot that runs your Ark ASE and ASA servers from chat. Pick your path, follow the setup roadmap and find a simple guide for every feature.
 published: true
-date: 2026-10-14T00:00:00.000Z
+date: 2026-10-25T00:00:00.000Z
 tags: ark, discord-bot, server-management, ase, asa, rcon, guide
 editor: markdown
 dateCreated: 2023-12-10T05:13:31.603Z
@@ -19,7 +19,7 @@ Arkon is a Discord bot that connects to your Ark: Survival Evolved (ASE) and Ark
 
 - [Invite Arkon](https://discord.com/api/oauth2/authorize?client_id=857070505294430218&permissions=433188236503&scope=applications.commands%20bot) - add the bot to your Discord server 🦖
 - [Discord Support Server](https://discord.gg/RaR3wR4MgY) - get help or request features
-- [Arkon Premium](https://upgrade.chat/arkon) - unlock Premium features (see [Free vs Premium](/guides/premium))
+- [Arkon Premium](https://glassrelay.com/arkon) - unlock Premium features (see [Free vs Premium](/guides/premium))
 
 ---
 
