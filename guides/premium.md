@@ -85,10 +85,7 @@ These have no Premium lock: game chat relay, live status channel, economy and sh
 2. Click the first link. It opens your purchases page on GlassRelay.
 3. Cancel the subscription there. The command does not cancel anything by itself.
 
-> Bought Premium before Arkon moved to GlassRelay? Use the second link in the same message instead. It opens the store you bought it from.
-{.is-info}
-
-<img src="/assets/guide-premium-downgrade.png?v=2" alt="The downgrade message" style="width: 600px; max-width: 100%;"/>
+<img src="/assets/guide-premium-downgrade.png?v=3" alt="The downgrade message" style="width: 600px; max-width: 100%;"/>
 
 ## What happens when Premium ends
 
