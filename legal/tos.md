@@ -2,7 +2,7 @@
 title: Terms of Service - Arkon Discord Bot
 description: Terms of service for the Arkon Discord bot. Usage terms, premium subscriptions, acceptable use policy, and dispute resolution for Arkon users.
 published: true
-date: 2026-06-15T00:00:00.000Z
+date: 2026-10-27T00:00:00.000Z
 tags: legal, terms-of-service
 editor: markdown
 dateCreated: 2023-12-12T02:48:07.415Z
@@ -10,7 +10,7 @@ dateCreated: 2023-12-12T02:48:07.415Z
 
 # Arkon Terms of Service
 
-Last Updated: May 13th, 2026
+Last Updated: October 27th, 2026
 
 Please read these Terms of Service ("Terms", "Terms of Service") carefully before 
 using Arkon bot (the "Service") operated by arkonbot.com ("us", "we", "our").
@@ -22,8 +22,9 @@ By using the Service you represent and warrant that you agree to these terms. If
 with any part of the terms then you do not have permission to access the Service.
 
 ## Purchases
-Arkon is a FREE service with a premium tier. The free version allows one server on a single cluster to be configured, 
-with the premium tier allowing up to 125 servers on up to 5 clusters.
+Arkon is a FREE service with a premium tier. The free version allows up to 2 enabled servers in total, counted across 
+all Discord servers you own that use Arkon. The premium tier allows up to 100 servers per Discord server. Every Discord 
+server can have up to 25 clusters.
 
 If you wish to purchase any product or service made available through the Service ("Purchase"), 
 you may be asked to supply certain information relevant to your Purchase including, without limitation, 

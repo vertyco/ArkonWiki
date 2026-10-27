@@ -2,7 +2,7 @@
 title: FAQ & Troubleshooting - Arkon Ark Discord Bot
 description: "Fix common Arkon problems for your Ark Discord server: RCON connection errors, registration, shop, tribe logs, status channel, ArkView, Xbox and permissions."
 published: true
-date: 2026-10-12T00:00:00.000Z
+date: 2026-10-27T00:00:00.000Z
 tags: faq, troubleshooting, help, support
 editor: markdown
 dateCreated: 2026-01-17T00:00:00.000Z
@@ -48,7 +48,7 @@ Arkon is a Discord bot that helps you run Ark: Survival Evolved (ASE) and Ark: S
 
 ### Is Arkon free?
 
-Yes. Free covers the basics for 1 Ark server. [Premium](/guides/premium) removes limits and unlocks a few extra tools.
+Yes. Free covers the basics for 2 Ark servers, counted across every Discord server you own that has Arkon. [Premium](/guides/premium) removes limits and unlocks a few extra tools.
 
 ### What is the prefix?
 
@@ -732,10 +732,15 @@ The host Gamertag must be signed in first (`+xsapi authenticate`), and the playe
 
 Guide: [Premium](/guides/premium).
 
-### "You cannot have more than 1 server using the free version of Arkon"
+### "You cannot have more than 2 servers enabled across all the Discord servers you own on the free version of Arkon"
 
-You hit the free server limit: the free version allows 1 server. Switched-off servers still count.
-**Fix:** subscribe, or remove a server.
+You hit the free server limit: the free version allows 2 servers turned on in total, counting every Discord server you own that has Arkon. Switched-off servers do not count.
+**Fix:** subscribe, or switch a server off in any of your Discord servers.
+
+### "You have reached the maximum number of enabled servers for the free tier, counted across all the Discord servers you own!"
+
+You pressed **Disabled** in `+viewservers` to turn a server on, but you already have 2 turned on across your Discord servers.
+**Fix:** subscribe, or switch another server off first.
 
 ### "You have reached the maximum number of schedules for the free tier." or "You have reached the maximum number of schedules."
 
@@ -748,11 +753,6 @@ Free servers that stay offline for 30 days are switched off, and schedules can b
 ### "The total amount of servers I can manage is 100..."
 
 That is the cap, even on Premium. Remove a server you no longer use.
-
-### Arkon left a new Discord server
-
-You already own as many Discord servers with Arkon as your plan allows (1 Free, 5 Premium).
-**Fix:** subscribe, or use Arkon in fewer servers.
 
 ## Still need help
 

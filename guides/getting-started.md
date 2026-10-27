@@ -2,7 +2,7 @@
 title: Getting Started - Arkon Ark Discord Bot
 description: Invite Arkon to Discord and connect your first Ark server with the /setup wizard or by hand. Covers ASE and ASA, Admin and Mod roles, and +checklist.
 published: true
-date: 2026-10-12T00:00:00.000Z
+date: 2026-10-27T00:00:00.000Z
 tags: setup, getting-started, guide, server-owner
 editor: markdown
 dateCreated: 2023-12-10T05:14:02.435Z
@@ -175,7 +175,7 @@ Arkon replies "**main** cluster created!"
 > **Using `+addserver` with ASA?** Arkon guesses ASE or ASA by looking at players who are online during the test. If nobody is online it saves the server as ASE. The `/setup` wizard asks you directly, so use it for an ASA server if you can. There is no ASE/ASA field in the Edit Server form.
 {.is-warning}
 
-> The free version lets you add 1 server. Premium raises it to 100. See [Premium](/guides/premium).
+> The free version lets you have 2 servers turned on, counted across every Discord server you own that has Arkon. Premium raises it to 100 per Discord server. See [Premium](/guides/premium).
 {.is-info}
 
 ---
@@ -234,7 +234,7 @@ Who can run them: anyone with Discord's **Manage Server** permission, or an Admi
 
 - Needs at least one cluster first.
 - Type the cluster name in lowercase.
-- Hard limit of 100 servers per Discord server. The free version allows 1.
+- Hard limit of 100 servers per Discord server. The free version allows 2 turned on, counted across every Discord server you own.
 
 ### +delserver
 
@@ -283,7 +283,7 @@ Pick what you want. None of these is required.
 | "Cluster names can only contain letters and numbers!" | The name has a dash, underscore or symbol | Use only letters and numbers |
 | "That's an address inside your home network..." | You typed a `192.168.x.x` or `10.x.x.x` address in the wizard | Use your public IP from [whatismyip.com](https://whatismyip.com) |
 | "Invalid host address. Please enter a valid IPv4 address or hostname." | You typed the port with the IP, like `203.0.113.25:27020` | Put the IP in Host IP and the port in RCON Port |
-| "You cannot have more than 1 server using the free version of Arkon" | You hit the free server limit | Remove a server or see [Premium](/guides/premium) |
+| "You cannot have more than 2 servers enabled across all the Discord servers you own on the free version of Arkon" | You hit the free server limit, counting every Discord server you own. Both `/setup` and `+addserver` check it | Switch a server off in any of your Discord servers, or see [Premium](/guides/premium) |
 | "That chat channel is already in use by another server!" | Each server needs its own chat channel | Pick a different channel |
 | "This isn't your menu!" or "This setup wizard isn't for you!" | Only the person who ran the command can click its buttons | Run the command yourself |
 | "Database connection is not active, try again later" | Arkon's database was briefly unavailable | Wait a minute and try again |

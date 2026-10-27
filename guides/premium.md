@@ -2,7 +2,7 @@
 title: Arkon Premium - Free vs Premium - Arkon Ark Discord Bot
 description: See what Arkon gives every Ark Discord server for free, what Premium unlocks, what it costs, how to buy it and how to cancel it.
 published: true
-date: 2026-10-25T00:00:00.000Z
+date: 2026-10-27T00:00:00.000Z
 tags: premium, pricing, upgrade, free, cancel
 editor: markdown
 dateCreated: 2024-12-19T23:11:32.671Z
@@ -10,7 +10,7 @@ dateCreated: 2024-12-19T23:11:32.671Z
 
 # Arkon Premium: Free vs Premium
 
-Arkon is free to start. Premium removes the limits (up to 100 servers instead of 1, longer graphs) and unlocks a few extra tools. It costs $10/month after a 3 day free trial, and you buy it on [GlassRelay](https://glassrelay.com/arkon) (the store site Arkon uses).
+Arkon is free to start. Premium removes the limits (up to 100 servers per Discord server instead of 2 in total, longer graphs) and unlocks a few extra tools. It costs $10/month after a 3 day free trial, and you buy it on [GlassRelay](https://glassrelay.com/arkon) (the store site Arkon uses).
 
 **You need:**
 
@@ -36,7 +36,7 @@ D --> E["Your Discord server<br/>is Premium"]
 
 | | Free | Premium |
 |---|---|---|
-| Ark servers per Discord server | 1 | Up to 100 |
+| Ark servers turned on | 2 in total, across every Discord server you own | Up to 100 per Discord server |
 | Scheduled commands | 3 | 20 |
 | Player count history kept | 7 days | Up to 5 years |
 | Status graph length | 1 hour | Up to 12 hours |
@@ -49,9 +49,12 @@ D --> E["Your Discord server<br/>is Premium"]
 | Faster event log delivery | No | Yes |
 | `+rcon` on servers you switched off | No | Yes |
 | Interactive `playerstats` menu (buttons) instead of a plain pager | No | Yes |
-| Discord servers one person can add Arkon to | 1 | 5 |
+| Discord servers one person can add Arkon to | No limit | No limit |
 
 🔹 = needs [ArkView](/guides/arkview). 🔸 = Xbox / Microsoft Store ASE only.
+
+> The 2 free servers are counted per owner, not per Discord server. If you own two Discord servers with Arkon, 1 server turned on in each uses up both. Switched-off servers do not count.
+{.is-info}
 
 Cheated tame scanning also needs ArkView set up and your valid server names filled in.
 
@@ -91,7 +94,7 @@ These have no Premium lock: game chat relay, live status channel, economy and sh
 
 Nothing is deleted at once. Arkon checks every hour and then:
 
-1. Switches off your **newest** Ark servers until only the free number are left. They are switched off, not deleted. The owner gets a ping listing them.
+1. Switches off your **newest** Ark servers, counted across every Discord server you own, until only 2 are left. They are switched off, not deleted. Each Discord server that lost a server gets a message listing them, and the owner is pinged.
 2. Cuts player count history to 7 days. Older data is deleted and does not come back.
 3. Switches off your **oldest** scheduled commands until only 3 are left.
 4. Auto-friend and alt detection settings stay saved but stop working.
@@ -113,19 +116,19 @@ F --> G
 
 To get them back, subscribe again. Then turn servers back on in the `+viewservers` menu (see [Server settings](/guides/server-settings)) and schedules in `+scheduledrcon` (see [Server control](/guides/server-control)).
 
-> Switched-off servers still count toward the limit when you add a new server.
-{.is-warning}
+> Only servers that are turned on count toward the free limit. Switch one off in `+viewservers` to make room for another.
+{.is-info}
 
 ### Messages Arkon posts when this happens
 
 Arkon posts these in your alert channel (set it with `+arkset alertchannel #channel`, Admin or Manage Server). If none is set, it falls back to your event log channel, then your Red mod log channel.
 
-- **Premium ran out (owner has too many servers):** `Premium subscription has expired! Servers over the free tier limit will be disabled soon!` The Discord server owner is pinged.
-- **Servers switched off:** `The following servers have been disabled due to the free tier limit:` then a list like `- The Island My Cluster (#island-chat)`, then `You can re-anable them in the +viewservers menu after re-subscribing.` (the typo "re-anable" is in the bot itself).
+- **Premium ran out (owner has more than 2 servers turned on across their Discord servers):** `Premium subscription has expired! Servers over the free tier limit will be disabled soon!` Arkon posts it in each of the owner's Discord servers that has servers turned on, and pings the owner.
+- **Servers switched off:** `The following servers have been disabled due to the free tier limit, which is shared across all the Discord servers you own:` then a list like `- The Island My Cluster (#island-chat)`, then `You can re-enable them in the +viewservers menu after re-subscribing.` Each Discord server only lists its own servers.
 - **Schedules switched off:** `The following schedule has been disabled due to exceeding the limit of 3 schedules:` followed by the schedule card.
 - **Offline too long (Free only):** `The following servers have been disabled because they've been inactive for 30 days:` with the server names.
 
-<img src="/assets/guide-premium-disabled-servers.png" alt="The servers switched off message" style="width: 582px; max-width: 100%;"/>
+<img src="/assets/guide-premium-disabled-servers.png?v=2" alt="The servers switched off message" style="width: 582px; max-width: 100%;"/>
 
 ## Commands
 
@@ -144,8 +147,8 @@ Admin means someone allowed to manage Arkon. See [Getting Started](/guides/getti
 
 | Problem | Why it happens | Fix |
 |---|---|---|
-| "You cannot have more than 1 server using the free version of Arkon" | You hit the free server limit | Subscribe, or remove a server. Switched-off servers still count |
-| "You have reached the maximum number of enabled servers for the free tier!" | Re-enabling a server in `+viewservers` while at the free limit | Subscribe to Premium, or switch another server off first |
+| "You cannot have more than 2 servers enabled across all the Discord servers you own on the free version of Arkon" | You already have 2 servers turned on, counting every Discord server you own | Subscribe, or switch a server off in any of your Discord servers |
+| "You have reached the maximum number of enabled servers for the free tier, counted across all the Discord servers you own!" | Re-enabling a server in `+viewservers` while at the free limit | Subscribe to Premium, or switch another server off first (it can be in another Discord server you own) |
 | "The total amount of servers I can manage is 100..." | The 100 server cap, even on Premium | Remove a server you no longer use |
 | "Sorry, the maximum time the free version of Arkon allows is 1 hour" | Status graph over 3600 seconds on Free | Use 3600 or less, or subscribe |
 | "The histogram can display a maximum of 12 hours" | More than 43200 seconds | Use 43200 or less |
@@ -154,8 +157,6 @@ Admin means someone allowed to manage Arkon. See [Getting Started](/guides/getti
 | "You have reached the maximum number of schedules for the free tier." | 3 schedules already | Delete one or subscribe |
 | "This feature requires your server owner to have an Arkon Premium subscription!" | Owner has no Premium role | Owner subscribes and joins the support Discord |
 | "You have reached the maximum number of schedules." | 20 schedules already, even on Premium | Delete one you no longer use |
-| Arkon posts "You may have the bot in up to N Discord servers(s) that you own." and leaves | You own more Discord servers with Arkon than your plan allows | See the next row |
-| Arkon left a new Discord server | You already own as many Discord servers with Arkon as your plan allows (1 Free, 5 Premium) | Subscribe, or use Arkon in fewer servers |
 
 ## Related pages
 

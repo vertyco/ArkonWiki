@@ -2,7 +2,7 @@
 title: Server Settings - Arkon Ark Discord Bot
 description: Learn the +viewservers menu in Arkon, the Ark Discord bot. Set up clusters, servers, log channels and the general +arkset settings step by step.
 published: true
-date: 2026-10-12T00:00:00.000Z
+date: 2026-10-27T00:00:00.000Z
 tags: settings, clusters, servers, viewservers, arkset, setup, guide
 editor: markdown
 dateCreated: 2026-10-12T00:00:00.000Z
@@ -36,7 +36,7 @@ graph TD
     C --> F["Own settings:<br/>RCON login, chat channel,<br/>on or off"]
 ```
 
-You can have up to 25 clusters and 100 servers in one Discord server. The free version of Arkon allows 1 server; see [Free vs Premium](/guides/premium).
+You can have up to 25 clusters and 100 servers in one Discord server. The free version of Arkon allows 2 servers turned on, counted across every Discord server you own; see [Free vs Premium](/guides/premium).
 
 ## Add your first cluster and server
 
@@ -214,7 +214,7 @@ To rename a server, use the memo button and change the "Server Name" field. The 
 
 ### Free version limits on enabling servers
 
-On the free version, you can only have 1 server turned on. If you press **Disabled** to enable a server and you are at the limit, you see: "You have reached the maximum number of enabled servers for the free tier!". [Arkon Premium](/guides/premium) raises the limit.
+On the free version, you can have 2 servers turned on in total, counted across every Discord server you own that has Arkon. If you press **Disabled** to enable a server and you are at the limit, you see: "You have reached the maximum number of enabled servers for the free tier, counted across all the Discord servers you own!". [Arkon Premium](/guides/premium) raises the limit.
 
 Arkon also turns servers off by itself if they have not been online for 30 days, or if their host or port is invalid. It posts a message in your alert channel (see `+arkset alertchannel`).
 
@@ -226,9 +226,9 @@ These jobs run in the background. You do not start them. You change them with th
 |---|---|---|
 | Every 30 seconds | Arkon asks each enabled server who is online. This keeps "Last Online" fresh and works out whether a server is ASE or ASA. | Disable a server to stop it. |
 | Every 10 minutes | 🔹 Tame limit check (see `+arkset uncryolimit`). | Set the limit to `0`. |
-| Every 2 hours | Deletes player history older than your retention days. Turns off servers that have a bad host or port, or that were offline for 30 days. On the free version it also turns off servers over the free limit, newest first. | `+arkset retention`, fix the server details, or [Premium](/guides/premium). |
+| Every 2 hours | Deletes player history older than your retention days. Turns off servers that have a bad host or port, or that were offline for 30 days. On the free version it also turns off servers over the free limit, newest first, counting every Discord server the owner has Arkon in. | `+arkset retention`, fix the server details, or [Premium](/guides/premium). |
 
-When Arkon turns servers off it posts in your alert channel and tags the Discord server owner. Over the free limit the message reads "The following servers have been disabled due to the free tier limit:" followed by the server names. Offline servers get "The following servers have been disabled because they've been inactive for 30 days:". After you fix the cause, turn the server back on from its server page.
+When Arkon turns servers off it posts in your alert channel and tags the Discord server owner. Over the free limit the message reads "The following servers have been disabled due to the free tier limit, which is shared across all the Discord servers you own:" followed by the server names. Offline servers get "The following servers have been disabled because they've been inactive for 30 days:". After you fix the cause, turn the server back on from its server page.
 
 If Arkon cannot reach a server's ArkView for 10 days in a row, it clears that server's ArkView host and port and posts "The ArkView connection for ... has been reset because it hasn't been able to connect for 10 days straight!" Enter the details again with the **ArkView** button.
 
@@ -441,7 +441,7 @@ Use these at the start of a new season, when you wipe your Ark servers. Each one
 | "Failed to connect!" with "Wrong password!" | You used the join password, not the admin password. | Use the admin password. See [RCON Setup](/guides/rcon-setup). |
 | "Failed to connect!" with "Connection timed out!" or "No response!" | Arkon cannot reach the RCON port. | Check the server has a fixed IP, the RCON port is forwarded as TCP in your router, and the firewall allows it. Make sure you used the RCON port, not the query port. |
 | "A cluster with the name `x` doesn't exist!" | `+addserver` needs the exact lowercase cluster name. | Type the name as it was created, in lowercase. |
-| "You cannot have more than 1 server using the free version of Arkon" | You hit the free server limit. | Remove a server or see [Free vs Premium](/guides/premium). |
+| "You cannot have more than 2 servers enabled across all the Discord servers you own on the free version of Arkon" | You hit the free server limit, counting every Discord server you own. | Switch a server off or see [Free vs Premium](/guides/premium). |
 | "This isn't your menu!" | Someone else pressed a button. | Run `+viewservers` yourself. |
 | "This cluster has no servers added to it!" | You pressed **Servers** on an empty cluster. | Add a server with `+addserver`. |
 | "That tribelog channel is already in use by another log in this cluster!" (or a similar channel error) | Channel sharing rules were broken. | Pick a channel that follows the rules in the Logs section. Nothing was saved, so try again. |
