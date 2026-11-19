@@ -2,7 +2,7 @@
 title: Terms of Service - Arkon Discord Bot
 description: Terms of service for the Arkon Discord bot. Usage terms, premium subscriptions, acceptable use policy, and dispute resolution for Arkon users.
 published: true
-date: 2026-10-27T00:00:00.000Z
+date: 2026-11-19T00:00:00.000Z
 tags: legal, terms-of-service
 editor: markdown
 dateCreated: 2023-12-12T02:48:07.415Z
@@ -10,7 +10,7 @@ dateCreated: 2023-12-12T02:48:07.415Z
 
 # Arkon Terms of Service
 
-Last Updated: October 27th, 2026
+Last Updated: November 19th, 2026
 
 Please read these Terms of Service ("Terms", "Terms of Service") carefully before 
 using Arkon bot (the "Service") operated by arkonbot.com ("us", "we", "our").
@@ -63,6 +63,11 @@ You agree not to use the Service in a manner that:
 
 We reserve the right to determine, in our sole discretion, whether any use of the Service is prohibited,
 harmful, abusive, deceptive, disruptive, or otherwise unacceptable.
+
+## Impersonation
+Arkon may automatically ban players who impersonate Arkon or Vertyco staff on game servers it manages,
+for example by using "Vertyco" in their gamertag or account name. Each ban is recorded with its reason.
+The owner of a server can lift the ban or exempt a player on their own servers.
 
 ## Intellectual Property Rights
 Without prejudice to any more specific provision of these Terms, any intellectual property rights, 
